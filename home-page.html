@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <style>
+    .header-home-information-section {
+      margin-top: -450px;
+      position: relative;
+      height: 450px;
+    }
+
+    @media (min-height: 630px) {
+      .header-home-information-section {
+        margin-top: -500px;
+        position: relative;
+      }
+    }
+    @media (min-height: 750px) {
+      .header-home-information-section {
+        margin-top: -600px;
+        position: relative;
+      }
+    }
+    @media (max-height: 560px) {
+      .header-home-information-section {
+        margin-top: -350px;
+        position: relative;
+      }
+    }
+    @media (max-height: 460px) {
+      .header-home-information-section {
+        margin-top: -250px;
+      }
+    }
+    @media (max-height: 460px) {
+      .header-home-information-section {
+        margin-top: -150px;
+      }
+    }
+    @media (max-height: 360px) {
+      .header-home-information-section {
+        margin-top: -100px;
+      }
+    }
+    .header-home-information-section .header-home-information-container {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .header-home-information-section .header-home-information-container::after {
+      width: 683px;
+      height: 18px;
+      content: "";
+      box-shadow: 0px 0px 271px 200px
+        var(--background-gradient-normal-blue-color);
+      z-index: -2;
+      position: absolute;
+      opacity: 0.8;
+      left: 40%;
+      top: 15%;
+      background-color: var(--background-gradient-normal-blue-color);
+    }
+    .header-home-information-section
+      .header-home-information-container::before {
+      width: 300px;
+      height: 200px;
+      content: "";
+      box-shadow: 0px 0px 271px 200px
+        var(--background-gradient-normal-blue-color);
+      z-index: -2;
+      position: absolute;
+      opacity: 0.8;
+      left: 10%;
+      bottom: 30%;
+      background-color: var(--background-gradient-normal-blue-color);
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .text-wrapper {
+      height: 100%;
+      justify-content: center;
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      padding-right: 100px;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .text-wrapper
+      p {
+      width: 255px;
+      font-size: 18px;
+      color: var(--text-medium-black-color);
+      text-align: justify;
+      margin: 10px 0 25px 0;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .text-wrapper
+      a {
+      border-radius: 100px;
+      text-align: center;
+      padding: 10px;
+      color: var(--text-white-color);
+      background: var(--background-medium-blue-color);
+      width: 130px;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper {
+      height: 100%;
+      width: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper::after {
+      width: 272px;
+      height: 87px;
+      content: "";
+      border-radius: 70%;
+      right: 26%;
+      box-shadow: 4px 0px 34px 63px
+        var(--background-gradient-light-Turquoise-color);
+      z-index: -1;
+      position: absolute;
+      top: 48%;
+      background-color: var(--background-gradient-light-Turquoise-color);
+    }
+
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .icons
+      .icon-1 {
+      right: 23%;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 10%;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .icons
+      .icon
+      svg {
+      width: 100%;
+      height: 100%;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .icons
+      .icon
+      svg
+      image {
+      width: 100%;
+      height: 100%;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .icons
+      .icon-2 {
+      left: 26%;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      bottom: 8%;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .icons
+      .icon-3 {
+      left: 20%;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      bottom: 55%;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .text-field {
+      position: absolute;
+      width: 160px;
+      height: 130px;
+      right: 15%;
+      top: 33%;
+      border-radius: 20px;
+      font-size: 18px;
+      backdrop-filter: blur(2px);
+      background: var(--background-blur-light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      color: var(--text-medium-blue-color);
+      border: 1px solid var(--border-header-nav-color);
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .main-image {
+      height: 100%;
+      width: auto;
+      position: relative;
+      display: flex;
+    }
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .main-image::after {
+      box-shadow: 0px -13px 10px 16px var(--background-gradient-shadow-normal-blue-color);
+      border-radius: 50%;
+      position: absolute;
+      bottom: 4px;
+      width: 218px;
+      left: 15px;
+      height: 6px;
+      z-index: -1;
+      content: "";
+      background-color: var(--background-gradient-shadow-normal-blue-color);
+      rotate: 356.8deg;
+    }
+
+    .header-home-information-section
+      .header-home-information-container
+      .image-wrapper
+      .main-image
+      img {
+      width: auto;
+      height: 100%;
+    }
+
+    .client-comment-section .voice-field .player {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #9ca5f1; /* رنگ اولیه */
+      padding: 2px;
+      border-radius: 5px;
+      transition: background-color 0.3s; /* برای تغییر نرم رنگ */
+    }
+
+    .client-comment-section .voice-field button {
+      width: 100%;
+      height: 100%;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* بوردر ثابت کم‌رنگ */
+    .client-comment-section .voice-field .border-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    /* پیشرفت بوردر پررنگ */
+    .client-comment-section .voice-field .progress-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      pointer-events: none;
+      background: conic-gradient(
+        rgba(255, 255, 255, 0.8) 0deg,
+        rgba(255, 255, 255, 0.8) 0deg,
+        transparent 0deg
+      );
+      transform: rotate(-90deg); /* شروع از وسط بالا */
+    }
+    .client-comment-section {
+      margin: 160px auto;
+    }
+    .client-comment-section .client-comment-container .title-wrapper {
+      text-align: center;
+      font-size: 28px;
+    }
+    .client-comment-section .client-comment-container {
+      position: relative;
+    }
+    .client-comment-section .client-comment-container .comment-items {
+      width: 100%;
+      left: 50%;
+      display: flex;
+      top: 80px;
+      position: absolute;
+      transform: translatex(-50%);
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .client-comment-section .client-comment-container .comment-items .item {
+      width: 32%;
+      background-color: var(--bakcground-header-nav-color);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 20px;
+      padding: 20px 30px;
+    }
+    .client-comment-section
+      .client-comment-container
+      .comment-items
+      .item
+      .text-field {
+      width: 100%;
+    }
+    .client-comment-section
+      .client-comment-container
+      .comment-items
+      .item
+      .name-field {
+      width: 88%;
+      height: 30px;
+      margin-top: 45px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+    }
+    .client-comment-section
+      .client-comment-container
+      .comment-items
+      .item
+      .voice-field {
+      width: 30px;
+      height: 30px;
+      margin-top: 45px;
+    }
+    .client-comment-section
+      .client-comment-container
+      .comment-items
+      .item
+      .voice-field
+      .player {
+      height: 100%;
+      width: 100%;
+      padding: 1px;
+      background-color: #9ca5f1; /* رنگ اولیه */
+    }
+    .client-comment-section
+      .client-comment-container
+      .comment-items
+      .item
+      .voice-field
+      button {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      background: #9ca5f1;
+    }
+    .client-comment-section
+      .client-comment-container
+      .comment-items
+      .item
+      .voice-field
+      button
+      svg {
+      width: 18px;
+      height: 18px;
+    }
+    .client-comment-section .client-comment-container .client-title {
+      height: 300px;
+      align-items: end;
+      display: flex;
+      height: 260px;
+      justify-content: center;
+      background-color: var(--background-medium-blue-color);
+      margin-top: 130px;
+      position: relative;
+      z-index: -1;
+    }
+    .client-comment-section .client-comment-container .client-title .icon {
+      position: absolute;
+      bottom: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .client-comment-section .client-comment-container .client-title strong {
+      padding-bottom: 40px;
+      font-size: 28px;
+      color: var(--text-white-color);
+    }
+    .client-comment-section .client-comment-container .client-title::after {
+      width: 10000px;
+      height: 100%;
+      position: absolute;
+      content: "";
+      right: 100%;
+      background-color: var(--background-medium-blue-color);
+    }
+    .client-comment-section .client-comment-container .client-title::before {
+      width: 10000px;
+      height: 100%;
+      position: absolute;
+      content: "";
+      left: 100%;
+      background-color: var(--background-medium-blue-color);
+    }
+    .client-comment-section .client-items {
+      display: flex;
+      align-items: center;
+      margin-top: 60px;
+      height: 80px;
+      justify-content: space-around;
+      position: relative;
+    }
+    .client-comment-section .client-items::after {
+      width: 45px;
+      height: 9px;
+      z-index: -1;
+      content: "";
+      box-shadow: 0px 0px 90px 94px
+        var(--background-gradient-light-Turquoise-color);
+      position: absolute;
+      left: 30%;
+      z-index: -2;
+      top: -50px;
+      background-color: var(--background-gradient-light-Turquoise-color);
+    }
+    .client-comment-section .client-items::before {
+      width: 45px;
+      height: 9px;
+      z-index: -1;
+      content: "";
+      box-shadow: 0px 0px 177px 180px
+        var(--background-gradient-normal-blue-color);
+      position: absolute;
+      opacity: 0.3;
+      left: 38%;
+      z-index: -2;
+      top: -50px;
+      background-color: var(--background-gradient-light-blue-color);
+    }
+
+    .client-comment-section .item {
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .client-comment-section .item img {
+      width: 80px;
+      height: auto;
+      transition: filter 0.3s ease;
+    }
+
+    .client-comment-section .item.active {
+      border-radius: 50%;
+      justify-content: center;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      background-color: var(--background-medium-blue-color);
+      height: 100px;
+      width: 100px;
+      box-shadow: 0px 0px 1px 15px var(--background-color);
+    }
+
+    .client-comment-section .item.active img {
+      width: 100%;
+      filter: brightness(0) invert(1); /* سفید کردن تصویر */
+    }
+    .home-about-us-section .home-about-us-container {
+      display: flex;
+    }
+    .home-about-us-section .home-about-us-container .image-wrapper {
+      width: 50%;
+      padding: 0 80px;
+    }
+    .home-about-us-section .home-about-us-container .image-wrapper .main-image {
+      position: relative;
+      display: flex;
+    }
+    .home-about-us-section
+      .home-about-us-container
+      .image-wrapper
+      .main-image
+      img {
+      width: 100%;
+      height: 100%;
+    }
+    .home-about-us-section
+      .home-about-us-container
+      .image-wrapper
+      .main-image::after {
+      width: 103%;
+      height: 90%;
+      top: 51%;
+      content: "";
+      transform: translateY(-50%);
+      position: absolute;
+      background-color: var(--background-gradient-normal-blue-color);
+      right: -44px;
+      z-index: -1;
+      rotate: 347deg;
+      border-radius: 25px;
+    }
+    .home-about-us-section .home-about-us-container .text-wrapper {
+      width: 50%;
+    }
+    .home-about-us-section .text-wrapper .title {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .home-about-us-section .text-wrapper .text-field {
+      text-align: justify;
+      margin-bottom: 35px;
+    }
+    .home-about-us-section .text-wrapper a {
+      padding: 10px 30px;
+      border-radius: 100px;
+      border: 1px solid var(--text-medium-blue-color);
+      color: var(--text-medium-blue-color);
+    }
+    .our-service-section .our-service-container {
+      padding: 0 60px;
+      align-items: center;
+      position: relative;
+      display: flex;
+      height: 185px;
+      color: var(--text-white-color);
+      background: var(--background-medium-blue-color);
+      margin: 120px auto;
+      border-radius: 20px;
+    }
+    .our-service-section .our-service-container .text-field {
+      width: 29%;
+    }
+    .our-service-section .our-service-container .text-field strong {
+      font-size: 25px;
+    }
+    .our-service-section .our-service-container .text-field p {
+      margin-top: 10px;
+    }
+    .our-service-section .our-service-container .services-item {
+      bottom: -80px;
+      width: 50%;
+      padding-left: 60px;
+      height: 230px;
+      left: 0;
+      justify-content: space-between;
+      position: absolute;
+      display: flex;
+    }
+    .our-service-section .our-service-container .services-item .item {
+      width: 45%;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      border-radius: 20px;
+      background: var(--background-white-transparent);
+      padding: 30px;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .our-service-section .our-service-container .services-item .item::after {
+      height: 75px;
+      width: 100%;
+      content: "";
+      bottom: 0;
+      backdrop-filter: blur(10px);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      opacity: 0.5;
+      left: 0;
+      background-color: var(--background-gradient-light-Turquoise-color);
+      position: absolute;
+      z-index: -2;
+    }
+    .our-service-section .our-service-container .services-item .item strong {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .our-service-section .our-service-container .services-item .item p {
+      color: var(--text-color);
+    }
+    .our-service-section .our-service-container .services-item .item .icon {
+      width: 100%;
+      height: 75px;
+    }
+    .our-service-section .our-service-container .services-item .item .icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    .meetting-text-form-section .meetting-text-form-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin: 185px auto;
+    }
+    .meetting-text-form-section .meetting-text-form-container::after {
+      width: 600px;
+      height: 1px;
+      content: "";
+      box-shadow: 4px 0px 199px 180px
+        var(--background-gradient-light-blue-color);
+      z-index: -1;
+      position: absolute;
+      right: -120px;
+      top: 50%;
+      transform: translatex(-50%);
+      background-color: var(--background-gradient-light-blue-color);
+    }
+    .meetting-text-form-section .meetting-text-form-container .text-wrapper {
+      width: 46%;
+      border-radius: 20px;
+      background-color: var(--background-color);
+      padding: 45px 40px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .text-wrapper
+      strong {
+      font-size: 20px;
+    }
+    .meetting-text-form-section .meetting-text-form-container .text-wrapper p {
+      text-align: justify;
+      margin-top: 10px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper {
+      width: 50%;
+
+      justify-content: space-between;
+      display: flex;
+
+      flex-direction: column;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .form-section {
+      height: 50%;
+      padding: 20px;
+      background-color: var(--background-color);
+      border-radius: 20px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .form-section
+      strong {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .form-section
+      form {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .form-section
+      form
+      input {
+      width: 41%;
+      padding: 10px;
+      border-radius: 200px;
+      border: 1px solid var(--border-light-black-color);
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .form-section
+      form
+      input.submit {
+      width: 15%;
+      padding: 10px;
+      border-radius: 200px;
+      border: unset;
+      background-color: var(--background-medium-blue-color);
+      color: var(--text-white-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      height: 50px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .contact-field {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      height: 40%;
+      padding: 20px;
+      background-color: var(--background-color);
+      border-radius: 20px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .contact-field
+      .right-side {
+      width: 60%;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .contact-field
+      .contact-section {
+      width: 40%;
+      justify-content: end;
+      display: flex;
+      flex-direction: row;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .contact-field
+      .contact-section
+      .text {
+      margin-left: 15px;
+    }
+    .meetting-text-form-section
+      .meetting-text-form-container
+      .form-contact-wrapper
+      .contact-field
+      .contact-section
+      svg {
+      width: 50px;
+    }
+    .portfolio-grid-section {
+      margin: 120px 0;
+    }
+    .portfolio-grid-section .portfolio-grid-container .title {
+      font-size: 26px;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 45px;
+    }
+    .portfolio-grid-section .portfolio-grid-container .grid-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .portfolio-grid-section .portfolio-grid-container .grid-section .item {
+      width: 32%;
+      display: flex;
+      border: 1px solid var(--text-color);
+      padding: 15px 0;
+      justify-content: center;
+      border-radius: 20px;
+      margin-bottom: 25px;
+    }
+    .portfolio-grid-section
+      .portfolio-grid-container
+      .grid-section
+      .item.button {
+      padding: 0;
+    }
+    .portfolio-grid-section
+      .portfolio-grid-container
+      .grid-section
+      .item.button
+      a {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .portfolio-grid-section
+      .portfolio-grid-container
+      .grid-section
+      .item
+      .space {
+      margin: 0 8px;
+    }
+    .portfolio-grid-section
+      .portfolio-grid-container
+      .grid-section
+      .item.dark-opacity {
+      opacity: 1;
+    }
+    .portfolio-grid-section
+      .portfolio-grid-container
+      .grid-section
+      .item.medium-opacity {
+      opacity: 0.6;
+    }
+    .portfolio-grid-section
+      .portfolio-grid-container
+      .grid-section
+      .item.light-opacity {
+      opacity: 0.3;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container {
+      height: 250px;
+      position: relative;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .text-wrapper{
+      display: flex
+;
+    justify-content: center;
+    font-size: 34px;
+    padding-bottom: 45px;
+    position: relative;
+    align-items: end;
+    color: var(--text-white-color);
+    margin: 0 auto;
+    border-radius: 25px;
+    width: 70%;
+    background: var(--background-medium-blue-color);
+    height: 100%;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .text-wrapper .icon {
+      width: 175px;
+    position: absolute;
+    top: -40px;
+    transform: translatex(-50%);
+    height: 175px;
+    left: 50%;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .text-wrapper .icon svg{
+     width: 100%;
+     height: 100%;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper {
+      height: 100%;
+    justify-content: space-between;
+    display: flex
+;
+    top: 0;
+    align-items: center;
+    width: 90%;
+    transform: translatex(-50%);
+    position: absolute;
+    left: 50%;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .item {
+      justify-content: center;
+    border-radius: 20px;
+    align-items: center;
+    display: flex
+;
+    border-bottom-left-radius: 0;
+    height: 60px;
+    background: var(--background-blur-light-blue);
+    width: 280px;
+    position: relative;
+    margin-bottom: 10px;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .item::before{
+      margin-top: -24px;
+    width: 26px;
+    left: -25.9px;
+    bottom: 0;
+    height: 26px;
+    position: absolute;
+    content: "";
+    background-color: var(--background-blur-light-blue);
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .item::after{
+      margin-top: -24px;
+    width: 27px;
+    border-bottom-right-radius: 20px;
+    left: -27px;
+    bottom: 0;
+    height: 26px;
+    position: absolute;
+    content: "";
+    background-color: var(--background-medium-blue-color);
+    }
+
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .left-side .item {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 0;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .left-side .item::before{
+      margin-top: -24px;
+    width: 26px;
+    right: -26px;
+    bottom: 0;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .left-side .item::after{
+    width: 27px;
+    border-bottom-left-radius: 20px;
+    right: -27px;
+    bottom: 0;
+    border-bottom-right-radius: 0;
+    }
+    .cyberisho-reasons-section .cyberisho-reasons-container .text-wrapper::after{
+      width: 45px;
+    height: 9px;
+    z-index: -1;
+    content: "";
+    box-shadow: 0px 0px 90px 94px var(--background-gradient-light-Turquoise-color);
+    position: absolute;
+    left: 50%;
+    z-index: -2;
+    top: 0;
+    transform: translatex(-50%);
+    background-color: var(--background-gradient-light-Turquoise-color);
+    }
+
+.latest-blog-main-section {
+  margin: 100px 0 140px 0;
+
+}
+.latest-blog-main-section .latest-blog-main-container {
+  position: relative;
+}
+.latest-blog-main-section .latest-blog-main-container::after {
+  width: 45px;
+    height: 9px;
+    z-index: -1;
+    content: "";
+    box-shadow: 0px 0px 60px 124px var(--background-gradient-light-Turquoise-color);
+    position: absolute;
+    right: 23%;
+    opacity: 0.5;
+    bottom: 10px;
+    background-color: var(--background-gradient-light-Turquoise-color);
+
+}
+
+
+.latest-blog-main-section .title {
+  font-weight: 600;
+    font-size: 28px;
+    text-align: center;
+}
+.latest-blog-main-section .main-section {
+  justify-content: space-between;
+    margin-top: 50px;
+    display: flex
+;
+}
+.latest-blog-main-section .main-section .right-wrapper {
+  height: 330px;
+    padding: 0;
+    width: 46%;
+}
+.latest-blog-main-section .main-section .right-wrapper .item {
+  position: relative;
+height: 100%;
+}
+.latest-blog-main-section .main-section .right-wrapper .item .image-section {
+  height: 100%;
+  width: 100%;
+}
+.latest-blog-main-section .main-section .right-wrapper .item .image-section img {
+  border-radius: 20px;
+    height: 100%;
+    box-shadow: 0px 0px 0px 20px var(--background-white-transparent);
+    object-fit: cover;
+}
+.latest-blog-main-section .main-section .right-wrapper .item .time-view-wrapper {
+  right: 10px;
+    top: 10px;
+    position: absolute;
+}
+.latest-blog-main-section .main-section .right-wrapper .item .text-field  {
+  width: 80%;
+    font-size: 22px;
+    left: 50%;
+    position: absolute;
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    bottom: 35px;
+    padding: 10px 15px;
+    background: var(--background-white-transparent);
+    transform: translateX(-50%);
+}
+
+.latest-blog-main-section .main-section .left-wrapper {
+  width: 50%;
+  display: flex
+;
+    height: 330px;
+    flex-direction: column;
+}
+.latest-blog-main-section .main-section .left-wrapper .redirect-link {
+  height: 20%; 
+  display: flex
+;
+    align-items: end;
+}
+.latest-blog-main-section .main-section .left-wrapper .redirect-link a {
+  padding: 10px 20px;
+    border-radius: 50px;
+    color: var(--text-dark-blue-color);
+    border: 1px solid var(--text-medium-blue-color);
+}
+.latest-blog-main-section .main-section .left-wrapper .blogs-items {
+  height: 80%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.latest-blog-main-section .main-section .left-wrapper .blogs-items .item  {
+  display: flex;
+  height: 27%;
+  
+}
+.latest-blog-main-section .main-section .left-wrapper .blogs-items .item .image-wrapper{
+ height: 100%;
+ width: 100px;
+ margin-left: 15px;
+}
+.latest-blog-main-section .main-section .left-wrapper .blogs-items .item .text-field {
+  align-items: center;
+    display: flex
+;
+    flex-wrap: wrap;
+}
+.latest-blog-main-section .main-section .left-wrapper .blogs-items .item .text-field .blog-name {
+ width: 100%;
+}
+.latest-blog-main-section .main-section .left-wrapper .blogs-items .item .text-field .span {
+width: 5%;
+}
+.latest-blog-main-section .main-section .left-wrapper .blogs-items .item .image-wrapper img{
+  border-radius: 20px;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+  </style>
+  <body dir="rtl">
+    <svg style="display: none">
+      <symbol id="logo-icon" viewBox="0 0 1920 739">
+        <g id="#2a00c4ff">
+          <path
+            fill="#2a00c4"
+            opacity="1.00"
+            d=" M 1012.41 16.39 C 1013.81 13.90 1014.48 10.91 1016.65 8.92 C 1014.24 27.20 1012.54 45.57 1009.92 63.82 C 1004.33 104.99 997.45 145.99 988.42 186.55 C 983.70 207.17 978.60 227.74 971.83 247.80 C 966.06 232.22 956.29 217.64 941.89 208.87 C 906.40 263.77 863.77 314.67 812.29 355.28 C 786.24 375.43 757.71 393.50 725.78 402.58 C 711.94 406.35 697.28 408.12 683.05 405.61 C 681.68 405.40 680.16 405.07 678.97 405.98 C 641.03 428.57 599.17 444.35 556.00 453.42 C 553.82 440.94 551.84 428.42 549.50 415.98 C 582.36 409.38 614.14 397.85 643.98 382.64 C 635.29 370.76 630.14 356.61 628.08 342.09 C 623.14 305.87 628.75 267.76 646.60 235.62 C 661.30 209.05 684.05 186.40 712.08 174.20 C 729.83 166.64 750.44 163.27 769.01 169.91 C 783.66 174.90 795.32 187.13 800.33 201.69 C 806.64 219.51 804.50 239.04 799.82 256.98 C 790.43 290.59 772.79 321.68 749.83 347.88 C 747.79 350.20 745.56 352.35 743.72 354.83 C 760.37 346.51 775.72 335.78 790.38 324.36 C 836.94 287.43 875.59 241.36 908.06 191.78 C 893.39 183.01 876.37 179.38 859.64 177.07 C 889.99 158.98 917.35 136.23 942.26 111.25 C 969.87 83.09 994.35 51.54 1012.41 16.39 M 708.22 220.21 C 692.35 232.51 680.41 249.50 673.13 268.13 C 665.44 287.77 663.09 309.24 664.83 330.19 C 665.96 341.66 668.27 354.19 676.92 362.55 C 708.54 340.55 735.69 311.30 752.22 276.28 C 758.81 262.09 764.59 247.21 766.42 231.57 C 767.07 223.99 766.97 215.35 761.76 209.25 C 756.85 203.91 748.90 203.70 742.21 204.53 C 729.67 206.40 718.18 212.59 708.22 220.21 Z"
+          />
+        </g>
+        <g id="#231f20ff">
+          <path
+            fill="#231f20"
+            opacity="1.00"
+            d=" M 1476.35 244.19 C 1487.40 247.54 1498.35 251.19 1509.40 254.56 C 1510.35 255.00 1512.72 255.20 1511.93 256.86 C 1506.54 273.84 1500.14 290.50 1494.35 307.36 C 1480.26 347.45 1467.50 388.11 1458.93 429.77 C 1453.65 456.49 1449.98 483.69 1450.71 510.98 C 1451.28 529.93 1454.09 549.07 1461.29 566.72 C 1467.49 581.80 1477.27 595.75 1490.60 605.33 C 1505.28 615.58 1523.09 620.17 1540.65 622.26 C 1564.80 624.88 1589.20 623.29 1613.21 620.07 C 1655.51 614.09 1696.94 603.00 1737.41 589.48 C 1774.80 576.91 1811.51 562.24 1847.01 545.02 C 1861.44 537.87 1875.86 530.53 1889.16 521.41 C 1896.90 531.33 1903.99 541.75 1911.33 551.98 C 1896.40 562.46 1879.98 570.59 1863.68 578.69 C 1825.36 597.19 1785.77 613.04 1745.41 626.49 C 1706.10 639.52 1665.93 650.25 1624.96 656.54 C 1603.79 659.61 1582.41 661.56 1561.01 661.18 C 1538.67 660.66 1516.12 657.80 1495.11 649.92 C 1479.15 644.03 1464.36 634.75 1452.68 622.33 C 1429.89 598.70 1418.51 566.32 1414.83 534.19 C 1409.94 489.16 1416.62 443.78 1426.90 399.96 C 1437.23 355.85 1451.95 312.93 1467.29 270.36 C 1470.33 261.64 1473.53 252.98 1476.35 244.19 Z"
+          />
+          <path
+            fill="#231f20"
+            opacity="1.00"
+            d=" M 402.95 332.04 C 420.77 329.80 439.75 332.11 455.20 341.79 C 470.77 351.38 481.52 367.25 487.96 384.10 C 496.38 406.36 498.85 430.36 499.20 454.00 C 499.33 482.68 496.07 511.29 490.72 539.44 C 507.83 539.52 524.92 538.35 541.98 537.16 C 589.05 533.58 635.98 526.40 681.42 513.45 C 720.07 502.42 757.71 487.14 791.95 465.96 C 820.36 448.31 846.48 426.52 867.17 400.14 C 880.30 383.22 891.83 364.62 898.10 344.01 C 910.15 347.66 922.26 351.17 934.25 355.03 C 922.41 392.54 911.48 430.44 904.53 469.19 C 901.75 486.00 899.22 503.11 900.83 520.17 C 901.82 527.33 903.46 535.81 910.25 539.77 C 915.20 542.04 920.92 540.92 926.09 539.97 C 942.97 536.13 955.93 523.22 965.52 509.46 C 980.92 486.92 990.26 460.91 997.90 434.89 C 1005.87 406.78 1011.67 378.04 1015.28 349.05 C 1027.82 350.23 1040.33 351.79 1052.86 353.19 C 1051.07 370.31 1047.57 387.20 1044.08 404.04 C 1037.99 431.42 1030.20 458.50 1019.40 484.41 C 1009.97 506.87 998.23 528.70 981.89 546.92 C 968.98 561.24 952.41 572.96 933.35 577.13 C 921.36 579.58 908.23 580.37 896.84 575.16 C 885.29 570.01 877.69 558.83 873.77 547.15 C 866.98 526.85 866.99 505.05 868.36 483.91 C 868.95 472.76 870.72 461.72 872.07 450.65 C 864.28 457.30 857.04 464.61 848.93 470.91 C 824.24 490.98 796.85 507.62 768.06 521.13 C 729.96 539.01 689.53 551.61 648.42 560.41 C 598.97 570.90 548.48 575.97 497.99 577.42 C 479.28 577.96 460.56 577.79 441.85 577.84 C 444.52 566.76 448.13 555.93 450.78 544.84 C 455.67 523.55 459.08 501.89 460.55 480.08 C 462.02 456.03 462.06 431.47 455.94 408.00 C 452.58 395.53 447.17 382.44 436.14 374.89 C 427.08 368.57 415.42 368.32 404.89 370.01 C 387.05 373.18 370.37 380.86 354.70 389.73 C 326.88 405.76 301.45 426.07 280.07 450.04 C 268.13 463.63 257.40 478.57 250.47 495.38 C 245.04 508.80 242.47 524.07 246.79 538.17 C 248.86 545.76 254.14 552.07 260.39 556.66 C 273.30 566.11 290.03 569.43 305.76 567.53 C 323.35 565.33 339.68 556.59 352.53 544.55 C 368.45 529.79 379.82 510.79 388.28 490.95 C 398.14 493.44 407.77 496.80 417.58 499.49 C 419.94 500.11 422.26 500.87 424.50 501.86 C 420.18 524.50 416.22 547.23 410.58 569.59 C 406.27 586.29 401.25 602.95 393.46 618.40 C 386.55 632.34 377.08 645.15 365.08 655.12 C 354.25 664.28 341.70 671.19 328.66 676.64 C 310.11 684.37 290.61 689.52 271.02 693.87 C 223.53 703.98 175.29 709.91 127.17 716.10 C 88.85 720.63 50.56 725.51 12.22 729.79 C 10.72 717.22 9.29 704.63 7.57 692.11 C 54.21 686.91 100.79 681.15 147.34 675.29 C 173.84 671.79 200.31 668.08 226.62 663.38 C 246.51 659.84 266.31 655.60 285.61 649.59 C 303.17 643.98 320.54 636.66 335.02 625.02 C 348.58 614.26 358.56 599.47 364.99 583.51 C 355.49 589.57 345.74 595.45 335.01 599.11 C 312.23 607.55 286.59 608.13 263.53 600.43 C 247.24 594.90 232.25 584.99 221.75 571.25 C 212.04 558.64 207.55 542.68 206.77 526.96 C 205.96 506.28 212.22 485.90 221.72 467.71 C 234.62 443.20 252.86 421.88 273.08 403.11 C 293.14 384.66 315.29 368.46 339.09 355.17 C 358.96 344.20 380.28 335.01 402.95 332.04 Z"
+          />
+          <path
+            fill="#231f20"
+            opacity="1.00"
+            d=" M 1147.94 339.86 C 1158.79 335.13 1170.46 332.39 1182.25 331.55 C 1194.61 330.85 1207.50 330.83 1219.04 335.93 C 1229.63 340.31 1237.79 349.43 1242.02 359.98 C 1248.75 376.42 1249.01 394.57 1248.50 412.07 C 1247.23 440.84 1241.98 469.27 1240.58 498.03 C 1240.37 508.62 1239.82 519.60 1243.39 529.76 C 1245.31 535.37 1249.80 540.67 1256.01 541.33 C 1268.47 542.81 1280.56 536.78 1289.35 528.33 C 1301.32 516.82 1309.27 501.90 1315.92 486.87 C 1324.65 466.64 1330.73 445.39 1335.78 423.98 C 1341.07 400.54 1345.30 376.84 1347.87 352.94 C 1348.13 351.70 1347.85 348.96 1349.97 349.54 C 1361.92 350.71 1373.87 351.87 1385.81 353.08 C 1383.40 378.00 1378.78 402.68 1373.06 427.03 C 1364.91 460.58 1354.30 493.95 1337.02 524.01 C 1327.13 540.76 1314.93 556.77 1298.45 567.50 C 1285.75 575.97 1270.28 580.19 1255.04 579.27 C 1242.86 578.69 1230.23 575.33 1221.05 566.91 C 1208.14 555.06 1204.17 536.83 1203.00 520.02 C 1200.81 484.17 1208.50 448.75 1210.58 413.08 C 1210.85 401.82 1211.67 390.12 1207.72 379.33 C 1206.01 374.51 1202.12 370.06 1196.84 369.28 C 1179.80 367.84 1162.16 372.99 1148.99 384.02 C 1133.70 396.69 1124.13 414.71 1116.85 432.86 C 1102.24 470.45 1095.25 510.38 1088.02 549.89 C 1085.08 568.47 1080.83 586.99 1073.29 604.29 C 1066.51 620.01 1056.69 634.48 1044.13 646.15 C 1021.57 667.24 992.33 679.35 963.12 688.11 C 937.41 695.75 911.02 700.80 884.61 705.33 C 833.31 713.82 781.61 719.50 729.97 725.35 C 728.62 725.37 725.90 726.31 726.02 724.01 C 724.77 712.05 723.28 700.11 722.17 688.14 C 783.67 681.02 845.36 674.65 906.23 663.03 C 926.53 658.88 946.79 654.22 966.36 647.33 C 983.80 641.22 1000.94 633.19 1014.86 620.82 C 1026.75 610.40 1035.50 596.76 1041.06 582.03 C 1047.49 565.64 1049.70 548.07 1052.93 530.88 C 1057.65 505.05 1062.81 479.27 1069.95 453.98 C 1078.53 423.80 1089.91 393.51 1110.06 369.01 C 1120.30 356.64 1133.15 346.26 1147.94 339.86 Z"
+          />
+          <path
+            fill="#231f20"
+            opacity="1.00"
+            d=" M 645.60 626.55 C 669.67 620.24 693.79 610.55 711.97 593.02 C 720.81 602.05 729.92 610.80 738.66 619.92 C 715.29 642.84 684.15 655.96 652.80 663.76 C 626.76 670.12 599.91 672.85 573.13 672.97 C 573.31 660.39 572.85 647.82 573.15 635.24 C 597.52 635.09 621.94 632.50 645.60 626.55 Z"
+          />
+          <path
+            fill="#231f20"
+            opacity="1.00"
+            d=" M 1349.21 593.03 C 1358.37 601.83 1367.36 610.84 1376.16 620.01 C 1351.79 643.71 1319.27 656.98 1286.63 664.67 C 1261.76 670.36 1236.23 672.82 1210.74 673.02 C 1210.70 660.42 1210.30 647.80 1210.81 635.21 C 1233.33 635.15 1255.88 632.83 1277.86 627.83 C 1296.22 623.50 1314.33 617.27 1330.56 607.51 C 1337.28 603.40 1343.75 598.75 1349.21 593.03 Z"
+          />
+          <path
+            fill="#231f20"
+            opacity="1.00"
+            d=" M 1120.10 626.65 C 1133.92 629.50 1147.73 632.71 1161.83 634.05 C 1160.71 646.58 1159.50 659.10 1158.16 671.61 C 1142.22 669.97 1126.39 667.06 1110.91 662.93 C 1113.71 650.77 1117.21 638.78 1120.10 626.65 Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="house-icon" viewBox="0 0 512 512">
+        <g id="#000">
+          <path
+            fill="#000"
+            opacity="1.00"
+            d=" M 247.54 0.00 L 266.70 0.00 C 276.07 1.91 284.64 6.92 291.27 13.76 C 356.59 79.07 421.91 144.39 487.22 209.71 C 494.02 216.93 502.13 223.20 506.97 232.04 C 509.36 236.30 511.03 240.95 512.00 245.74 L 512.00 264.25 C 508.82 281.04 495.73 295.44 479.31 300.15 C 472.47 302.33 465.22 302.18 458.13 302.14 C 458.12 352.08 458.12 402.01 458.13 451.95 C 458.32 460.17 457.33 468.51 454.19 476.16 C 446.38 496.41 425.73 510.84 403.98 510.95 C 376.28 511.04 348.58 511.01 320.88 510.97 C 313.05 510.95 306.16 503.92 306.26 496.09 C 306.22 458.07 306.25 420.04 306.24 382.01 C 306.23 377.04 306.58 371.89 304.80 367.15 C 302.16 359.51 295.62 353.39 287.82 351.27 C 284.30 350.22 280.59 350.31 276.96 350.32 C 261.97 350.38 246.98 350.27 231.99 350.37 C 221.87 350.55 212.39 357.60 209.14 367.16 C 207.35 371.90 207.73 377.04 207.70 382.01 C 207.70 420.01 207.73 458.02 207.69 496.02 C 207.82 503.86 200.96 510.93 193.10 510.96 C 165.40 511.02 137.68 511.04 109.97 510.95 C 89.29 510.80 69.50 497.78 60.97 478.98 C 57.47 471.53 55.81 463.28 55.84 455.05 C 55.81 404.08 55.84 353.11 55.82 302.14 C 47.24 302.35 38.40 302.08 30.40 298.64 C 17.48 293.47 7.15 282.27 3.13 268.94 C -0.98 255.85 1.01 240.99 8.51 229.49 C 11.81 224.26 16.41 220.07 20.74 215.72 C 87.55 148.89 154.40 82.08 221.21 15.25 C 228.20 7.68 237.33 1.92 247.54 0.00 M 244.96 33.96 C 175.27 103.61 105.63 173.29 35.95 242.95 C 32.02 246.82 30.24 252.68 31.27 258.09 C 32.52 265.61 39.35 271.73 46.98 272.05 C 55.30 272.30 63.63 271.97 71.96 272.20 C 79.46 272.63 85.84 279.42 85.81 286.94 C 85.87 343.29 85.79 399.64 85.84 455.99 C 85.61 469.00 96.98 480.73 109.97 480.95 C 132.55 481.06 155.12 480.97 177.70 480.99 C 177.72 446.01 177.68 411.03 177.72 376.05 C 177.58 361.74 183.21 347.45 193.25 337.22 C 203.29 326.73 217.62 320.50 232.14 320.37 C 248.10 320.28 264.05 320.35 280.01 320.34 C 287.91 320.30 295.84 321.75 303.09 324.94 C 319.12 331.86 331.40 346.79 334.97 363.89 C 336.67 371.46 336.16 379.27 336.24 386.97 C 336.24 418.31 336.25 449.65 336.24 480.99 C 358.84 480.98 381.45 481.06 404.06 480.95 C 417.05 480.70 428.34 468.93 428.10 455.94 C 428.14 401.30 428.11 346.65 428.12 292.01 C 428.17 288.71 427.78 285.28 429.02 282.13 C 430.99 276.37 436.77 272.20 442.86 272.16 C 450.91 272.04 458.98 272.25 467.03 272.07 C 475.74 271.70 483.14 263.72 482.95 255.02 C 483.09 249.52 480.11 244.51 476.08 240.97 C 407.07 171.98 338.08 102.95 269.05 33.98 C 262.76 27.43 251.23 27.36 244.96 33.96 Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="double-arrow-icon" viewBox="0 0 24 24">
+        <path
+          d="M19 19L12.7071 12.7071C12.3166 12.3166 12.3166 11.6834 12.7071 11.2929L19 5"
+          stroke="#000"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M11 19L4.70711 12.7071C4.31658 12.3166 4.31658 11.6834 4.70711 11.2929L11 5"
+          stroke="#000"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+    <header class="blue-gradient">
+      <div class="container main-header">
+        <div class="search-wrapper">
+          <p class="search">جستجو کنید...</p>
+        </div>
+        <nav>
+          <div class="right-side">
+            <a href="">طراحی سایت</a>
+            <a href="">سئو</a>
+            <a href="">نمونه کارها</a>
+          </div>
+          <a href="" class="icon">
+            <svg>
+              <use href="#logo-icon"></use>
+            </svg>
+          </a>
+          <div class="left-side">
+            <a href="">وبلاگ</a>
+            <a href="">درباره ما</a>
+            <a href="">تماس با ما</a>
+          </div>
+        </nav>
+        <div class="phone-number-wrapper">
+          <p class="number">02188068221</p>
+        </div>
+      </div>
+      <nav class="small-responsive container">
+        <div class="main-wrapper">
+          <div class="right-side">
+            <div class="menu-buttons">
+              <button id="openMenu" class="btn open-btn">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M4 18L20 18"
+                    stroke="var(--text-medium-blue-color)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 12L20 12"
+                    stroke="var(--text-medium-blue-color)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 6L20 6"
+                    stroke="var(--text-medium-blue-color)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="logo">
+              <a href="">
+                <svg>
+                  <use href="#logo-icon"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="left-side">
+            <div class="search">
+              <a href="">
+                <svg id="search-icon" viewBox="0 0 512 512">
+                  <g id="#000000ff">
+                    <path
+                      fill="var(--text-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 243.38 0.00 L 250.51 0.00 C 287.15 0.73 323.63 9.35 356.53 25.53 C 390.29 41.97 420.25 66.21 443.11 96.02 C 472.27 133.76 489.80 180.40 492.33 228.06 C 493.90 256.56 490.19 285.34 481.50 312.53 C 479.24 319.35 473.11 324.68 466.06 326.01 C 459.20 327.47 451.70 325.17 446.85 320.12 C 442.23 315.50 440.13 308.52 441.55 302.14 C 442.54 297.76 444.07 293.52 445.09 289.15 C 453.32 256.71 452.97 222.16 444.06 189.91 C 434.67 155.48 415.69 123.77 389.92 99.09 C 364.15 74.29 331.67 56.62 296.97 48.05 C 259.31 38.68 219.01 40.14 182.15 52.31 C 145.63 64.15 112.51 86.42 88.11 116.09 C 65.71 143.17 50.51 176.24 45.09 211.00 C 39.02 248.90 44.55 288.51 60.59 323.37 C 73.77 352.19 94.05 377.68 119.00 397.20 C 145.95 418.42 178.31 432.68 212.15 438.32 C 258.08 446.12 306.61 438.06 347.35 415.39 C 361.86 407.44 375.24 397.54 387.45 386.42 C 394.83 379.59 407.32 379.53 414.70 386.36 C 416.93 388.80 418.73 391.63 421.26 393.81 C 448.63 420.43 475.87 447.20 503.23 473.84 C 507.21 478.13 510.84 483.09 512.00 488.95 L 512.00 493.69 C 511.21 503.24 503.01 511.05 493.58 512.00 L 489.00 512.00 C 484.25 511.21 479.73 509.09 476.35 505.63 C 450.58 480.40 424.79 455.21 399.01 430.00 C 369.33 452.76 334.55 468.88 297.88 476.39 C 254.22 485.53 208.11 482.83 165.87 468.46 C 104.27 448.00 51.45 402.07 23.45 343.42 C 9.09 313.83 1.38 281.21 0.00 248.39 L 0.00 234.46 C 1.20 197.58 10.80 160.96 28.48 128.53 C 50.49 87.69 84.52 53.46 125.22 31.20 C 161.23 11.21 202.25 0.67 243.38 0.00 Z"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div class="telephone">
+              <a href="">
+                <svg viewBox="0 0 512 512">
+                  <g id="#000000ff">
+                    <path
+                      fill="var(--text-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 251.39 0.00 L 263.44 0.00 C 301.18 1.18 338.69 10.55 372.31 27.79 C 423.05 53.58 464.57 96.93 488.37 148.61 C 503.32 180.75 511.16 216.04 512.00 251.44 L 512.00 264.09 C 510.16 312.98 494.60 361.39 466.53 401.55 C 460.68 409.52 455.39 418.43 446.80 423.80 C 434.89 431.60 418.83 432.42 406.19 425.86 C 400.98 423.34 396.66 419.43 392.67 415.31 C 386.48 409.11 380.30 402.90 374.08 396.72 C 362.40 408.82 344.88 414.92 328.23 412.27 C 301.51 407.84 276.47 396.41 253.40 382.54 C 221.58 363.12 193.08 338.47 168.26 310.70 C 146.03 285.60 126.49 257.76 112.94 226.99 C 106.90 213.19 102.19 198.76 99.71 183.89 C 97.12 168.03 102.48 151.13 113.69 139.61 C 123.45 129.73 133.33 119.98 143.12 110.12 C 146.77 106.30 150.91 102.72 155.98 100.95 C 166.05 97.08 178.20 99.58 185.87 107.19 C 204.26 125.48 222.54 143.86 240.90 162.17 C 244.76 165.94 247.71 170.68 249.01 175.95 C 251.53 185.40 248.71 196.00 241.86 202.98 C 233.72 211.25 225.44 219.39 217.26 227.62 C 236.63 252.74 259.28 275.34 284.37 294.73 C 292.60 286.57 300.74 278.31 308.99 270.17 C 319.63 259.27 338.89 259.53 349.31 270.61 C 366.34 287.60 383.33 304.63 400.35 321.63 C 403.55 324.82 406.96 327.93 409.16 331.94 C 413.81 340.05 414.06 350.46 409.84 358.79 C 406.85 364.94 401.29 369.17 396.72 374.07 C 403.92 381.26 411.08 388.52 418.34 395.66 C 421.92 399.46 428.67 399.04 431.75 394.82 C 452.53 368.77 467.29 337.94 474.57 305.42 C 485.15 258.36 480.15 207.87 460.14 163.95 C 445.13 130.69 421.82 101.23 392.96 78.90 C 365.56 57.60 333.13 42.81 299.06 36.18 C 261.12 28.80 221.26 31.30 184.63 43.71 C 149.98 55.33 118.34 75.72 93.26 102.29 C 63.88 133.26 43.59 172.79 35.84 214.79 C 28.92 251.84 31.46 290.66 43.39 326.43 C 54.96 361.42 75.42 393.39 102.23 418.66 C 141.26 455.82 194.07 478.16 247.98 479.80 C 282.83 481.21 317.96 474.17 349.62 459.54 C 355.91 456.32 364.16 457.86 368.81 463.18 C 373.74 468.50 374.15 477.14 369.96 483.01 C 366.88 487.69 361.24 489.34 356.40 491.52 C 326.46 504.34 294.04 511.14 261.50 512.00 L 249.57 512.00 C 206.14 510.67 163.04 498.50 125.66 476.29 C 77.76 448.08 39.56 403.80 18.79 352.23 C 7.17 323.76 0.99 293.18 0.00 262.47 L 0.00 250.35 C 0.86 217.32 7.95 184.43 21.17 154.13 C 41.49 106.95 76.49 66.29 120.07 39.11 C 159.21 14.44 205.15 0.89 251.39 0.00 M 137.26 161.27 C 132.86 165.60 130.51 171.95 131.23 178.10 C 131.81 182.48 132.88 186.77 133.98 191.03 C 140.66 215.22 152.96 237.47 167.16 258.01 C 189.06 289.15 216.06 316.68 246.53 339.47 C 269.54 356.35 294.76 371.02 322.50 378.41 C 328.84 379.84 335.53 382.11 341.99 380.00 C 346.79 378.72 350.45 375.21 353.79 371.72 C 362.33 363.14 370.92 354.60 379.47 346.03 C 362.63 329.16 345.78 312.31 328.92 295.47 C 320.00 304.37 311.11 313.29 302.20 322.19 C 296.58 328.06 287.84 330.70 279.94 328.79 C 273.17 327.32 268.10 322.29 262.65 318.38 C 237.02 298.28 213.72 275.12 193.67 249.44 C 190.56 245.18 187.00 241.19 184.68 236.43 C 181.53 229.61 181.99 221.28 185.84 214.84 C 187.75 211.53 190.67 209.00 193.32 206.31 C 201.05 198.56 208.81 190.84 216.54 183.08 C 199.70 166.22 182.86 149.36 165.99 132.53 C 156.41 142.10 146.82 151.67 137.26 161.27 Z"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+          <div class="d-flex justify-content-between">
+            <button id="closeMenu" class="close-btn">
+              <svg id="close-icon" viewBox="0 0 24 24">
+                <path
+                  d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"
+                  fill="#0F0F0F"
+                />
+              </svg>
+            </button>
+            <h3>سایبریشو</h3>
+          </div>
+          <ul>
+            <li><a href="#">طراحی سایت</a></li>
+            <li><a href="#">نمونه کار ها</a></li>
+            <li><a href="#">تماس با ما</a></li>
+            <li><a href="#">درباره ما </a></li>
+            <li><a href="#">سئو</a></li>
+            <li><a href="#">وبلاگ</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="header-home-information-section">
+      <div class="container header-home-information-container">
+        <div class="text-wrapper">
+          <h1 class="title">آژانس دیجیتال مارکاینگ سایبریشو</h1>
+          <p>
+            ارائه خدمات طراحی سایت و سئو با بیش از ۲۶۰۰ نمونه کار داخلی و خارجی
+          </p>
+          <a href="">نمونه کارها</a>
+        </div>
+        <div class="image-wrapper">
+          <div class="icons">
+            <div class="icon icon-1">
+              <svg>
+                <image
+                  x="0px"
+                  y="0px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </div>
+            <div class="icon icon-2">
+              <svg>
+                <image
+                  x="0px"
+                  y="0px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </div>
+            <div class="icon icon-3">
+              <svg>
+                <image
+                  x="0px"
+                  y="0px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="main-image">
+            <img
+              src="./assets/img/ChatGPT Image May 31, 2025, 08_58_36 PM.png"
+              alt=""
+            />
+          </div>
+          <div class="text-field">
+            <p>
+              کسب و کارتان را از سنتی , به <strong>انلاین</strong> تغیر بدهید
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="client-comment-section">
+      <div class="container client-comment-container">
+        <div class="title-wrapper">
+          <strong>نظرات مشتریان</strong>
+        </div>
+        <div class="comment-items">
+          <div class="item">
+            <div class="text-field">
+              <p>
+                اگه از حسن همکاریمون بخوام فقط یه نکته رو بگم اونم اینه که
+                همراهی و پشتیبانی شما واقعاً دلگرم کننده و باعث خیال راحتیمون
+                شد.
+              </p>
+            </div>
+            <div class="name-field"><p>سعید رحیمی - دیجی کالا</p></div>
+            <div class="voice-field">
+              <div class="player">
+                <div class="border-frame"></div>
+                <div class="progress-border"></div>
+                <button>
+                  <!-- آیکون قبل از پخش -->
+                  <svg id="play-icon" viewBox="0 0 330 330">
+                    <path
+                      d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                            c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                            C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+                      fill="black"
+                    ></path>
+                  </svg>
+                </button>
+                <audio
+                  src="./central.mp3"
+                  preload="none"
+                ></audio>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="text-field">
+              <p>
+                اگه از حسن همکاریمون بخوام فقط یه نکته رو بگم اونم اینه که
+                همراهی و پشتیبانی شما واقعاً دلگرم کننده و باعث خیال راحتیمون
+                شد.
+              </p>
+            </div>
+            <div class="name-field"><p>سعید رحیمی - دیجی کالا</p></div>
+            <div class="voice-field">
+              <div class="player">
+                <div class="border-frame"></div>
+                <div class="progress-border"></div>
+                <button>
+                  <!-- آیکون قبل از پخش -->
+                  <svg id="play-icon" viewBox="0 0 330 330">
+                    <path
+                      d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                            c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                            C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+                      fill="black"
+                    ></path>
+                  </svg>
+                </button>
+                <audio
+                  src="./central.mp3"
+                  preload="none"
+                ></audio>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="text-field">
+              <p>
+                اگه از حسن همکاریمون بخوام فقط یه نکته رو بگم اونم اینه که
+                همراهی و پشتیبانی شما واقعاً دلگرم کننده و باعث خیال راحتیمون
+                شد.
+              </p>
+            </div>
+            <div class="name-field"><p>سعید رحیمی - دیجی کالا</p></div>
+            <div class="voice-field">
+              <div class="player">
+                <div class="border-frame"></div>
+                <div class="progress-border"></div>
+                <button>
+                  <!-- آیکون قبل از پخش -->
+                  <svg id="play-icon" viewBox="0 0 330 330">
+                    <path
+                      d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                            c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                            C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+                      fill="black"
+                    ></path>
+                  </svg>
+                </button>
+                <audio
+                  src="./central.mp3"
+                  preload="none"
+                ></audio>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="client-title">
+          <strong>برخی از مشتریان</strong>
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="40px"
+              height="40px"
+              viewBox="0 0 3894 1694"
+              style="
+                shape-rendering: geometricPrecision;
+                text-rendering: geometricPrecision;
+                image-rendering: optimizeQuality;
+                fill-rule: evenodd;
+                clip-rule: evenodd;
+              "
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g>
+                <path
+                  style="opacity: 0.999"
+                  fill="#2742da"
+                  d="M -0.5,0.5 C -0.5,0.166667 -0.5,-0.166667 -0.5,-0.5C 18.1667,-0.5 36.8333,-0.5 55.5,-0.5C 1334.67,1.08315 2614,2.08315 3893.5,2.5C 3893.5,2.83333 3893.5,3.16667 3893.5,3.5C 3801.44,11.4799 3712.1,31.6465 3625.5,64C 3497.47,111.991 3379.47,176.991 3271.5,259C 3151.88,350.948 3046.72,457.115 2956,577.5C 2937.28,602.554 2918.95,627.887 2901,653.5C 2716.33,920.167 2531.67,1186.83 2347,1453.5C 2270.74,1563.06 2168.57,1637.23 2040.5,1676C 2006.25,1685.21 1971.58,1691.04 1936.5,1693.5C 1919.17,1693.5 1901.83,1693.5 1884.5,1693.5C 1806.98,1687.87 1733.31,1667.7 1663.5,1633C 1608.38,1606.13 1557.71,1572.8 1511.5,1533C 1475.58,1500.43 1444.08,1464.27 1417,1424.5C 1208.67,1112.5 1000.33,800.5 792,488.5C 765.176,450.329 734.676,415.162 700.5,383C 608.19,302.532 510.857,228.865 408.5,162C 350.338,124.576 289.671,91.2425 226.5,62C 165.931,33.69 102.598,14.3566 36.5,4C 24.134,2.56309 11.8007,1.39642 -0.5,0.5 Z"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="client-items">
+          <div class="item">
+            <img src="./assets/img/Ario-logo.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="./assets/img/Daroyabi-logo.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="./assets/img/LOGO-Blue.png" alt="" />
+          </div>
+          <div class="item active">
+            <img src="./assets/img/logo_mbem.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="./assets/img/logo_mbem.png" alt="" />
+          </div>
+          <div class="item"><img src="./assets/img/Layer 52.png" alt="" /></div>
+        </div>
+      </div>
+    </div>
+    <div class="home-about-us-section">
+      <div class="container home-about-us-container">
+        <div class="image-wrapper">
+          <div class="main-image">
+            <img src="./assets/img/Lay1.png" alt="" />
+          </div>
+        </div>
+        <div class="text-wrapper">
+          <div class="title">
+            <p>درباره ما</p>
+          </div>
+          <div class="text-field">
+            <p>
+              حقیقتاً نه اولینیم و نه بهترین! اما نزدیک به 2 دهه با خوش قولی،
+              تخصص و تعهدمان، خدمات دیجیتال مارکتینگ (طراحی سایت وسئو) را برای
+              برندهای بسیاری از داخل و خارج کشور به نحو شایسته‌ای ارائه
+              کرده‌ایم. بسیاری از مشتریان ما کسانی هستند که قبلاً به شخص یا
+              شرکتـی خدمات موردنیاز را سفارش داده بودند و به دلایل مختلفـی که
+              بیشتر ناشی از عدم شناخت متقابل بود، پروژه سرانجام مطلوبی نمی‌رسید.
+              اما با تدوین یک استراتژی درست، در سایبریشو راه موفقیت هموار است...
+            </p>
+          </div>
+          <a href="">درباره ما</a>
+        </div>
+      </div>
+    </div>
+    <div class="our-service-section">
+      <div class="container our-service-container">
+        <div class="text-field">
+          <strong>خدمات ما</strong>
+          <p>
+            از همین امروز برای طراحی سایت اقدام کنید! بعد از آن برای جذب مشتریان
+            دائمی و همیشگی سایت را سئو کنید...
+          </p>
+        </div>
+        <div class="services-item">
+          <div class="item">
+            <div class="icon">
+              <svg
+                width="512pt"
+                height="512pt"
+                viewBox="0 0 512 512"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="#000000ff">
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 15.68 36.69 C 23.52 32.75 32.53 34.30 40.97 34.00 C 47.51 34.29 54.17 33.35 60.64 34.51 C 67.29 36.54 66.80 47.33 59.95 48.67 C 52.01 49.46 43.97 48.79 35.99 48.99 C 30.75 49.18 24.87 48.04 20.31 51.30 C 16.52 53.85 14.78 58.52 14.99 62.97 C 15.01 83.98 15.00 104.99 15.00 126.00 C 175.67 126.00 336.33 126.00 497.00 126.00 C 496.97 104.63 497.05 83.25 496.97 61.88 C 497.31 54.89 491.06 48.67 484.08 49.03 C 357.06 48.97 230.03 49.01 103.01 49.00 C 98.81 48.88 94.53 49.45 90.40 48.50 C 85.53 46.96 83.87 40.05 87.48 36.43 C 90.38 33.17 95.15 34.14 99.03 33.97 C 224.34 34.04 349.66 33.98 474.97 34.00 C 481.89 34.07 489.21 33.30 495.66 36.39 C 504.66 40.25 510.82 49.21 512.00 58.84 L 512.00 368.28 C 511.04 371.83 507.86 374.87 503.99 374.46 C 499.73 374.31 496.61 370.18 497.01 366.06 C 496.99 291.04 497.01 216.02 497.00 141.00 C 336.33 141.00 175.67 141.00 15.00 141.00 C 14.99 241.67 15.02 342.34 14.98 443.01 C 15.12 447.92 14.21 453.41 17.29 457.66 C 19.83 461.47 24.52 463.22 28.98 463.01 C 180.67 462.97 332.35 463.05 484.04 462.97 C 490.64 463.30 496.83 457.73 496.91 451.06 C 497.21 434.70 496.81 418.31 497.07 401.95 C 496.89 397.38 501.55 393.60 505.98 394.66 C 509.05 395.11 510.97 397.80 512.00 400.51 L 512.00 452.96 C 510.92 462.68 504.70 471.73 495.64 475.61 C 489.51 478.54 482.55 477.98 475.96 478.01 C 326.64 477.99 177.33 478.01 28.01 477.99 C 14.03 478.53 1.36 466.99 0.00 453.17 L 0.00 59.01 C 1.05 49.54 6.99 40.72 15.68 36.69 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 45.33 67.48 C 56.00 63.99 68.54 69.88 72.70 80.28 C 75.86 87.59 74.68 96.55 69.72 102.78 C 64.76 109.27 56.08 112.64 48.04 111.14 C 38.69 109.67 30.87 101.66 29.61 92.28 C 27.80 81.59 34.95 70.45 45.33 67.48 M 48.37 82.39 C 43.68 84.62 43.00 91.79 47.21 94.85 C 51.45 98.52 58.86 95.59 59.40 90.00 C 60.47 84.18 53.42 79.39 48.37 82.39 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 110.39 67.55 C 117.07 65.43 124.70 66.62 130.36 70.77 C 137.88 76.02 141.49 86.16 138.91 94.97 C 136.41 104.59 126.93 111.72 117.00 111.48 C 106.51 111.60 96.72 103.41 95.01 93.06 C 92.74 82.24 99.84 70.66 110.39 67.55 M 113.41 82.51 C 108.48 85.04 108.45 92.88 113.36 95.45 C 118.05 98.49 124.95 94.58 124.72 89.00 C 124.96 83.44 118.11 79.53 113.41 82.51 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 173.42 67.66 C 179.88 65.50 187.31 66.43 192.97 70.24 C 200.12 74.84 204.19 83.72 202.88 92.14 C 201.71 101.39 194.14 109.36 184.97 111.04 C 176.87 112.76 168.04 109.50 162.94 103.01 C 158.22 97.22 156.75 89.00 159.16 81.93 C 161.32 75.28 166.79 69.85 173.42 67.66 M 177.20 82.29 C 172.04 84.55 171.63 92.56 176.54 95.33 C 181.22 98.58 188.39 94.66 188.10 88.96 C 188.30 83.60 181.89 79.72 177.20 82.29 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 241.40 67.47 C 243.53 66.83 245.76 66.58 247.98 66.53 C 315.98 66.53 383.98 66.54 451.98 66.53 C 456.30 66.58 460.72 66.18 464.94 67.36 C 473.05 69.58 479.59 76.69 480.99 85.00 C 482.56 93.04 479.18 101.75 472.68 106.71 C 468.55 110.00 463.26 111.56 458.03 111.53 C 388.34 111.54 318.64 111.53 248.95 111.53 C 243.22 111.61 237.40 109.77 233.10 105.89 C 227.23 100.86 224.32 92.66 225.76 85.05 C 227.12 76.87 233.46 69.83 241.40 67.47 M 244.34 82.42 C 240.29 84.45 239.10 90.34 242.13 93.74 C 243.97 96.16 247.16 96.64 250.00 96.55 C 319.35 96.50 388.70 96.57 458.04 96.51 C 462.28 96.87 466.45 93.38 466.35 89.02 C 466.48 84.62 462.25 81.03 457.94 81.53 C 388.31 81.53 318.67 81.54 249.04 81.52 C 247.44 81.58 245.76 81.60 244.34 82.42 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 133.45 159.57 C 135.53 158.80 137.75 158.55 139.96 158.52 C 217.64 158.54 295.32 158.54 372.99 158.52 C 379.84 158.24 386.54 162.40 389.36 168.64 C 391.27 172.47 391.00 176.86 391.02 181.01 C 390.91 193.02 391.13 205.04 390.92 217.04 C 390.65 225.86 382.70 233.45 373.90 233.48 C 355.60 233.62 337.30 233.46 319.00 233.56 C 316.15 233.57 312.86 233.59 310.75 231.33 C 307.60 228.41 307.85 222.83 311.25 220.21 C 313.08 218.55 315.67 218.51 318.01 218.51 C 336.04 218.56 354.07 218.52 372.10 218.54 C 373.70 218.66 376.07 218.12 375.91 216.04 C 376.15 203.69 375.89 191.33 376.03 178.98 C 375.87 177.26 376.40 175.15 374.92 173.87 C 371.67 173.22 368.33 173.60 365.04 173.53 C 290.37 173.53 215.69 173.54 141.01 173.53 C 139.37 173.42 136.96 173.73 137.09 175.91 C 136.86 188.59 137.08 201.28 136.98 213.96 C 137.05 215.50 136.76 217.72 138.65 218.30 C 141.74 218.79 144.89 218.47 148.00 218.54 C 192.30 218.55 236.61 218.49 280.91 218.56 C 285.73 218.25 289.66 223.43 288.21 228.00 C 287.32 231.56 283.66 233.76 280.11 233.52 C 233.10 233.52 186.08 233.59 139.08 233.48 C 129.90 233.47 121.79 225.22 122.02 216.03 C 121.98 202.68 121.98 189.33 122.02 175.99 C 121.90 168.82 126.72 161.99 133.45 159.57 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 108.55 251.77 C 123.31 249.11 139.15 253.66 150.18 263.84 C 162.94 275.20 169.00 293.43 165.53 310.17 C 164.71 313.87 164.04 318.54 160.12 320.26 C 155.33 322.78 148.83 318.48 149.54 313.05 C 150.72 307.46 152.18 301.77 151.17 296.02 C 149.47 281.14 136.97 268.41 122.13 266.40 C 107.24 263.89 91.51 272.59 85.53 286.41 C 80.06 298.27 82.21 313.14 90.85 322.93 C 99.30 333.01 113.84 337.48 126.45 333.62 C 129.64 332.73 133.17 330.82 136.40 332.64 C 141.94 335.09 141.75 344.03 136.03 346.14 C 121.73 352.30 104.51 350.89 91.28 342.73 C 78.99 335.30 70.22 322.29 68.12 308.06 C 66.32 296.64 68.69 284.60 74.77 274.75 C 82.05 262.73 94.68 254.11 108.55 251.77 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 247.49 251.78 C 260.39 249.48 274.16 252.55 284.77 260.27 C 296.07 268.32 303.74 281.29 305.16 295.11 C 306.80 309.22 301.90 323.88 292.16 334.21 C 281.83 345.48 266.04 351.39 250.85 349.68 C 236.44 348.25 222.93 340.07 214.91 328.02 C 206.86 316.19 204.45 300.79 208.39 287.04 C 213.28 269.09 229.13 254.80 247.49 251.78 M 249.43 266.64 C 238.01 268.80 228.02 277.14 223.87 287.99 C 219.59 298.72 221.25 311.57 228.18 320.83 C 237.55 334.18 256.87 338.94 271.34 331.36 C 286.20 324.31 294.16 305.80 288.89 290.18 C 284.12 273.85 266.09 263.04 249.43 266.64 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 386.52 251.77 C 399.38 249.48 413.13 252.55 423.71 260.23 C 435.31 268.46 443.08 281.87 444.26 296.06 C 445.61 310.09 440.51 324.55 430.72 334.68 C 420.17 345.90 404.14 351.60 388.87 349.57 C 374.11 347.81 360.44 338.94 352.77 326.22 C 345.49 314.47 343.60 299.61 347.58 286.39 C 352.67 268.73 368.38 254.75 386.52 251.77 M 388.49 266.63 C 379.51 268.35 371.34 273.79 366.30 281.42 C 360.10 290.53 358.80 302.71 362.85 312.95 C 366.58 322.68 374.95 330.47 384.93 333.47 C 397.65 337.54 412.47 333.22 421.08 323.02 C 429.71 313.25 431.94 298.43 426.53 286.57 C 420.45 272.17 403.80 263.41 388.49 266.63 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 84.32 365.51 C 85.80 364.99 87.39 365.03 88.94 364.98 C 111.32 365.03 133.70 364.98 156.07 365.00 C 159.85 364.65 163.71 367.23 164.34 371.06 C 165.36 375.46 161.58 380.10 157.06 379.94 C 134.04 380.08 111.01 379.97 87.99 380.00 C 84.19 380.36 80.29 377.79 79.65 373.93 C 78.90 370.47 81.00 366.71 84.32 365.51 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 223.39 365.48 C 225.18 364.91 227.10 365.01 228.96 364.97 C 251.34 365.08 273.73 364.90 296.11 365.06 C 300.65 364.91 304.41 369.62 303.32 374.03 C 302.64 377.83 298.78 380.34 295.03 380.00 C 272.36 380.00 249.68 380.00 227.01 380.00 C 223.90 380.22 220.63 378.72 219.29 375.81 C 217.27 372.02 219.33 366.86 223.39 365.48 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 362.36 365.49 C 364.17 364.90 366.12 365.02 368.02 364.97 C 390.37 365.08 412.73 364.90 435.08 365.06 C 439.62 364.89 443.39 369.59 442.33 373.99 C 441.66 377.82 437.79 380.34 434.02 380.00 C 410.98 379.96 387.93 380.08 364.90 379.94 C 360.75 380.05 357.16 376.16 357.53 372.04 C 357.66 369.15 359.64 366.48 362.36 365.49 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 74.35 395.50 C 75.87 394.97 77.50 395.03 79.08 394.98 C 104.73 395.03 130.37 394.98 156.02 395.00 C 159.80 394.64 163.68 397.18 164.33 401.02 C 165.37 405.40 161.65 410.06 157.14 409.94 C 131.09 410.10 105.03 409.93 78.98 410.02 C 76.06 410.17 72.79 409.56 71.01 406.99 C 67.99 403.25 69.81 397.03 74.35 395.50 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 213.37 395.49 C 215.19 394.89 217.15 395.02 219.04 394.97 C 244.75 395.08 270.46 394.90 296.16 395.06 C 301.39 394.88 305.21 401.11 302.75 405.72 C 301.29 409.09 297.42 410.32 294.00 410.02 C 267.61 409.86 241.21 410.23 214.83 409.84 C 207.44 409.20 206.32 397.66 213.37 395.49 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 352.37 395.49 C 354.17 394.91 356.11 395.02 357.98 394.97 C 383.68 395.08 409.37 394.90 435.06 395.05 C 439.59 394.89 443.37 399.54 442.34 403.94 C 441.69 407.81 437.77 410.37 433.97 410.00 C 407.98 410.00 381.99 410.00 356.00 410.00 C 352.21 410.35 348.30 407.81 347.66 403.96 C 346.88 400.47 349.01 396.67 352.37 395.49 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 74.35 425.49 C 75.86 424.98 77.48 425.03 79.06 424.98 C 104.74 425.03 130.41 424.98 156.09 425.01 C 159.85 424.65 163.69 427.22 164.34 431.04 C 165.36 435.40 161.66 440.04 157.17 439.94 C 130.78 440.08 104.38 439.96 77.99 440.00 C 74.87 440.21 71.60 438.69 70.26 435.77 C 68.29 431.99 70.34 426.89 74.35 425.49 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 213.35 425.50 C 215.15 424.90 217.08 425.02 218.95 424.97 C 244.65 425.08 270.36 424.90 296.06 425.05 C 300.58 424.89 304.35 429.52 303.34 433.91 C 302.71 437.76 298.84 440.35 295.05 439.99 C 268.32 439.90 241.56 440.21 214.84 439.84 C 207.46 439.22 206.32 427.69 213.35 425.50 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 352.32 425.50 C 354.15 424.90 356.11 425.02 358.02 424.97 C 383.71 425.08 409.41 424.90 435.10 425.05 C 439.63 424.91 443.39 429.59 442.33 433.98 C 441.67 437.80 437.81 440.34 434.04 440.00 C 408.03 440.01 382.01 440.00 356.00 440.00 C 352.88 440.21 349.60 438.71 348.27 435.79 C 346.29 432.01 348.32 426.90 352.32 425.50 Z"
+                  />
+                </g>
+              </svg>
+            </div>
+            <strong>طراحی وبسایت</strong>
+            <p>شرکتی ، فروشگاهی ، سازمانی ، خبری ، شخصی و در هر شغلی</p>
+          </div>
+          <div class="item">
+            <div class="icon">
+              <svg
+                width="512pt"
+                height="512pt"
+                viewBox="0 0 512 512"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="#000000ff">
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 197.34 0.00 L 314.59 0.00 C 327.57 0.36 340.28 10.63 341.13 24.00 C 342.03 33.10 336.51 41.33 329.64 46.74 C 320.11 54.83 307.71 59.32 295.22 59.47 C 290.01 70.51 280.43 79.43 268.75 83.22 C 274.78 95.31 280.83 107.39 286.88 119.47 C 294.82 119.63 303.35 118.48 310.60 122.50 C 319.18 126.89 324.53 136.40 324.26 145.98 C 324.31 250.92 324.27 355.86 324.28 460.81 C 329.96 460.82 335.65 460.81 341.33 460.81 C 341.38 384.18 341.29 307.54 341.37 230.91 C 341.20 221.74 346.26 212.71 354.29 208.24 C 358.70 205.59 363.90 204.75 368.98 204.81 C 396.64 204.84 424.30 204.76 451.96 204.85 C 461.79 204.68 471.38 210.68 475.42 219.66 C 478.35 225.68 477.88 232.53 477.88 239.03 C 477.88 312.96 477.87 386.88 477.89 460.81 C 484.26 460.84 490.99 460.30 496.92 463.14 C 505.66 466.96 511.54 475.99 512.00 485.46 L 512.00 487.46 C 511.55 500.38 500.41 511.53 487.50 512.00 L 24.60 512.00 C 18.98 511.54 13.38 509.63 9.10 505.87 C 3.64 501.37 0.54 494.50 0.00 487.52 L 0.00 485.50 C 0.48 476.27 6.00 467.41 14.43 463.44 C 20.49 460.29 27.50 460.82 34.11 460.81 C 34.15 412.86 34.09 364.91 34.14 316.97 C 34.06 310.61 36.03 304.15 40.21 299.29 C 45.21 293.20 53.13 289.98 60.94 290.14 C 87.62 290.09 114.31 290.15 140.99 290.11 C 145.38 290.08 149.88 290.23 154.02 291.84 C 161.64 294.62 167.71 301.30 169.73 309.17 C 170.98 314.01 170.61 319.04 170.66 323.99 C 170.67 369.60 170.64 415.21 170.68 460.82 C 176.37 460.80 182.06 460.82 187.75 460.81 C 187.76 355.87 187.73 250.93 187.77 146.00 C 187.33 135.09 194.52 124.45 204.89 120.98 C 211.40 118.76 218.37 119.64 225.12 119.47 C 231.17 107.39 237.20 95.31 243.22 83.23 C 231.56 79.41 221.98 70.52 216.78 59.47 C 205.01 59.31 193.31 55.35 184.03 48.08 C 178.74 43.98 173.75 38.89 171.79 32.33 C 169.31 24.40 171.67 15.37 177.31 9.36 C 182.37 3.68 189.78 0.39 197.34 0.00 M 188.50 28.63 C 194.39 36.36 203.74 41.04 213.35 41.98 C 213.33 33.67 213.35 25.37 213.34 17.07 C 207.57 17.21 201.76 16.72 196.02 17.37 C 191.18 18.24 185.81 23.48 188.50 28.63 M 230.40 17.08 C 230.51 26.13 230.22 35.19 230.54 44.24 C 231.00 54.11 237.80 63.27 247.10 66.59 C 255.70 69.89 265.99 67.99 272.84 61.85 C 278.27 57.14 281.47 50.07 281.54 42.89 C 281.68 34.29 281.53 25.69 281.61 17.09 C 264.54 17.04 247.47 17.05 230.40 17.08 M 298.66 17.07 C 298.64 25.36 298.68 33.66 298.64 41.95 C 308.27 41.08 317.57 36.30 323.50 28.62 C 326.18 23.49 320.84 18.27 316.02 17.37 C 310.26 16.72 304.44 17.21 298.66 17.07 M 244.23 119.46 C 252.08 119.47 259.92 119.47 267.77 119.46 C 263.86 111.60 259.94 103.75 256.00 95.90 C 252.06 103.75 248.14 111.60 244.23 119.46 M 207.20 139.30 C 204.36 142.10 204.85 146.41 204.80 150.05 C 204.84 253.63 204.79 357.22 204.82 460.81 C 238.94 460.81 273.06 460.81 307.17 460.81 C 307.20 357.86 307.17 254.92 307.19 151.97 C 307.12 148.65 307.52 145.23 306.53 142.02 C 305.26 138.56 301.61 136.44 297.99 136.57 C 270.35 136.48 242.70 136.56 215.05 136.53 C 212.22 136.50 209.15 137.08 207.20 139.30 M 361.73 223.78 C 359.17 225.64 358.34 228.92 358.40 231.93 C 358.41 308.22 358.41 384.51 358.40 460.80 C 392.54 460.82 426.67 460.81 460.81 460.81 C 460.78 384.18 460.87 307.56 460.77 230.94 C 460.98 226.15 456.90 221.72 452.03 221.94 C 424.69 221.78 397.35 221.95 370.01 221.86 C 367.18 221.90 363.99 221.81 361.73 223.78 M 51.27 315.99 C 51.15 364.26 51.25 412.54 51.22 460.81 C 85.35 460.81 119.47 460.82 153.60 460.80 C 153.59 413.21 153.58 365.61 153.60 318.02 C 153.63 315.20 153.34 312.05 151.21 309.96 C 149.17 307.62 145.92 307.16 143.00 307.21 C 115.34 307.27 87.67 307.14 60.01 307.27 C 55.27 307.11 51.12 311.24 51.27 315.99 M 22.42 478.57 C 17.82 480.32 15.69 486.42 18.31 490.62 C 19.95 493.75 23.63 495.03 26.99 494.93 C 179.66 494.95 332.33 494.94 485.00 494.94 C 489.71 495.34 494.59 491.95 494.81 487.02 C 495.36 481.64 490.14 477.22 484.92 477.88 C 333.96 477.87 183.00 477.89 32.04 477.87 C 28.84 477.93 25.51 477.55 22.42 478.57 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 409.32 0.00 L 410.28 0.00 C 412.92 0.51 415.23 2.00 417.07 3.92 C 421.57 8.43 426.05 12.96 430.60 17.43 C 432.63 19.50 434.89 21.85 434.96 24.94 C 435.50 29.86 430.84 34.46 425.94 33.90 C 422.67 33.78 420.35 31.25 418.08 29.24 C 418.20 41.15 418.07 53.06 418.15 64.97 C 418.10 68.03 418.19 71.52 415.90 73.88 C 412.90 77.44 406.97 77.61 403.71 74.32 C 401.44 72.22 401.02 68.97 401.04 66.04 C 401.08 53.78 401.02 41.52 401.09 29.26 C 398.80 31.30 396.41 33.85 393.12 33.91 C 388.23 34.39 383.68 29.78 384.22 24.91 C 384.35 21.62 386.82 19.17 389.00 16.99 C 393.73 12.41 398.29 7.65 403.03 3.07 C 404.72 1.37 406.95 0.35 409.32 0.00 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 406.46 94.55 C 409.96 93.14 414.34 94.36 416.46 97.52 C 418.31 99.93 418.08 103.13 418.15 105.99 C 418.02 110.69 418.33 115.41 417.99 120.10 C 417.80 124.56 413.53 128.30 409.08 127.88 C 405.00 127.74 401.45 124.21 401.21 120.15 C 400.89 114.42 401.06 108.65 401.11 102.91 C 401.06 99.38 403.10 95.85 406.46 94.55 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 96.46 147.61 C 99.67 144.36 105.32 144.44 108.50 147.70 C 113.42 152.39 118.09 157.33 122.97 162.06 C 125.16 164.24 127.65 166.67 127.78 169.96 C 128.26 174.77 123.90 179.35 119.05 178.99 C 115.67 178.99 113.17 176.46 110.92 174.28 C 110.64 179.79 111.66 185.49 110.24 190.88 C 107.94 197.59 97.43 197.86 94.75 191.31 C 93.03 185.82 94.20 179.91 93.91 174.25 C 91.70 176.36 89.34 178.92 86.04 178.96 C 81.11 179.52 76.45 174.85 77.05 169.92 C 77.17 166.58 79.74 164.15 81.95 161.96 C 86.84 157.23 91.51 152.27 96.46 147.61 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 249.47 154.66 C 261.97 150.76 276.32 158.67 280.20 171.06 C 281.65 175.72 282.81 181.98 278.59 185.58 C 274.62 189.27 267.47 187.72 265.41 182.72 C 264.17 179.10 264.50 174.44 260.76 172.24 C 255.94 168.59 248.59 172.29 247.72 178.02 C 247.02 180.25 248.89 182.19 250.59 183.34 C 258.74 188.61 268.17 191.98 275.33 198.73 C 278.88 202.24 281.23 207.01 281.46 212.04 C 281.83 219.98 278.10 227.91 271.97 232.91 C 265.67 238.14 256.77 240.25 248.87 237.84 C 237.83 234.83 229.61 223.55 230.62 212.08 C 231.20 205.86 239.51 202.64 244.18 206.74 C 248.81 209.90 246.14 217.07 250.98 220.10 C 255.59 223.87 263.03 220.62 264.17 214.99 C 265.12 212.70 263.40 210.53 261.59 209.32 C 251.95 202.80 239.32 199.40 232.96 188.94 C 225.77 175.67 235.43 158.23 249.47 154.66 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 98.41 214.44 C 101.96 212.46 106.82 213.53 109.18 216.85 C 111.20 219.46 110.91 222.92 110.96 226.02 C 110.82 239.04 111.13 252.06 110.81 265.07 C 110.69 270.79 103.95 274.80 98.85 272.19 C 95.31 270.64 93.62 266.67 93.88 262.97 C 93.88 249.64 93.85 236.31 93.89 222.98 C 93.73 219.58 95.29 216.04 98.41 214.44 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 232.33 265.30 C 235.20 259.50 241.58 255.82 248.02 256.02 C 256.72 256.09 265.43 255.76 274.12 256.19 C 279.49 256.62 283.11 262.95 280.83 267.84 C 279.54 270.91 276.34 273.00 273.01 272.98 C 264.50 273.21 255.97 272.96 247.45 273.09 C 247.45 278.71 247.55 284.33 247.39 289.95 C 256.17 290.45 264.99 289.80 273.77 290.27 C 278.88 290.56 282.76 296.07 281.17 300.97 C 280.26 304.60 276.65 307.15 272.96 307.15 C 264.51 307.29 256.04 307.25 247.59 307.14 C 247.33 312.85 247.52 318.56 247.48 324.27 C 255.98 324.34 264.48 324.17 272.97 324.34 C 277.21 324.33 281.21 327.74 281.46 332.06 C 282.06 336.91 277.76 341.39 272.93 341.28 C 264.29 341.41 255.65 341.38 247.01 341.28 C 238.23 341.25 230.48 333.47 230.45 324.69 C 230.32 308.45 230.46 292.20 230.39 275.95 C 230.33 272.33 230.57 268.55 232.33 265.30 Z"
+                  />
+                  <path
+                    fill="var(--text-white-color)"
+                    opacity="1.00"
+                    d=" M 248.44 359.62 C 259.91 355.84 273.41 361.55 278.72 372.37 C 282.66 379.64 281.38 388.15 281.60 396.07 C 281.54 403.69 281.71 411.31 281.52 418.93 C 281.31 427.76 276.13 436.22 268.40 440.46 C 260.63 444.83 250.56 444.68 242.93 440.07 C 235.22 435.56 230.41 426.83 230.44 417.93 C 230.41 406.32 230.30 394.71 230.50 383.10 C 230.72 372.50 238.29 362.62 248.44 359.62 M 252.33 376.38 C 249.05 377.89 247.35 381.50 247.49 385.00 C 247.52 396.19 247.33 407.38 247.58 418.57 C 247.66 423.65 253.05 427.68 257.95 426.32 C 262.17 425.47 264.79 421.17 264.52 417.03 C 264.47 405.84 264.68 394.65 264.41 383.47 C 264.29 377.68 257.44 373.71 252.33 376.38 Z"
+                  />
+                </g>
+              </svg>
+            </div>
+            <strong>بهینه سازی و سئو</strong>
+            <p>سئو تکنیکال، داخلی و خارجی بهینه سازی سایت برای فروش</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="meetting-text-form-section">
+      <div class="container meetting-text-form-container">
+        <div class="text-wrapper">
+          <strong> برای توسعه کار شما چه راهکاری داریم؟ </strong>
+          <p>
+            عدم شناخت صحیح بین کارفرما و پیمانکار از مهمترین دلایلی است که هر
+            پروژه‌ی خدمات رسانی را با اختلال مواجه خواهد کرد. پیشنهاد ما به شما
+            دوری از تبلیغات پر زرق و برق بعضی از مجموعه‌ها، دوری از شعارهای
+            هیجان انگیز و کاذب است! متاسفانه چه بخواهیم قبول کنیم یا نه، در
+            بازار دیجیتال مارکتینگ، خطر نزدیکتر از موفقیت است... پس ابتدا باید
+            شناخت مناسبی بین نیازهای کارفرما و توانایی پیمانکار شکل گیرد تا
+            طرفین با خاطری آسوده در پروژه گام بگذارند.
+          </p>
+        </div>
+        <div class="form-contact-wrapper">
+          <div class="form-section">
+            <div class="title">
+              <p>درخواست ملاقات حضوری :</p>
+            </div>
+            <form method="post">
+              <input type="text" name="name" placeholder="نام شما" />
+              <input type="text" name="phone" placeholder="شماره تماس*" />
+              <input
+                type="submit"
+                class="submit"
+                name="submit_form"
+                value="ثبت"
+              />
+            </form>
+          </div>
+          <div class="contact-field">
+            <div class="right-side">
+              <div class="text-field">
+                <h3>آیا سوالی دارید ؟</h3>
+                <p>با افتخار در تمام روزهای هفته پاسخگوی شما هستیم.</p>
+              </div>
+            </div>
+            <div class="contact-section">
+              <div class="text" dir="ltr">
+                <strong>۰۲۱ ۸۸۰ ۶۸ ۲۲۱</strong>
+                <p>۰۹۱۹ ۷۳۰ ۳۸۵۵</p>
+              </div>
+              <svg id="headphone-icon" viewBox="0 0 512 512">
+                <g id="#000000ff">
+                  <path
+                    fill="#000000"
+                    opacity="1.00"
+                    d=" M 251.41 0.00 L 261.50 0.00 C 302.30 1.19 342.78 13.51 376.94 35.93 C 405.91 54.76 430.41 80.43 447.74 110.33 C 461.64 134.17 470.88 160.69 475.06 187.96 C 476.30 198.29 466.32 207.87 456.04 206.30 C 448.64 205.55 442.19 199.42 441.18 192.03 C 436.99 165.60 427.04 140.11 412.19 117.86 C 392.27 87.83 363.51 63.74 330.40 49.50 C 296.50 34.73 258.18 30.50 221.84 37.22 C 185.84 43.79 151.94 61.26 125.64 86.70 C 97.57 113.64 78.23 149.55 71.38 187.86 C 70.72 191.78 69.59 195.81 66.82 198.80 C 63.00 203.29 56.83 205.19 51.07 204.58 C 42.47 203.33 35.83 194.62 37.02 185.99 C 45.96 129.16 78.43 76.61 124.94 42.82 C 161.40 16.04 206.20 1.02 251.41 0.00 Z"
+                  />
+                  <path
+                    fill="#000000"
+                    opacity="1.00"
+                    d=" M 244.07 52.21 C 275.10 50.05 306.67 56.46 334.39 70.57 C 340.14 73.39 343.95 79.65 343.79 86.06 C 343.79 92.59 339.66 98.85 333.67 101.46 C 328.29 104.00 321.92 103.08 316.91 100.10 C 282.22 82.46 239.91 80.85 203.94 95.72 C 199.14 97.45 194.79 100.26 189.92 101.82 C 181.53 104.21 172.17 98.52 169.85 90.24 C 167.39 82.67 171.12 73.75 178.23 70.19 C 198.71 59.95 221.23 53.80 244.07 52.21 Z"
+                  />
+                  <path
+                    fill="#000000"
+                    opacity="1.00"
+                    d=" M 46.46 239.54 C 49.24 238.74 52.15 238.86 55.00 238.86 C 65.33 238.91 75.65 238.80 85.97 238.91 C 98.12 239.07 110.17 243.70 119.23 251.81 C 131.50 262.42 137.53 278.98 136.49 295.02 C 136.47 316.00 136.51 336.99 136.47 357.97 C 136.79 377.58 124.78 396.69 106.90 404.78 C 91.75 411.95 73.10 410.98 58.82 402.18 C 43.88 393.30 34.15 376.41 34.11 359.01 C 34.03 325.00 34.11 290.99 34.07 256.97 C 33.57 249.20 38.93 241.57 46.46 239.54 M 68.17 272.94 C 68.17 301.31 68.13 329.67 68.18 358.03 C 68.59 367.37 77.88 375.07 87.14 373.74 C 95.39 372.90 102.37 365.37 102.24 357.03 C 102.22 334.68 102.27 312.32 102.22 289.97 C 102.36 281.57 95.43 273.83 87.06 273.09 C 80.77 272.74 74.46 273.01 68.17 272.94 Z"
+                  />
+                  <path
+                    fill="#000000"
+                    opacity="1.00"
+                    d=" M 410.55 241.51 C 422.61 237.41 435.51 239.31 447.99 238.87 C 454.95 239.32 462.52 237.50 468.96 240.95 C 474.73 243.99 478.25 250.49 477.93 256.97 C 477.90 302.31 477.95 347.65 477.90 392.99 C 477.85 412.84 470.57 432.56 457.68 447.66 C 441.25 467.36 415.60 478.70 389.99 477.94 C 361.33 477.94 332.68 477.92 304.02 477.94 C 297.57 496.55 279.80 510.21 260.23 512.00 L 251.74 512.00 C 236.71 510.66 222.35 502.68 213.78 490.19 C 205.43 478.41 202.53 463.00 205.95 448.97 C 209.24 434.87 218.88 422.39 231.72 415.68 C 245.01 408.52 261.52 407.75 275.42 413.65 C 288.69 419.06 299.21 430.40 304.04 443.86 C 333.03 443.87 362.01 443.87 391.00 443.86 C 399.65 443.95 408.36 442.10 416.03 438.04 C 428.24 431.79 437.51 420.36 441.46 407.26 C 431.30 410.36 420.20 410.36 410.16 406.79 C 389.39 400.05 374.72 378.85 375.52 357.05 C 375.51 335.38 375.52 313.71 375.52 292.04 C 375.46 285.95 376.15 279.81 378.13 274.03 C 383.01 258.88 395.44 246.47 410.55 241.51 M 419.59 274.58 C 413.73 277.30 409.68 283.54 409.77 290.03 C 409.76 312.67 409.74 335.32 409.79 357.97 C 410.14 367.10 419.02 374.73 428.10 373.81 C 436.61 373.28 443.98 365.58 443.85 357.01 C 443.88 328.99 443.96 300.96 443.99 272.94 C 435.90 273.51 427.31 271.49 419.59 274.58 M 250.44 444.62 C 241.82 447.38 236.68 457.61 239.77 466.16 C 242.33 474.58 252.05 479.81 260.50 477.31 C 269.34 475.12 275.14 465.12 272.51 456.36 C 270.27 447.06 259.41 441.26 250.44 444.62 Z"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-grid-section">
+      <div class="portfolio-grid-container container">
+        <div class="title">
+          <p>نمونه کار ها</p>
+        </div>
+        <div class="grid-section">
+          <div class="item dark-opacity">
+            <div class="fa-name"><p>فروشگاه چهارسو</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>charsoo.com</p></div>
+          </div>
+          <div class="item light-opacity">
+            <div class="fa-name"><p>فروشگاه چهارسو</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>charsoo.com</p></div>
+          </div>
+          <div class="item medium-opacity">
+            <div class="fa-name"><p>فروشگاه چهارسو</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>charsoo.com</p></div>
+          </div>
+          <div class="item light-opacity">
+            <div class="fa-name"><p>نکست استاپ</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>nnnextstop.com</p></div>
+          </div>
+          <div class="item dark-opacity">
+            <div class="fa-name"><p>نکست استاپ</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>nnnextstop.com</p></div>
+          </div>
+          <div class="item dark-opacity">
+            <div class="fa-name"><p>نکست استاپ</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>nnnextstop.com</p></div>
+          </div>
+          <div class="item medium-opacity">
+            <div class="fa-name"><p>هلدینگ کریمی</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>karimiholding.com</p></div>
+          </div>
+          <div class="item light-opacity">
+            <div class="fa-name"><p>هلدینگ کریمی</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>karimiholding.com</p></div>
+          </div>
+          <div class="item medium-opacity">
+            <div class="fa-name"><p>هلدینگ کریمی</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>karimiholding.com</p></div>
+          </div>
+          <div class="item light-opacity">
+            <div class="fa-name"><p>هلدینگ کریمی</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>karimiholding.com</p></div>
+          </div>
+          <div class="item medium-opacity">
+            <div class="fa-name"><p>هلدینگ کریمی</p></div>
+            <div class="space">|</div>
+            <div class="en-name"><p>karimiholding.com</p></div>
+          </div>
+          <div class="item dark-opacity button">
+            <a href="">مشهاهده تمام نمونه کار ها</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cyberisho-reasons-section" >
+      <div class="container cyberisho-reasons-container" >
+        <div class="text-wrapper">
+          <div class="icon"> 
+            <svg width="512pt" height="512pt" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g id="#2a00c4ff">
+              <path fill="var(--text-white-color)" opacity="1.00" d=" M 447.55 105.52 C 471.20 78.53 491.78 48.74 507.42 16.40 C 502.73 62.81 496.22 109.09 487.93 155.01 C 487.37 158.36 486.69 161.69 486.08 165.04 C 479.37 200.37 471.61 235.58 460.82 269.91 C 460.53 271.09 460.28 272.27 460.05 273.47 C 459.71 273.51 459.02 273.61 458.68 273.65 C 453.49 256.67 442.07 241.51 426.96 232.09 C 401.03 273.02 370.78 311.25 336.78 345.79 C 307.73 374.81 275.94 401.58 239.91 421.57 C 218.26 433.32 194.84 443.12 170.01 444.84 C 161.81 445.99 153.51 444.77 145.42 443.35 C 108.19 465.97 67.15 482.10 24.87 492.37 C 20.46 493.44 15.92 494.03 11.65 495.63 C 9.06 482.09 7.08 468.45 4.48 454.92 C 39.46 448.28 73.21 435.86 104.95 419.83 C 106.68 419.59 105.59 417.75 104.97 417.02 C 91.16 398.07 87.56 373.89 87.38 350.99 C 86.74 317.16 95.24 282.96 113.12 254.12 C 129.54 227.50 153.77 205.11 183.03 193.49 C 200.30 186.68 219.87 183.81 237.91 189.24 C 253.14 193.63 266.19 204.93 272.60 219.44 C 280.63 237.00 279.94 257.20 276.05 275.73 C 267.79 312.00 249.85 345.69 226.47 374.46 C 222.38 379.83 217.43 384.45 213.28 389.75 C 232.96 379.35 251.40 366.73 268.67 352.72 C 309.80 319.20 345.18 279.04 375.74 235.78 C 380.99 228.61 385.55 220.97 390.80 213.81 C 374.89 204.64 356.70 200.00 338.53 198.25 C 379.30 173.11 415.99 141.52 447.55 105.52 M 201.30 230.10 C 181.80 236.95 165.38 250.91 153.25 267.43 C 134.72 292.67 126.79 324.64 128.36 355.69 C 129.05 370.36 130.79 386.82 141.83 397.67 C 155.99 387.43 169.60 376.36 181.64 363.66 C 206.62 338.02 225.58 306.34 235.27 271.81 C 237.61 262.48 239.60 252.68 237.86 243.08 C 236.92 236.95 233.32 230.69 227.17 228.62 C 218.76 225.77 209.53 227.40 201.30 230.10 Z" />
+              </g>
+              </svg>
+          </div>
+          <p>چرا سایبریشو را انتخاب کنیم؟</p>
+          
+        </div>
+       <div class="reasons-wrapper" >
+  <div class="right-side" >
+    <div class="item" >
+      <p>بیش از 12 سال سابقه کار</p>
+    
+     </div>
+     <div class="item" >
+      <p>پشتیبانی همیشگی</p>
+     
+     </div>
+  </div>
+  <div class="left-side" >
+    <div class="item" >
+      <p>بیش از 2600 پروژه اجرایی</p>
+     </div>
+     <div class="item" >
+      <p>مجموعه مجرب 25 نقره</p>
+     </div>
+  </div>
+</div>
+      </div>
+    </div>
+    <div class="accordion-fag-section">
+          <div class="container">
+            <div class="title-container">
+              <h2>سوالات متداوم</h2>
+            </div>
+            <div class="accordion-container">
+              <div class="accordion-item d-flex">
+                <div class="col-12 wrapper-text">
+                  <button class="accordion-header">
+                    <div class="icon" >
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 12.00 20.00">
+                        <path fill="#000000" d="
+                          M 12.00 5.72
+                          L 12.00 7.20
+                          C 11.21 10.35 9.04 11.54 7.66 12.93
+                          A 1.25 1.24 65.1 0 0 7.30 13.92
+                          Q 7.30 13.94 7.33 14.25
+                          A 0.71 0.71 0.0 0 1 6.62 15.02
+                          L 4.61 15.02
+                          A 0.66 0.66 0.0 0 1 3.95 14.40
+                          C 3.72 11.24 5.63 10.04 7.65 8.21
+                          C 9.17 6.82 8.56 4.56 6.45 4.25
+                          Q 5.57 4.13 1.87 4.72
+                          A 0.70 0.69 85.4 0 1 1.07 4.03
+                          L 1.07 2.16
+                          A 0.62 0.61 80.9 0 1 1.49 1.57
+                          C 5.91 0.10 11.32 -0.13 12.00 5.72
+                          Z"
+                        />
+                        <rect fill="#000000" x="-1.76" y="-1.74" transform="translate(5.49,18.01) rotate(0.1)" width="3.52" height="3.48" rx="0.44"/>
+                        </svg>
+                        
+                    </div>
+                    <p class="text">
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است؟
+                    </p>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
+                      مجله در ستون و سطر آن چنان که لازم است و برای شرایط فعلی
+                      تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                      کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                      آینده شناخت فراوان جامعه و متخصصان را می‌طلبد. لورم ایپسوم متن
+                      ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                      طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون
+                      و سطر آن چنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+                      و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می‌باشد.
+                      کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان
+                      جامعه و متخصصان را می‌طلبد. لورم ایپسوم متن ساختگی با تولید
+                      سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                      چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر آن چنان که
+                      لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
+                      متنوع با هدف بهبود ابزارهای کاربردی می‌باشد. کتابهای زیادی در
+                      شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان
+                      را می‌طلبد. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                      صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون
+                      بلکه روزنامه و مجله در ستون و سطر آن چنان که لازم است و برای
+                      شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                      ابزارهای کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد
+                      گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می‌طلبد.
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+    
+              <div class="accordion-item d-flex">
+                <div class="col-12 wrapper-text">
+                  <button class="accordion-header">
+                    <div class="icon" >
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 12.00 20.00">
+                        <path fill="#000000" d="
+                          M 12.00 5.72
+                          L 12.00 7.20
+                          C 11.21 10.35 9.04 11.54 7.66 12.93
+                          A 1.25 1.24 65.1 0 0 7.30 13.92
+                          Q 7.30 13.94 7.33 14.25
+                          A 0.71 0.71 0.0 0 1 6.62 15.02
+                          L 4.61 15.02
+                          A 0.66 0.66 0.0 0 1 3.95 14.40
+                          C 3.72 11.24 5.63 10.04 7.65 8.21
+                          C 9.17 6.82 8.56 4.56 6.45 4.25
+                          Q 5.57 4.13 1.87 4.72
+                          A 0.70 0.69 85.4 0 1 1.07 4.03
+                          L 1.07 2.16
+                          A 0.62 0.61 80.9 0 1 1.49 1.57
+                          C 5.91 0.10 11.32 -0.13 12.00 5.72
+                          Z"
+                        />
+                        <rect fill="#000000" x="-1.76" y="-1.74" transform="translate(5.49,18.01) rotate(0.1)" width="3.52" height="3.48" rx="0.44"/>
+                        </svg>
+                        
+                    </div>
+                    <p class="text">
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است؟
+                    </p>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
+                      مجله در ستون و سطر آن چنان که لازم است و برای شرایط فعلی
+                      تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                      کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                      آینده شناخت فراوان جامعه و متخصصان را می‌طلبد.
+                    </p>
+                  </div>
+                </div>
+               
+              </div>
+    
+              <div class="accordion-item d-flex">
+                <div class="col-12 wrapper-text">
+                  <button class="accordion-header">
+                    <div class="icon" >
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 12.00 20.00">
+                        <path fill="#000000" d="
+                          M 12.00 5.72
+                          L 12.00 7.20
+                          C 11.21 10.35 9.04 11.54 7.66 12.93
+                          A 1.25 1.24 65.1 0 0 7.30 13.92
+                          Q 7.30 13.94 7.33 14.25
+                          A 0.71 0.71 0.0 0 1 6.62 15.02
+                          L 4.61 15.02
+                          A 0.66 0.66 0.0 0 1 3.95 14.40
+                          C 3.72 11.24 5.63 10.04 7.65 8.21
+                          C 9.17 6.82 8.56 4.56 6.45 4.25
+                          Q 5.57 4.13 1.87 4.72
+                          A 0.70 0.69 85.4 0 1 1.07 4.03
+                          L 1.07 2.16
+                          A 0.62 0.61 80.9 0 1 1.49 1.57
+                          C 5.91 0.10 11.32 -0.13 12.00 5.72
+                          Z"
+                        />
+                        <rect fill="#000000" x="-1.76" y="-1.74" transform="translate(5.49,18.01) rotate(0.1)" width="3.52" height="3.48" rx="0.44"/>
+                        </svg>
+                        
+                    </div>
+                    <p class="text">
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است؟
+                    </p>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
+                      مجله در ستون و سطر آن چنان که لازم است و برای شرایط فعلی
+                      تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                      کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                      آینده شناخت فراوان جامعه و متخصصان را می‌طلبد. لورم ایپسوم متن
+                      ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                      طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون
+                      و سطر آن چنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+                      و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می‌باشد.
+                      کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان
+                      جامعه و متخصصان را می‌طلبد. لورم ایپسوم متن ساختگی با تولید
+                      سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                      چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر آن چنان که
+                      لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
+                      متنوع با هدف بهبود ابزارهای کاربردی می‌باشد. کتابهای زیادی در
+                      شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان
+                      را می‌طلبد. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                      صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون
+                      بلکه روزنامه و مجله در ستون و سطر آن چنان که لازم است و برای
+                      شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                      ابزارهای کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد
+                      گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می‌طلبد.
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+    
+              <div class="accordion-item d-flex">
+                <div class="col-12 wrapper-text">
+                <button class="accordion-header">
+                    <div class="icon" >
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 12.00 20.00">
+                        <path fill="#000000" d="
+                          M 12.00 5.72
+                          L 12.00 7.20
+                          C 11.21 10.35 9.04 11.54 7.66 12.93
+                          A 1.25 1.24 65.1 0 0 7.30 13.92
+                          Q 7.30 13.94 7.33 14.25
+                          A 0.71 0.71 0.0 0 1 6.62 15.02
+                          L 4.61 15.02
+                          A 0.66 0.66 0.0 0 1 3.95 14.40
+                          C 3.72 11.24 5.63 10.04 7.65 8.21
+                          C 9.17 6.82 8.56 4.56 6.45 4.25
+                          Q 5.57 4.13 1.87 4.72
+                          A 0.70 0.69 85.4 0 1 1.07 4.03
+                          L 1.07 2.16
+                          A 0.62 0.61 80.9 0 1 1.49 1.57
+                          C 5.91 0.10 11.32 -0.13 12.00 5.72
+                          Z"
+                        />
+                        <rect fill="#000000" x="-1.76" y="-1.74" transform="translate(5.49,18.01) rotate(0.1)" width="3.52" height="3.48" rx="0.44"/>
+                        </svg>
+                        
+                    </div>
+                    <p class="text">
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است؟
+                    </p>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                      استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
+                      مجله در ستون و سطر آن چنان که لازم است و برای شرایط فعلی
+                      تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                      کاربردی می‌باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                      آینده شناخت فراوان جامعه و متخصصان را می‌طلبد.
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="latest-blog-main-section" >
+      <div class="container latest-blog-main-container" >
+        <div class="title" >
+          <p>جدیدترین مقالات ما</p>
+        </div>
+        <div class="main-section" >
+          <div class="right-wrapper" >
+            <div class="item" >
+              <div class="image-section" >
+                <img src="./assets/img/dev_team.jpg" alt="">
+              </div>
+              <div class="time-view-wrapper" >
+                <p>انتشار:1404/04/01</p>
+                <p>مشاهده:548</p>
+              </div>
+              <div class="text-field" >
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهموم از صنعت چاپ است.</p>
+              </div>
+            </div>
+          </div>
+        <div class="left-wrapper" >
+          <div class="blogs-items" >
+            <div class="item" >
+              <div class="image-wrapper" >
+                  <img src="./assets/img/dev_team.jpg" alt="">
+                
+              </div>
+              <div class="text-field " >
+                <div class="blog-name" ><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ ...</p></div>
+                <div class="blog-time" ><p>انتشار:1404/04/01</p></div>
+                <span>|</span>
+                <div class="blog-view" >مشاهده:548</div>
+              </div>
+            </div>
+            <div class="item" >
+              <div class="image-wrapper" >
+                  <img src="./assets/img/dev_team.jpg" alt="">
+                
+              </div>
+              <div class="text-field " >
+                <div class="blog-name" ><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ ...</p></div>
+                <div class="blog-time" ><p>انتشار:1404/04/01</p></div>
+                <span>|</span>
+                <div class="blog-view" >مشاهده:548</div>
+              </div>
+            </div>
+            <div class="item" >
+              <div class="image-wrapper" >
+                  <img src="./assets/img/dev_team.jpg" alt="">
+                
+              </div>
+              <div class="text-field " >
+                <div class="blog-name" ><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ ...</p></div>
+                <div class="blog-time" ><p>انتشار:1404/04/01</p></div>
+                <span>|</span>
+                <div class="blog-view" >مشاهده:548</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="redirect-link" >
+            <a href="">مشاهده همه مقالات</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-section blue-gradient">
+      <div class="footer-container container">
+        <div class="top-wrapper">
+          <div class="icon-wrapper">
+            <a href="">
+              <svg>
+                <use href="#logo-icon"></use>
+              </svg>
+            </a>
+          </div>
+          <div class="address-items">
+            <div class="location-address item">
+              <div class="icon">
+                <svg id="location-icon" viewBox="0 0 512 512">
+                  <g id="var(--background-medium-blue-color)ff">
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 238.46 31.70 C 269.49 28.45 301.49 35.02 328.71 50.30 C 343.32 58.39 356.31 69.14 367.68 81.34 C 390.02 104.37 404.04 135.07 407.55 166.91 C 410.56 193.67 405.90 221.20 394.50 245.58 C 389.39 256.61 382.72 266.85 375.24 276.40 C 344.62 316.77 314.02 357.16 283.38 397.51 C 279.35 403.00 275.10 408.68 268.92 411.89 C 260.20 416.53 249.31 416.83 240.44 412.41 C 234.53 409.73 230.15 404.76 226.38 399.63 C 194.02 357.40 161.58 315.22 129.22 272.99 C 110.99 249.31 100.37 219.91 99.11 190.06 C 97.72 158.30 106.95 126.14 125.12 100.03 C 133.21 88.40 143.07 78.09 153.64 68.71 C 177.14 47.92 207.28 34.95 238.46 31.70 M 205.52 71.66 C 186.22 79.83 169.83 93.66 156.36 109.54 C 140.42 128.71 130.84 153.12 129.78 178.06 C 128.33 205.05 136.76 232.44 153.22 253.89 C 174.56 281.81 196.02 309.64 217.38 337.54 C 229.70 353.39 241.65 369.53 254.17 385.21 C 287.51 341.50 320.62 297.61 353.88 253.84 C 368.63 234.45 377.27 210.42 377.73 186.03 C 378.65 156.55 367.77 126.90 347.93 105.07 C 339.63 95.95 330.51 87.45 320.04 80.86 C 286.60 58.90 242.05 55.47 205.52 71.66 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 240.43 116.63 C 253.74 114.00 267.78 115.60 280.26 120.87 C 298.96 128.76 313.80 145.40 319.22 165.00 C 322.84 177.31 322.85 190.64 319.22 202.95 C 313.96 222.10 299.68 238.40 281.61 246.54 C 267.55 252.82 251.37 254.40 236.44 250.45 C 223.51 247.28 211.64 240.08 202.70 230.21 C 191.08 217.86 184.75 200.90 184.71 184.00 C 184.74 169.42 189.44 154.83 198.19 143.14 C 208.38 129.49 223.63 119.71 240.43 116.63 M 246.50 146.61 C 235.07 148.63 224.82 156.23 219.57 166.59 C 215.31 174.57 214.35 184.11 216.37 192.89 C 219.05 204.05 227.02 213.83 237.51 218.54 C 244.13 221.69 251.69 222.57 258.92 221.58 C 270.91 219.89 281.76 211.97 287.20 201.18 C 291.33 193.32 292.25 183.99 290.36 175.37 C 287.65 163.65 279.03 153.46 267.89 148.92 C 261.20 146.03 253.66 145.41 246.50 146.61 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 125.74 346.76 C 129.82 345.49 134.35 345.81 138.10 347.93 C 145.05 351.36 147.85 360.72 144.62 367.63 C 142.78 371.56 139.22 374.75 135.00 375.91 C 121.12 379.61 107.17 383.67 94.39 390.40 C 89.22 393.36 83.71 396.38 80.20 401.36 C 78.14 403.62 80.58 406.11 82.11 407.82 C 88.57 413.93 96.78 417.73 104.85 421.23 C 129.82 431.28 156.55 435.86 183.12 439.27 C 234.17 445.07 285.99 444.75 336.87 437.50 C 359.77 433.99 382.73 429.32 404.16 420.27 C 411.28 417.11 418.43 413.56 424.16 408.17 C 425.72 406.78 426.68 404.89 427.64 403.08 C 424.30 397.47 418.61 394.00 413.10 390.84 C 400.17 383.92 386.05 379.63 371.91 376.00 C 364.17 374.22 359.19 365.60 361.08 357.99 C 362.22 352.12 367.28 347.29 373.15 346.26 C 377.53 345.32 381.79 347.08 385.98 348.10 C 402.26 352.60 418.52 358.06 432.97 366.98 C 443.28 373.43 453.13 382.30 456.58 394.37 C 459.82 404.40 457.00 415.62 450.89 423.97 C 444.24 432.74 435.01 439.15 425.31 444.15 C 406.23 453.83 385.39 459.36 364.56 463.77 C 314.37 473.63 262.87 475.68 211.89 472.67 C 182.35 470.67 152.85 466.89 124.12 459.60 C 108.86 455.60 93.70 450.69 79.72 443.28 C 69.33 437.59 59.09 430.46 53.19 419.90 C 49.17 412.62 47.46 403.80 49.71 395.69 C 52.10 385.88 58.94 377.75 66.82 371.73 C 84.15 358.87 105.09 352.16 125.74 346.76 Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p>تهران، بلوار نلسون ماندلا (جردن)، مهراد، بن بست زوار</p>
+            </div>
+            <div class="phone-number-general item">
+              <div class="icon">
+                <svg id="telephone-icon-2" viewBox="0 0 458 458">
+                  <g id="var(--background-medium-blue-color)ff">
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 97.47 5.71 C 110.04 2.90 123.72 5.34 134.44 12.52 C 140.01 16.17 144.43 21.23 149.16 25.85 C 164.96 41.72 180.89 57.47 196.63 73.40 C 209.71 86.73 213.58 107.96 206.20 125.10 C 203.29 132.30 198.28 138.39 192.69 143.69 C 186.37 150.05 179.95 156.32 173.69 162.74 C 169.13 167.49 168.01 175.14 171.07 180.98 C 196.32 224.79 233.27 261.71 276.95 287.15 C 281.39 289.67 287.04 289.86 291.65 287.65 C 295.15 286.03 297.65 282.97 300.37 280.34 C 306.75 274.05 312.97 267.58 319.45 261.40 C 334.34 247.56 358.19 245.29 375.81 255.11 C 380.25 257.48 384.12 260.75 387.63 264.33 C 404.80 281.50 421.99 298.67 439.16 315.86 C 453.17 329.03 457.88 350.86 450.45 368.61 C 447.87 375.10 443.73 380.88 438.74 385.73 C 426.12 398.12 414.13 411.22 400.19 422.18 C 384.19 434.90 365.95 445.27 345.99 450.20 C 326.01 455.29 304.76 454.32 285.03 448.62 C 261.03 441.81 239.13 429.29 218.62 415.35 C 158.12 373.37 104.41 321.68 59.90 263.03 C 47.03 245.92 34.59 228.37 24.57 209.42 C 11.33 184.57 2.46 156.30 5.60 127.88 C 8.50 99.26 23.18 73.21 41.76 51.78 C 51.66 40.38 62.71 30.05 73.30 19.30 C 79.85 12.59 88.30 7.73 97.47 5.71 M 103.24 37.27 C 98.23 38.64 95.07 43.01 91.48 46.42 C 81.22 56.86 70.36 66.80 61.30 78.36 C 51.61 90.62 43.52 104.46 39.67 119.71 C 35.54 135.61 36.75 152.55 41.66 168.14 C 48.03 188.59 59.36 207.03 71.44 224.57 C 103.53 270.30 141.49 311.89 183.91 348.23 C 204.58 365.80 226.09 382.47 249.00 397.03 C 268.76 409.22 290.50 419.90 314.06 421.25 C 333.87 422.52 353.44 415.72 369.76 404.80 C 387.11 393.57 400.95 378.04 415.60 363.68 C 423.17 357.87 424.24 345.56 417.05 339.02 C 399.71 321.68 382.36 304.34 365.02 287.00 C 362.17 283.85 358.43 281.28 354.10 280.94 C 348.64 280.14 343.05 282.36 339.46 286.50 C 331.95 293.97 324.57 301.59 316.92 308.92 C 302.48 322.25 279.59 325.08 262.35 315.64 C 212.85 287.31 171.14 245.57 142.82 196.07 C 133.60 179.05 136.23 156.57 149.17 142.17 C 157.22 133.56 165.90 125.55 174.02 117.01 C 179.42 111.12 179.16 101.13 173.49 95.50 C 156.54 78.44 139.49 61.49 122.51 44.47 C 117.97 38.80 110.57 34.82 103.24 37.27 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 284.42 6.59 C 285.91 6.03 287.48 5.68 289.08 5.61 C 320.36 5.27 351.66 14.35 377.94 31.32 C 403.89 47.95 424.97 72.07 437.91 100.05 C 447.92 121.56 453.09 145.31 452.95 169.03 C 452.86 176.65 446.47 183.51 438.92 184.30 C 431.80 185.31 424.50 180.72 422.01 174.03 C 420.77 170.84 421.02 167.34 420.88 163.98 C 419.99 131.97 406.57 100.60 384.29 77.64 C 360.24 52.45 325.79 37.58 290.94 37.57 C 283.60 37.90 276.39 32.72 274.63 25.55 C 272.48 17.92 276.98 9.26 284.42 6.59 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 284.44 70.58 C 288.43 69.04 292.78 69.61 296.95 69.80 C 319.91 71.27 342.15 81.24 358.67 97.24 C 378.00 115.72 389.34 142.29 388.95 169.06 C 388.85 174.64 385.40 179.87 380.55 182.51 C 375.08 185.55 367.87 184.88 363.06 180.89 C 359.13 177.84 356.86 172.93 356.99 167.96 C 356.92 152.82 351.50 137.79 341.87 126.12 C 331.30 113.11 315.71 104.31 299.08 102.15 C 295.48 101.60 291.82 101.69 288.19 101.39 C 280.64 100.57 274.20 93.72 274.14 86.06 C 273.80 79.39 278.18 72.87 284.44 70.58 Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p>02188068221</p>
+            </div>
+            <div class="phone-number-personal item">
+              <div class="icon">
+                <svg id="smart-phone-icon" viewBox="0 0 512 512">
+                  <g id="var(--background-medium-blue-color)ff">
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 151.35 0.00 L 360.66 0.00 C 378.93 0.83 396.28 12.22 404.20 28.72 C 408.20 36.13 409.69 44.65 409.60 53.00 C 409.60 187.00 409.59 321.01 409.60 455.01 C 409.71 461.92 409.50 468.95 407.38 475.59 C 401.26 495.84 381.83 511.16 360.63 512.00 L 151.35 512.00 C 137.89 511.36 124.89 505.07 115.84 495.12 C 107.21 485.62 102.14 472.89 102.41 460.00 C 102.39 324.35 102.41 188.69 102.40 53.04 C 102.30 44.68 103.80 36.14 107.80 28.72 C 115.72 12.22 133.07 0.83 151.35 0.00 M 148.15 26.26 C 139.57 28.07 132.20 34.62 129.44 42.95 C 127.64 48.09 128.04 53.63 128.00 58.98 C 128.00 192.34 128.00 325.69 128.00 459.05 C 127.83 465.72 129.85 472.56 134.36 477.58 C 139.42 483.52 147.28 486.62 155.03 486.40 C 220.36 486.41 285.69 486.40 351.02 486.41 C 355.50 486.39 360.04 486.62 364.44 485.61 C 375.91 483.02 384.38 471.78 383.98 460.07 C 384.03 326.05 383.98 192.03 384.00 58.01 C 384.05 52.07 384.24 45.82 381.51 40.36 C 377.43 31.35 367.77 25.46 357.92 25.62 C 290.60 25.55 223.28 25.63 155.96 25.59 C 153.34 25.60 150.72 25.75 148.15 26.26 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 204.42 43.62 C 211.75 40.30 220.81 46.08 221.72 53.84 C 222.87 61.16 216.31 68.36 208.99 68.24 C 201.76 68.26 195.34 61.15 196.40 53.93 C 196.95 49.38 200.29 45.45 204.42 43.62 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 247.42 43.48 C 249.83 42.55 252.47 42.68 255.02 42.64 C 270.99 42.71 286.96 42.58 302.93 42.70 C 309.47 42.67 315.51 48.40 315.67 54.95 C 316.10 61.89 309.81 68.31 302.90 68.24 C 285.95 68.32 269.01 68.29 252.06 68.26 C 245.05 68.46 238.58 62.02 238.98 54.97 C 239.10 49.88 242.79 45.35 247.42 43.48 Z"
+                    />
+                    <path
+                      fill="var(--background-medium-blue-color)"
+                      opacity="1.00"
+                      d=" M 253.25 418.36 C 261.60 417.41 270.32 420.90 275.63 427.43 C 281.28 434.08 283.02 443.73 280.17 451.96 C 276.58 463.08 264.66 470.68 253.06 469.08 C 240.63 467.93 230.31 456.45 230.48 443.96 C 230.06 431.23 240.58 419.46 253.25 418.36 Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p>09197303855</p>
+            </div>
+          </div>
+        </div>
+        <div class="bott-wrapper">
+          <div class="about-cyberisho-text">
+            <p>
+              مهمترین هدف مجموعه سایبریشو نقش بستن لبخند رضایت بر لبان مخاطب است
+              و چیزی غیر از این برای ما خوشایند نخواهد بود.در مسیر تحقق این هدف
+              بالا، از هیچ تلاشی دریغ نخواهیم کرد. با تجربه ای از اوایل دهه 80 ؛
+              سـایبـریشــو، الان وقتشــه…
+            </p>
+          </div>
+          <div class="nav-items">
+            <div class="item">
+              <a href="">خانه</a>
+            </div>
+            <div class="item">
+              <a href="">وبلاگ</a>
+            </div>
+            <div class="item hidden-item">
+              <a href="">سوالات متداوم</a>
+            </div>
+            <div class="item">
+              <a href="">استخدام</a>
+            </div>
+            <div class="item">
+              <a href="">درباره ما</a>
+            </div>
+            <div class="item">
+              <a href="">تماس با ما</a>
+            </div>
+          </div>
+        </div>
+        <div class="copy-right-text">
+          <strong>کلیه حقوق متعلق به سایبریشو میباشد.</strong>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const items = document.querySelectorAll(".client-items .item img");
+      const activeIndex = 3; // آیتم وسط
+
+      setInterval(() => {
+        // ذخیره عکس اکتیو
+        let prevSrc = items[activeIndex].src;
+
+        // لیست همه آیتم‌ها به ترتیب از active به راست
+        for (let i = activeIndex + 1; i < items.length; i++) {
+          let temp = items[i].src;
+          items[i].src = prevSrc;
+          prevSrc = temp;
+        }
+
+        // از راست آخرین آیتم بریم سمت چپ تا به اکتیو برسیم
+        for (let i = 0; i < activeIndex; i++) {
+          let temp = items[i].src;
+          items[i].src = prevSrc;
+          prevSrc = temp;
+        }
+
+        // در نهایت عکس جدیدی برای active میذاریم
+        items[activeIndex].src = prevSrc;
+      }, 2000);
+    </script>
+    <script>
+      const players = document.querySelectorAll(".player");
+
+      players.forEach((player) => {
+        const btn = player.querySelector("button");
+        const audio = player.querySelector("audio");
+        const border = player.querySelector(".progress-border");
+        let playing = false;
+
+        // رنگ اولیه در هنگام لود
+        player.style.backgroundColor = "#9ca5f1";
+        player.style.transition = "background-color 0.3s ease";
+
+        const playSVG = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" fill="white" fill-opacity="0.01"/>
+              <path d="M16 12V36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M32 12V36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
+
+        const pauseSVG = `<svg id="play-button-icon" viewBox="0 0 330 330">
+              <path d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                  c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                  C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z" fill="black"></path>
+          </svg>`;
+
+        btn.addEventListener("click", () => {
+          if (!playing) {
+            audio
+              .play()
+              .then(() => {
+                btn.innerHTML = playSVG;
+                player.style.backgroundColor = "rgb(255 255 255 / 27%)"; // تغییر رنگ هنگام پخش
+                playing = true;
+              })
+              .catch((err) => console.log(err));
+          } else {
+            audio.pause();
+            btn.innerHTML = pauseSVG;
+            player.style.backgroundColor = "#9ca5f1"; // برگشت رنگ هنگام توقف
+            playing = false;
+          }
+        });
+
+        audio.addEventListener("timeupdate", () => {
+          if (audio.duration > 0) {
+            const progress = audio.currentTime / audio.duration;
+            const angle = progress * 360;
+
+            border.style.background = `conic-gradient(
+                      rgba(255,255,255,0.8) 0deg ${angle}deg,
+                      transparent ${angle}deg 360deg
+                  )`;
+          }
+        });
+
+        audio.addEventListener("ended", () => {
+          playing = false;
+          btn.innerHTML = pauseSVG;
+          player.style.backgroundColor = "#9ca5f1"; // برگشت رنگ بعد از اتمام
+          border.style.background = `conic-gradient(
+                  rgba(255,255,255,0.8) 0deg 0deg,
+                  transparent 0deg 360deg
+              )`;
+        });
+      });
+    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".accordion-item");
+
+  items.forEach((item) => {
+    const header = item.querySelector(".accordion-header");
+
+    // تابع مشترک برای مدیریت باز/بسته شدن
+    function toggleAccordion() {
+      const isActive = item.classList.contains("active");
+
+      // بستن تمام آیتم‌ها
+      items.forEach((i) => i.classList.remove("active"));
+
+      // باز کردن فقط آیتم فعلی اگر بسته بود
+      if (!isActive) {
+        item.classList.add("active");
+      }
+    }
+
+    // رویداد کلیک برای header
+    if (header) {
+      header.addEventListener("click", toggleAccordion);
+    }
+
+    // رویداد کلیک برای icon
+ 
+  });
+});
+</script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
