@@ -877,9 +877,10 @@
 ;
     border-bottom-left-radius: 0;
     height: 60px;
-    background: var(--background-blur-light-blue);
+    background: #afb6fda1;
     width: 280px;
     position: relative;
+    backdrop-filter: blur(7px);
     margin-bottom: 10px;
     }
     .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .item::before{
@@ -890,7 +891,7 @@
     height: 26px;
     position: absolute;
     content: "";
-    background-color: var(--background-blur-light-blue);
+    background-color: #afb6fda1;
     }
     .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .item::after{
       margin-top: -24px;
@@ -1058,6 +1059,236 @@ width: 5%;
  width: 100%;
  height: 100%;
  object-fit: cover;
+}
+@media (max-width: 1400px) {
+  .our-service-section .our-service-container .services-item .item {
+    padding: 25px;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field .right-side {
+    width: 70%;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field .contact-section{
+    width: 35%;
+  }
+}
+@media (max-width: 1200px) {
+  .client-comment-section .client-comment-container .comment-items .item {
+    padding: 10px 25px;
+  }
+  .home-about-us-section .home-about-us-container .image-wrapper {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 992px) {
+  .our-service-section .our-service-container .services-item .item {
+    padding: 10px;
+    width: 48%;
+  }
+  .our-service-section .our-service-container .services-item {
+    bottom: -95px;
+  }
+  .our-service-section .our-service-container .text-field {
+    width: 45%;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field {
+    flex-direction: column;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field {
+    height: 44%;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field .right-side {
+    width: 100%;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field .contact-section {
+    width: 100%;
+    padding-top: 15px;
+    justify-content: start;
+  }
+  .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper {
+    width: 100%;
+  }
+  .cyberisho-reasons-section .cyberisho-reasons-container .reasons-wrapper .item {
+    width: 220px;
+  }
+  .latest-blog-main-section .main-section .left-wrapper .blogs-items .item .image-wrapper {
+    width: 160px;
+  }
+  .client-comment-section .item:first-of-type, .client-comment-section .item:last-of-type {
+    display: none;
+  }
+  .client-comment-section .client-comment-container .comment-items {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* اسکرول نرم در دستگاه‌های لمسی */
+        scrollbar-width: thin; /* عرض اسکرول‌بار در فایرفاکس */
+        scrollbar-color: transparent; /* رنگ اسکرول‌بار */
+      }
+
+      .client-comment-section .client-comment-container .comment-items::-webkit-scrollbar {
+        height: 8px; /* ارتفاع اسکرول‌بار در کروم و سافاری */
+      }
+
+      .client-comment-section .client-comment-container .comment-items::-webkit-scrollbar-thumb {
+        background: transparent; /* پس‌زمینه اسکرول */
+      }
+
+      .client-comment-section .client-comment-container .comment-items::-webkit-scrollbar-track {
+        background: transparent; /* پس‌زمینه اسکرول */
+      }
+
+      .client-comment-section .client-comment-container .comment-items .item {
+        width: 300px;
+        flex: 0 0 300px; /* جلوگیری از تغییر عرض آیتم */
+        margin-right: 20px; /* فاصله بین آیتم‌ها */
+      }
+      .header-home-information-section {
+        height: 500px;
+      }
+      .header-home-information-section .header-home-information-container .image-wrapper {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .header-home-information-section .header-home-information-container .image-wrapper .main-image {
+        width: 200px;
+      }
+      .header-home-information-section .header-home-information-container .image-wrapper .main-image img {
+        width: 100%;
+        height: auto !important;
+      }
+      .header-home-information-section .header-home-information-container .text-wrapper {
+        width: 100%;
+        align-items: center;
+        padding-right: 0;
+      }
+      .home-about-us-section .home-about-us-container {
+        flex-direction: column;
+      }
+      .home-about-us-section .home-about-us-container .image-wrapper {
+        margin-bottom: 50px;
+        width: 100%;
+      }
+      .home-about-us-section .home-about-us-container .text-wrapper {
+        width: 100%;
+      }
+      .our-service-section .our-service-container {
+        padding: 30px 60px;
+    justify-content: center;
+    align-items: start;
+    height: 300px;
+      }
+      .our-service-section .our-service-container .services-item {
+        width: 100%;
+    bottom: -108px;
+    padding: 0 30px;
+      }
+      .our-service-section .our-service-container .services-item .item {
+        padding: 10px 60px;
+      }
+      .header-home-information-section .header-home-information-container {
+    position: relative;
+    flex-direction:column-reverse;
+    flex-wrap: nowrap;
+    height: 470px;
+      }
+      .meetting-text-form-section .meetting-text-form-container {
+        flex-direction: column;
+      }
+      .meetting-text-form-section .meetting-text-form-container .text-wrapper {
+        margin-bottom: 50px;
+        width: 100%;
+      }
+      .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper {
+        width: 100%;
+      }
+      .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .form-section {
+        margin-bottom: 25px;
+      }
+      .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field {
+        padding-right : 210px
+      }
+      .portfolio-grid-section .portfolio-grid-container .grid-section .item {
+        width: 49%;
+      }
+      .latest-blog-main-section .main-section {
+        flex-direction: column;
+      }
+      .latest-blog-main-section .main-section {
+        flex-direction: column;
+      }
+      .latest-blog-main-section .main-section .right-wrapper {
+        margin-bottom: 50px;
+        width: 100%;
+      }
+      .latest-blog-main-section .main-section .left-wrapper {
+        width: 100%;
+      }
+}
+@media (max-width: 768px) {
+  .client-comment-section .item:nth-of-type(2) ,  .client-comment-section .item:nth-of-type(5) {
+    display: none;
+  }
+  .our-service-section .our-service-container .services-item .item {
+    padding: 10px 25px;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field {
+        padding-right: 150px;
+    }
+}
+@media (max-width: 576px) {
+  .client-comment-section .item img {
+    width: 55px;
+  }
+  .client-comment-section .item.active {
+    width: 75px;
+    height: 75px;
+  }
+  .home-about-us-section .home-about-us-container .image-wrapper .main-image::after {
+    right: -8%;
+  }
+  .our-service-section .our-service-container {
+    width: 95%;
+  }
+  .our-service-section .our-service-container .text-field {
+    width: 100%;
+  }
+  .our-service-section .our-service-container {
+    padding: 30px 25px;
+  }
+  .our-service-section .our-service-container .services-item {
+    padding: 0 5px;
+  }
+  .our-service-section .our-service-container .services-item .item {
+    padding: 0;
+  }
+  .meetting-text-form-section .meetting-text-form-container .text-wrapper {
+    padding: 45px 10px;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .form-section form input {
+    width: 48%;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .form-section form input.submit {
+    width: 30%;
+    margin-top: 15px;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .form-section form {
+    flex-wrap: wrap;
+  }
+  .meetting-text-form-section .meetting-text-form-container .form-contact-wrapper .contact-field {
+    padding-right: 10px;
+  }
+  .portfolio-grid-section .portfolio-grid-container .grid-section .item{
+    width: 100%;
+  }
+  .accordion-fag-section .accordion-item .icon {
+    width: 20%;
+  }
+  .client-comment-section .client-comment-container .comment-items .item {
+    width: 260px;
+    flex: 0 0 260px;
+  }
+  .client-comment-section .client-comment-container .comment-items .item .name-field {
+    width: 80%;
+  }
 }
   </style>
   <body dir="rtl">

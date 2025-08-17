@@ -1242,6 +1242,18 @@ footer .footer-container .copy-right-text {
   }
   
 }
+@media (max-width: 430px) {
+  footer .footer-container .nav-items .item {
+    width: 33%;
+    margin-top: 5px;
+  }
+  footer .footer-container .nav-items {
+    justify-content: center;
+  }
+  footer .footer-container .nav-items .item:nth-of-type(4):after{
+    display: none;
+  } 
+}
 
 .main-contact-us-section .main-contact-us-container {
   display: flex;
