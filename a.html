@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>چرخونهٔ شانسی</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: sans-serif;
+      }
+
+      canvas {
+        background: transparent;
+        border-radius: 50%;
+      }
+      .pointer {
+        width: 0;
+        height: 0;
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-top: 30px solid #ff3b3b;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+        position: absolute;
+        rotate: 90deg;
+        right: -10px;
+        top: 47%;
+      }
+      button {
+        color: #012;
+        padding: 12px 20px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 6px 22px rgba(6, 182, 212, 0.3);
+
+        height: 80px;
+        width: 160px;
+        border: none;
+        background: #fff;
+        border-radius: 80px;
+        top: 40%;
+        margin: 0;
+        border: 15px solid #ffd400;
+        left: -40px;
+        position: absolute;
+      }
+      .wheel-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      #result {
+        display: none;
+        margin-top: 14px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wheel-container">
+      <canvas id="wheel" width="420" height="420"></canvas>
+      <div class="pointer"></div>
+      <button id="spin">بگردون</button>
+      <div id="result">نتیجه: —</div>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("wheel");
+      const ctx = canvas.getContext("2d");
+      const W = canvas.width;
+      const H = canvas.height;
+      const cx = W / 2;
+      const cy = H / 2;
+      const radius = Math.min(W, H) / 2 - 8;
+
+      const segments = [
+        { label: "🔶 50% تخفیف", color: "#2743da" },
+        { label: "🎁 هدیه", color: "#2743da" },
+        { label: "❌ هیچ‌چی", color: "#2743da" },
+        { label: "💎 جایزه ویژه", color: "#2743da" },
+        { label: "🍪 کوپن", color: "#2743da" },
+      ];
+
+      let rotation = 0;
+      let spinning = false;
+      let animationId = null;
+
+      const n = segments.length;
+      const anglePer = (Math.PI * 2) / n;
+      const redAngle = 0; // وسط لایه قرمز
+
+      function drawWheel() {
+        ctx.clearRect(0, 0, W, H);
+
+        for (let i = 0; i < n; i++) {
+          const start = rotation + i * anglePer;
+          const end = start + anglePer;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.arc(cx, cy, radius, start, end);
+          ctx.closePath();
+          ctx.fillStyle = segments[i].color;
+          ctx.fill();
+
+          ctx.save();
+          ctx.translate(cx, cy);
+          const mid = start + anglePer / 2;
+          ctx.rotate(mid);
+          ctx.textAlign = "right";
+          ctx.fillStyle = "#021124";
+          ctx.font = "bold 15px sans-serif";
+          ctx.fillText(segments[i].label, radius - 12, 6);
+          ctx.restore();
+        }
+
+        // لایه قرمز ثابت
+        const alpha = anglePer / 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, alpha, Math.PI * 2 - alpha);
+        ctx.closePath();
+        ctx.fillStyle = "#ffd400";
+        ctx.fill();
+
+        // مرکز
+        ctx.beginPath();
+        ctx.arc(cx, cy, 44, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0,0,0,0.35)";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(cx, cy, 36, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.03)";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius + 4, 0, Math.PI * 2);
+        ctx.strokeStyle = "#142caf";
+        ctx.lineWidth = 10;
+        ctx.stroke();
+      }
+
+      let targetRotation = 0;
+      let velocity = 0;
+
+      function animate() {
+        if (!spinning) return;
+
+        // حرکت روان به سمت targetRotation
+        const diff = targetRotation - rotation;
+        velocity += diff * 0.05; // شتاب به سمت هدف
+        velocity *= 0.95; // اصطکاک برای آرام شدن
+        rotation += velocity;
+
+        if (Math.abs(velocity) < 0.0001 && Math.abs(diff) < 0.0001) {
+          rotation = targetRotation;
+          spinning = false;
+          announceResult();
+        }
+
+        drawWheel();
+        animationId = requestAnimationFrame(animate);
+      }
+
+      function spin() {
+        if (spinning) return;
+        spinning = true;
+
+        // انتخاب آیتم تصادفی
+        const index = Math.floor(Math.random() * n);
+
+        // زاویه هدف دقیق برای قرارگیری آیتم زیر لایه قرمز
+        targetRotation =
+          -(index * anglePer + anglePer / 2 - redAngle) -
+          2 * Math.PI * (5 + Math.floor(Math.random() * 3));
+
+        velocity = 0;
+        animate();
+      }
+
+      function announceResult() {
+        const normalized =
+          ((-rotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+        const index = Math.floor(normalized / anglePer) % n;
+        const seg = segments[index];
+        document.getElementById("result").textContent = "نتیجه: " + seg.label;
+      }
+
+      // آیتم اولیه هنگام بارگذاری
+      const initialIndex = Math.floor(Math.random() * n);
+      rotation = -(initialIndex * anglePer + anglePer / 2 - redAngle);
+      drawWheel();
+      announceResult();
+
+      document.getElementById("spin").addEventListener("click", spin);
+    </script>
+  </body>
+</html>

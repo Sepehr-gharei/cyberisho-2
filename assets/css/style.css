@@ -3578,6 +3578,9 @@ header .small-responsive {
   }
 }
 @media (max-width: 992px) {
+  .latest-blog-main-section .main-section .left-wrapper .blogs-items .item .text-field  {
+    width: 90%;
+  }
   .cyberisho-reasons-section .cyberisho-reasons-container {
     height: 440px;
   }
