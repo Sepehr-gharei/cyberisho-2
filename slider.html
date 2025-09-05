@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اسلایدر لوپ با افکت بلور پیشرونده</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 20px;
+      }
+      .swiper {
+        width: 100%;
+        height: 380px; /* تنظیم ارتفاع برای تطبیق با اسلاید وسط */
+        padding: 50px 0;
+      }
+      .swiper-slide {
+        width: 320px; /* عرض اسلایدهای کناری */
+        height: 210px; /* ارتفاع اسلایدهای کناری */
+        border-radius: 18px;
+        overflow: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+        position: relative;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .swiper-slide::after {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        height: 100%;
+        background-color: #3f628b69;
+        top: 0;
+        content: "";
+        left: 0;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .slide-content {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+
+        padding: 20px;
+        color: white;
+        text-align: center;
+        z-index: 2;
+      }
+      .slide-content p {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+      /* تنظیمات برای اسلایدهای کناری */
+      .swiper-slide:not(.swiper-slide-active) {
+        transform: scale(0.9); /* اسلایدهای کناری کوچکتر */
+      }
+      .swiper-slide:not(.swiper-slide-active) .slide-content {
+        bottom: 0;
+        top: unset;
+      }
+      .swiper-slide:not(.swiper-slide-active) .slide-content p {
+        font-size: 18px;
+      }
+      /* هایلایت اسلاید فعال */
+      .swiper-slide-active {
+        width: 370px;
+        height: 220px;
+        transform: scale(1); /* مقیاس کامل برای اسلاید وسط */
+        opacity: 1;
+        z-index: 2;
+        filter: blur(0px) !important;
+      }
+      /* اعمال افکت بلور بر اساس موقعیت */
+      .swiper-slide-prev-prev,
+      .swiper-slide-next-next {
+        filter: blur(5px);
+      }
+      .swiper-slide-prev,
+      .swiper-slide-next {
+        filter: blur(3px);
+      }
+      @media (max-width: 768px) {
+        .swiper {
+          height: 340px; /* ارتفاع کمتر برای موبایل */
+        }
+        .swiper-slide {
+          width: 280px; /* عرض کوچکتر برای اسلایدهای کناری در موبایل */
+          height: 180px; /* ارتفاع کوچکتر برای اسلایدهای کناری */
+        }
+        .swiper-slide-active {
+          width: 360px; /* عرض اسلاید وسط در موبایل */
+          height: 234px; /* ارتفاع اسلاید وسط در موبایل (حفظ نسبت 400/260) */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper portfolioSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400"
+            alt="Landscape 1"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از کوهستان و دریاچه</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400"
+            alt="Landscape 2"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای زمستانی از قله‌های برفی</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?auto=format&fit=crop&w=400"
+            alt="Landscape 3"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از جنگل و رودخانه</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1509233725247-49e657c61113?auto=format&fit=crop&w=400"
+            alt="Landscape 4"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از امواج دریا و صخره‌ها</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=400"
+            alt="Landscape 5"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از امواج دریا بر روی سنگ‌ها</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1470770841072-f978cf13d08c?auto=format&fit=crop&w=400"
+            alt="Landscape 6"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از آبشار در جنگل</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400"
+            alt="Landscape 7"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از غروب خورشید</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?auto=format&fit=crop&w=400"
+            alt="Landscape 8"
+          />
+          <div class="slide-content">
+            <p>منظره‌ای از یک دره سرسبز</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".portfolioSwiper", {
+          loop: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          spaceBetween: 30,
+          initialSlide: 2,
+          grabCursor: true,
+          speed: 600,
+          updateOnWindowResize: true,
+          on: {
+            init: function () {
+              updateBlurEffect(this);
+            },
+            slideChangeTransitionEnd: function () {
+              updateBlurEffect(this);
+            },
+          },
+        });
+        // تابع برای به‌روزرسانی افکت بلور
+        function updateBlurEffect(swiperInstance) {
+          // حذف کلاس‌های قبلی
+          const slides = swiperInstance.slides;
+          slides.forEach((slide) => {
+            slide.classList.remove(
+              "swiper-slide-prev",
+              "swiper-slide-next",
+              "swiper-slide-prev-prev",
+              "swiper-slide-next-next"
+            );
+          });
+          // پیدا کردن اندیس اسلاید فعال
+          const activeIndex = swiperInstance.activeIndex;
+          // اضافه کردن کلاس‌های جدید بر اساس موقعیت
+          slides.forEach((slide, index) => {
+            const slideIndex = parseInt(
+              slide.getAttribute("data-swiper-slide-index")
+            );
+            const realIndex = swiperInstance.slides.indexOf(slide);
+            // محاسبه فاصله از اسلاید فعال
+            let distance;
+            if (swiperInstance.params.loop) {
+              // در حالت loop محاسبه فاصله پیچیده‌تر است
+              const totalSlides = slides.length;
+              const activeRealIndex = swiperInstance.realIndex;
+              const slideRealIndex = parseInt(
+                slide.getAttribute("data-swiper-slide-index")
+              );
+              // محاسبه فاصله با در نظر گرفتن loop
+              let diff = Math.abs(activeRealIndex - slideRealIndex);
+              distance = Math.min(diff, totalSlides - diff);
+            } else {
+              distance = Math.abs(activeIndex - index);
+            }
+            // اعمال کلاس‌ها بر اساس فاصله
+            if (distance === 1) {
+              slide.classList.add(
+                index < activeIndex ? "swiper-slide-prev" : "swiper-slide-next"
+              );
+            } else if (distance === 2) {
+              slide.classList.add(
+                index < activeIndex
+                  ? "swiper-slide-prev-prev"
+                  : "swiper-slide-next-next"
+              );
+            } else if (distance >= 3) {
+              slide.classList.add(
+                index < activeIndex
+                  ? "swiper-slide-prev-prev"
+                  : "swiper-slide-next-next"
+              );
+              // برای فاصله‌های بیشتر، بلور بیشتری اعمال می‌کنیم
+              slide.style.filter = `blur(${5 + (distance - 2) * 2}px)`;
+            } else {
+              slide.style.filter = "";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

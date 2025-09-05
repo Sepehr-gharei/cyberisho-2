@@ -1,202 +1,164 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>چرخونهٔ شانسی</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rect Player 150x30</title>
     <style>
-      body {
-        margin: 0;
+      .voice-field {
+        width: 150px; /* ⇦ عرض جدید */
+        height: 30px; /* ⇦ ارتفاع جدید */
+        margin-top: 16px;
+      }
+
+      .voice-field .player {
+        position: relative;
+        width: 100%;
+        height: 100%;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 3px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        overflow: hidden; /* برای اینکه گرادیان از کادر بیرون نزنه */
+      }
+
+      .voice-field button {
+        width: 100%;
+        height: 100%;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
-        font-family: sans-serif;
+        background: white;
       }
 
-      canvas {
-        background: transparent;
-        border-radius: 50%;
+      .voice-field button svg {
+        width: 14px;
+        height: 14px;
       }
-      .pointer {
-        width: 0;
-        height: 0;
-        border-left: 18px solid transparent;
-        border-right: 18px solid transparent;
-        border-top: 30px solid #ff3b3b;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
-        position: absolute;
-        rotate: 90deg;
-        right: -10px;
-        top: 47%;
-      }
-      button {
-        color: #012;
-        padding: 12px 20px;
-        font-weight: 700;
-        cursor: pointer;
-        box-shadow: 0 6px 22px rgba(6, 182, 212, 0.3);
 
-        height: 80px;
-        width: 160px;
-        border: none;
-        background: #fff;
-        border-radius: 80px;
-        top: 40%;
-        margin: 0;
-        border: 15px solid #ffd400;
-        left: -40px;
+      .voice-field .border-frame {
         position: absolute;
+        inset: 0;
+        border-radius: 6px;
+        box-sizing: border-box;
       }
-      .wheel-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-      }
-      #result {
-        display: none;
-        margin-top: 14px;
-        font-weight: bold;
-        font-size: 16px;
+
+      .voice-field .progress-border {
+        position: absolute;
+        inset: 0;
+        border-radius: 6px;
+        pointer-events: none;
+        height: 161px;
+        left: 58px;
+        top: -63px;
+        width: 40px;
+        /* همون نوار پیشرفت؛ از بالا-وسط شروع می‌کنه */
+        background: conic-gradient(
+          rgb(94, 94, 255) 0deg,
+          rgb(94, 94, 255) 0deg,
+          transparent 0deg
+        );
+        transform: rotate(-90deg);
       }
     </style>
   </head>
   <body>
-    <div class="wheel-container">
-      <canvas id="wheel" width="420" height="420"></canvas>
-      <div class="pointer"></div>
-      <button id="spin">بگردون</button>
-      <div id="result">نتیجه: —</div>
+    <div class="voice-field">
+      <div class="player">
+        <div class="border-frame"></div>
+        <div class="progress-border"></div>
+
+        <button>
+          <!-- آیکون قبل از پخش -->
+          <svg id="play-icon" viewBox="0 0 330 330">
+            <path
+              d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+              c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+              C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+              fill="black"
+            ></path>
+          </svg>
+        </button>
+
+        <audio src="./central.mp3" preload="none"></audio>
+      </div>
     </div>
 
     <script>
-      const canvas = document.getElementById("wheel");
-      const ctx = canvas.getContext("2d");
-      const W = canvas.width;
-      const H = canvas.height;
-      const cx = W / 2;
-      const cy = H / 2;
-      const radius = Math.min(W, H) / 2 - 8;
+      const players = document.querySelectorAll(".player");
 
-      const segments = [
-        { label: "🔶 50% تخفیف", color: "#2743da" },
-        { label: "🎁 هدیه", color: "#2743da" },
-        { label: "❌ هیچ‌چی", color: "#2743da" },
-        { label: "💎 جایزه ویژه", color: "#2743da" },
-        { label: "🍪 کوپن", color: "#2743da" },
-      ];
+      players.forEach((player) => {
+        const btn = player.querySelector("button");
+        const audio = player.querySelector("audio");
+        const border = player.querySelector(".progress-border");
+        let playing = false;
 
-      let rotation = 0;
-      let spinning = false;
-      let animationId = null;
+        // رنگ اولیه
+        player.style.backgroundColor = "black";
 
-      const n = segments.length;
-      const anglePer = (Math.PI * 2) / n;
-      const redAngle = 0; // وسط لایه قرمز
+        const playSVG = `
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" fill="white" fill-opacity="0.01"/>
+            <path d="M16 12V36" stroke="blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 12V36" stroke="blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
 
-      function drawWheel() {
-        ctx.clearRect(0, 0, W, H);
+        const pauseSVG = `
+          <svg id="play-button-icon" viewBox="0 0 330 330">
+            <path d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+              c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+              C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z" fill="black"></path>
+          </svg>`;
 
-        for (let i = 0; i < n; i++) {
-          const start = rotation + i * anglePer;
-          const end = start + anglePer;
-          ctx.beginPath();
-          ctx.moveTo(cx, cy);
-          ctx.arc(cx, cy, radius, start, end);
-          ctx.closePath();
-          ctx.fillStyle = segments[i].color;
-          ctx.fill();
+        btn.addEventListener("click", () => {
+          if (!playing) {
+            audio
+              .play()
+              .then(() => {
+                btn.innerHTML = playSVG;
+                player.style.backgroundColor = "black";
+                playing = true;
+              })
+              .catch((err) => console.log(err));
+          } else {
+            audio.pause();
+            btn.innerHTML = pauseSVG;
+            player.style.backgroundColor = "black";
+            playing = false;
+          }
+        });
 
-          ctx.save();
-          ctx.translate(cx, cy);
-          const mid = start + anglePer / 2;
-          ctx.rotate(mid);
-          ctx.textAlign = "right";
-          ctx.fillStyle = "#021124";
-          ctx.font = "bold 15px sans-serif";
-          ctx.fillText(segments[i].label, radius - 12, 6);
-          ctx.restore();
-        }
+        audio.addEventListener("timeupdate", () => {
+          if (audio.duration > 0) {
+            const progress = audio.currentTime / audio.duration;
+            const angle = progress * 360;
+            border.style.background = `conic-gradient(
+              rgb(94, 94, 255) 0deg ${angle}deg,
+              transparent ${angle}deg 360deg
+            )`;
+          }
+        });
 
-        // لایه قرمز ثابت
-        const alpha = anglePer / 2;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.arc(cx, cy, radius, alpha, Math.PI * 2 - alpha);
-        ctx.closePath();
-        ctx.fillStyle = "#ffd400";
-        ctx.fill();
-
-        // مرکز
-        ctx.beginPath();
-        ctx.arc(cx, cy, 44, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0,0,0,0.35)";
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(cx, cy, 36, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.03)";
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius + 4, 0, Math.PI * 2);
-        ctx.strokeStyle = "#142caf";
-        ctx.lineWidth = 10;
-        ctx.stroke();
-      }
-
-      let targetRotation = 0;
-      let velocity = 0;
-
-      function animate() {
-        if (!spinning) return;
-
-        // حرکت روان به سمت targetRotation
-        const diff = targetRotation - rotation;
-        velocity += diff * 0.05; // شتاب به سمت هدف
-        velocity *= 0.95; // اصطکاک برای آرام شدن
-        rotation += velocity;
-
-        if (Math.abs(velocity) < 0.0001 && Math.abs(diff) < 0.0001) {
-          rotation = targetRotation;
-          spinning = false;
-          announceResult();
-        }
-
-        drawWheel();
-        animationId = requestAnimationFrame(animate);
-      }
-
-      function spin() {
-        if (spinning) return;
-        spinning = true;
-
-        // انتخاب آیتم تصادفی
-        const index = Math.floor(Math.random() * n);
-
-        // زاویه هدف دقیق برای قرارگیری آیتم زیر لایه قرمز
-        targetRotation =
-          -(index * anglePer + anglePer / 2 - redAngle) -
-          2 * Math.PI * (5 + Math.floor(Math.random() * 3));
-
-        velocity = 0;
-        animate();
-      }
-
-      function announceResult() {
-        const normalized =
-          ((-rotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
-        const index = Math.floor(normalized / anglePer) % n;
-        const seg = segments[index];
-        document.getElementById("result").textContent = "نتیجه: " + seg.label;
-      }
-
-      // آیتم اولیه هنگام بارگذاری
-      const initialIndex = Math.floor(Math.random() * n);
-      rotation = -(initialIndex * anglePer + anglePer / 2 - redAngle);
-      drawWheel();
-      announceResult();
-
-      document.getElementById("spin").addEventListener("click", spin);
+        audio.addEventListener("ended", () => {
+          playing = false;
+          btn.innerHTML = pauseSVG;
+          player.style.backgroundColor = "white";
+          border.style.background = `conic-gradient(
+            rgb(94, 94, 255) 0deg 0deg,
+            transparent 0deg 360deg
+          )`;
+        });
+      });
     </script>
   </body>
 </html>

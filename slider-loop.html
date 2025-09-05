@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اسلایدر تصاویر با افکت بلور</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+ 
+      .slider-swiper {
+        border-radius: 20px;
+        padding: 0 40px;
+        width: 70%;
+        margin: 30px auto;
+        background: #f1fdfc;
+        position: relative;
+        overflow: hidden;
+      }
+    
+      .swiper {
+        width: 100%;
+        padding: 8px 0;
+        position: relative;
+        z-index: 1;
+      }
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        border-radius: 6px;
+        padding: 0 19px;
+        transition: filter 0.3s ease;
+      }
+      .swiper-slide img {
+        width: 100%;
+        max-width: 90px;
+        min-width: 70px;
+        height: 55px;
+        object-fit: contain;
+        border-radius: 4px;
+        filter: grayscale(100%);
+      }
+      
+      /* استایل برای اسلایدهای فعال و غیرفعال */
+      .swiper-slide:not(.swiper-slide-active, .swiper-slide-next, .swiper-slide-prev) {
+        filter: blur(3px);
+      }
+      
+      .swiper-slide:not(.swiper-slide-active, .swiper-slide-next, .swiper-slide-prev, .swiper-slide-next + .swiper-slide, .swiper-slide-prev + .swiper-slide) {
+        filter: blur(5px);
+      }
+      
+      /* اسلایدهای دورتر بلور بیشتری خواهند داشت */
+      .swiper-slide:not(.swiper-slide-active, .swiper-slide-next, .swiper-slide-prev, 
+                         .swiper-slide-next + .swiper-slide, .swiper-slide-prev + .swiper-slide,
+                         .swiper-slide-next + .swiper-slide + .swiper-slide, 
+                         .swiper-slide-prev + .swiper-slide + .swiper-slide) {
+        filter: blur(8px);
+      }
+    </style>
+</head>
+<body>
+    <div class="slider-swiper">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 3" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 4" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 5" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 6" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 7" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 8" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 9" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 10" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 11" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 12" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 13" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 14" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 15" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 4,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          reverseDirection: true,
+        },
+        speed: 2200,
+        direction: "horizontal",
+        breakpoints: {
+          320: { slidesPerView: 3 },
+          480: { slidesPerView: 4 },
+          768: { slidesPerView: 5 },
+          1024: { slidesPerView: 6 },
+        },
+        on: {
+          init: function() {
+            updateBlurEffect(this);
+          },
+          slideChange: function() {
+            updateBlurEffect(this);
+          },
+          transitionEnd: function() {
+            updateBlurEffect(this);
+          }
+        }
+      });
+
+      function updateBlurEffect(swiperInstance) {
+        // حذف کلاس‌های قبلی
+        const slides = swiperInstance.slides;
+        slides.forEach(slide => {
+          slide.style.filter = '';
+          slide.classList.remove('center-slide', 'near-slide', 'far-slide');
+        });
+        
+        // پیدا کردن اسلاید فعال (مرکزی)
+        const activeIndex = swiperInstance.activeIndex;
+        
+        // اعمال افکت بلور بر اساس فاصله از اسلاید مرکزی
+        slides.forEach((slide, index) => {
+          // محاسبه فاصله از اسلاید فعال
+          let distance = Math.abs(index - activeIndex);
+          
+          // در حالت loop، فاصله ممکن است از انتهای آرایه محاسبه شود
+          if (swiperInstance.params.loop) {
+            const realIndex = parseInt(slide.getAttribute('data-swiper-slide-index'));
+            distance = Math.abs(realIndex - swiperInstance.realIndex);
+            // برای حالت loop، فاصله ممکن است از دو طرف محاسبه شود
+            distance = Math.min(distance, slides.length - distance);
+          }
+          
+          // اعمال بلور بر اساس فاصله
+          if (distance === 0) {
+            // اسلاید مرکزی - بدون بلور
+            slide.style.filter = 'blur(0px)';
+            slide.classList.add('center-slide');
+          } else if (distance === 1) {
+            // اسلایدهای نزدیک - بلور کم
+            slide.style.filter = 'blur(1px)';
+            slide.classList.add('near-slide');
+          } else if (distance === 2) {
+            // اسلایدهای دورتر - بلور متوسط
+            slide.style.filter = 'blur(2px)';
+            slide.classList.add('far-slide');
+          } else {
+            // اسلایدهای خیلی دور - بلور زیاد
+            slide.style.filter = 'blur(3px)';
+          }
+        });
+      }
+    </script>
+</body>
+</html>

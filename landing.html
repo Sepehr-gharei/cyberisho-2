@@ -6,6 +6,730 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <style>
+    .spinning-wheel-section {
+      margin-bottom: 200px;
+    }
+    .spinning-wheel-section .spinning-wheel-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .spinning-wheel-section
+      .spinning-wheel-container
+      .header-page-title-section {
+      width: 60%;
+    }
+    .spinning-wheel-section .spinning-wheel-container .wheel-container {
+      width: 350px;
+    }
+
+    .spinning-wheel-section .wheel-container canvas {
+      background: transparent;
+      border-radius: 50%;
+      height: 350px;
+      width: 350px;
+    }
+    .spinning-wheel-section .wheel-container .pointer {
+      position: absolute;
+      rotate: 90deg;
+      right: -11px;
+      top: 44%;
+      display: flex;
+    }
+    .spinning-wheel-section .wheel-container .pointer .main-pointer {
+      rotate: 270deg;
+      width: 37px;
+      height: 52px;
+    }
+    .spinning-wheel-section .wheel-container .pointer .main-pointer image {
+      height: 100%;
+      width: 100%;
+    }
+    .spinning-wheel-section .wheel-container .pointer .right-pointer {
+      top: -13px;
+      left: 12px;
+      rotate: 270deg;
+      position: absolute;
+      z-index: -1;
+      width: 12px;
+      height: 57px;
+    }
+    .spinning-wheel-section .wheel-container .pointer .right-pointer image {
+      width: 12px;
+      height: 57px;
+    }
+    .spinning-wheel-section .wheel-container .base {
+      position: absolute;
+      bottom: -57px;
+      display: flex;
+      z-index: -2;
+      align-items: center;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+    }
+    .spinning-wheel-section .wheel-container button#spin {
+      color: #012;
+      padding: 12px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      height: 80px;
+      width: 160px;
+      border: none;
+      background: #fff;
+      border-radius: 80px;
+      top: 40%;
+      margin: 0;
+      border: 15px solid #ffd400;
+      left: -40px;
+      position: absolute;
+      color: #2743da;
+      font-size: 20px;
+    }
+    .spinning-wheel-section .wheel-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 420px;
+    }
+    .spinning-wheel-section .wheel-container #result {
+      display: none;
+      margin-top: 14px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .spinning-wheel-section .wheel-container .carrousel-voice-field {
+      position: absolute;
+      top: 49%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      width: 105px;
+      height: 105px;
+    }
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      .carrousel-player {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      border-radius: 70px;
+      transition: background-color 0.3s;
+      background: none !important;
+    }
+    .spinning-wheel-section .wheel-container .carrousel-voice-field button {
+      width: 100%;
+      height: 100%;
+      color: black;
+      border: none;
+      border-radius: 70px;
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      padding: 10px;
+      background: #ffd400;
+    }
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      button
+      .inside {
+      display: flex;
+      background: #142caf;
+      justify-content: center;
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+    }
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      .border-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 70px;
+      box-sizing: border-box;
+      background: conic-gradient(
+        from 135deg,
+        rgba(255, 255, 255, 0.3) 0deg 270deg,
+        transparent 270deg 360deg
+      );
+      pointer-events: none;
+    }
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      .progress-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 70px;
+      pointer-events: none;
+      background: conic-gradient(
+        from 135deg,
+        rgba(255, 255, 255, 0.8) 0deg 0deg,
+        transparent 0deg 360deg
+      );
+    }
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      button
+      .inside
+      svg {
+      width: 38px;
+      height: 38px;
+    }
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      button
+      .inside
+      svg#play-icon,
+    .spinning-wheel-section
+      .wheel-container
+      .carrousel-voice-field
+      button
+      .inside
+      svg#play-button-icon {
+      width: 32px;
+      height: 32px;
+      margin-left: 5px;
+    }
+    .spinning-wheel-section .header-page-title-section .buttons {
+      margin-top: 35px;
+      display: flex;
+    }
+    .spinning-wheel-section .header-page-title-section .buttons .blue-button {
+      margin-left: 30px;
+      border-radius: 80px;
+      background: var(--background-medium-blue-color);
+      padding: 10px 30px;
+    }
+    .spinning-wheel-section .header-page-title-section .buttons .blue-button a {
+      color: var(--text-white-color);
+    }
+    .spinning-wheel-section .header-page-title-section .buttons .normal-button {
+      border-radius: 80px;
+      border: 1px solid var(--background-medium-blue-color);
+      padding: 10px 30px;
+    }
+    .spinning-wheel-section
+      .header-page-title-section
+      .buttons
+      .normal-button
+      a {
+      color: var(--text-dark-blue-color);
+    }
+
+    .project-brand-landing-section .slider-swiper {
+      border-radius: 20px;
+      padding: 0 47px;
+      width: 100%;
+      margin: 0px auto;
+      background: var(--background-blur-light-blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-brand-landing-section .swiper {
+      width: 100%;
+      padding: 8px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .project-brand-landing-section .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border-radius: 6px;
+      padding: 0 19px;
+      transition: filter 0.3s ease;
+    }
+    .project-brand-landing-section .swiper-slide img {
+      width: 100%;
+      max-width: 90px;
+      min-width: 70px;
+      height: 55px;
+      object-fit: contain;
+      border-radius: 4px;
+      filter: grayscale(100%);
+    }
+
+    /* استایل برای اسلایدهای فعال و غیرفعال */
+    .project-brand-landing-section
+      .swiper-slide:not(
+        .swiper-slide-active,
+        .swiper-slide-next,
+        .swiper-slide-prev
+      ) {
+      filter: blur(3px);
+    }
+
+    .project-brand-landing-section
+      .swiper-slide:not(
+        .swiper-slide-active,
+        .swiper-slide-next,
+        .swiper-slide-prev,
+        .swiper-slide-next + .swiper-slide,
+        .swiper-slide-prev + .swiper-slide
+      ) {
+      filter: blur(5px);
+    }
+
+    /* اسلایدهای دورتر بلور بیشتری خواهند داشت */
+    .project-brand-landing-section
+      .swiper-slide:not(
+        .swiper-slide-active,
+        .swiper-slide-next,
+        .swiper-slide-prev,
+        .swiper-slide-next + .swiper-slide,
+        .swiper-slide-prev + .swiper-slide,
+        .swiper-slide-next + .swiper-slide + .swiper-slide,
+        .swiper-slide-prev + .swiper-slide + .swiper-slide
+      ) {
+      filter: blur(8px);
+    }
+    .project-brand-landing-container {
+      display: flex;
+      position: relative;
+      height: 210px;
+    }
+    .project-brand-landing-container .project-text-wrapper {
+      padding: 30px 70px;
+      border-radius: 25px;
+      background: var(--background-medium-blue-color);
+      color: var(--text-white-color);
+      height: 100%;
+      width: 28%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .project-brand-landing-container .project-text-wrapper .top-text {
+      display: flex;
+    }
+    .project-brand-landing-container .project-text-wrapper .top-text .number {
+      width: 72%;
+      font-size: 50px;
+    }
+    .project-brand-landing-container .project-text-wrapper .top-text .text {
+      width: 22%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      font-size: 21px;
+    }
+    .project-brand-landing-container .project-text-wrapper .bott-text {
+      font-size: 21px;
+    }
+    .project-brand-landing-container .brand-wrapper {
+      top: 50%;
+      left: 0;
+      width: 75%;
+      position: absolute;
+      transform: translatey(-50%);
+      height: 70%;
+    }
+    .project-brand-landing-container .brand-wrapper .slider-swiper {
+      height: 100%;
+      display: flex;
+    }
+  </style>
+  <style>
+    .specifications-item-section {
+      margin: 125px 0;
+    }
+    .specifications-item-section {
+      position: relative;
+    }
+    .specifications-item-section::after {
+      width: 300px;
+      height: 1px;
+      content: "";
+      box-shadow: 4px 0px 199px 180px
+        var(--background-gradient-light-blue-color);
+      z-index: -1;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      background-color: var(--background-gradient-light-blue-color);
+    }
+    .landing-item-section .title-wrapper {
+      display: flex;
+      justify-self: center;
+      align-items: center;
+    }
+    .landing-item-section .title-wrapper h3 {
+      font-size: 26px;
+      margin-left: 10px;
+    }
+
+    .landing-item-section .title-wrapper .voice-field {
+      width: 160px;
+      height: 40px;
+    }
+
+    .landing-item-section .title-wrapper .voice-field .player {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--background-color);
+      padding: 2px;
+      border-radius: 60px;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+
+    .landing-item-section .title-wrapper .voice-field button {
+      width: 100%;
+      height: 100%;
+      color: black;
+      border: none;
+      border-radius: 60px;
+      font-size: 14px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--background-color);
+    }
+
+    .landing-item-section .title-wrapper .voice-field button svg {
+      width: 26px;
+      height: 26px;
+    }
+    .landing-item-section .title-wrapper .voice-field button .pause-svg {
+      width: 30px;
+      height: 40px;
+    }
+    .landing-item-section.title-wrapper .voice-field button p {
+      margin-left: 5px;
+      font-size: 16px;
+    }
+    .landing-item-section.title-wrapper .voice-field .border-frame {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .landing-item-section .title-wrapper .voice-field .progress-border {
+      position: absolute;
+      inset: 0;
+      border-radius: 60px;
+      pointer-events: none;
+      height: 163px;
+      width: 42px;
+      right: 0;
+      right: 59px;
+      top: -61px;
+      /* همون نوار پیشرفت؛ از بالا-وسط شروع می‌کنه */
+      background: conic-gradient(
+        var(--text-medium-blue-color) 0deg,
+        var(--text-medium-blue-color) 0deg,
+        transparent 0deg
+      );
+      transform: rotate(-90deg);
+    }
+    .specifications-item-section .main-items {
+      justify-content: space-between;
+      padding: 0 80px;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      margin-top: 50px;
+    }
+    .specifications-item-section .main-items .purple-ball-icon {
+      right: 36%;
+      height: 28px;
+      width: 28px;
+      position: absolute;
+      top: -40px;
+    }
+    .specifications-item-section .main-items .purple-ball-icon .inside {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .specifications-item-section .main-items .purple-ball-icon svg {
+      height: 100%;
+      width: 100%;
+    }
+    .specifications-item-section .main-items .purple-ball-icon .inside::after {
+      height: 5px;
+      width: 5px;
+      bottom: -30px;
+      box-shadow: 0px 0px 25px 6px #6569ff;
+      background-color: #6569ff;
+      position: absolute;
+      content: "";
+      right: 70%;
+      border-radius: 50%;
+    }
+    .specifications-item-section .main-items .purple-ball-icon.item-two {
+      right: 10%;
+      height: 40px;
+      width: 40px;
+      z-index: 1;
+      position: absolute;
+      top: 42%;
+    }
+    .specifications-item-section .main-items .purple-ball-icon.item-three {
+      right: 89%;
+      height: 160px;
+      width: 160px;
+      z-index: -1;
+      position: absolute;
+      top: 33%;
+    }
+    .specifications-item-section
+      .main-items
+      .purple-ball-icon.purple-ball-icon.item-two
+      .inside::after {
+      height: 5px;
+      width: 5px;
+      bottom: -30px;
+      box-shadow: 0px 0px 13px 11px #6569ff;
+      background-color: #6569ff;
+      position: absolute;
+      content: "";
+      opacity: 0.5;
+      right: 70%;
+      border-radius: 50%;
+    }
+    .specifications-item-section
+      .main-items
+      .purple-ball-icon.purple-ball-icon.item-three
+      .inside::after {
+      display: none;
+    }
+    .specifications-item-section .main-items .purple-ball-icon svg image {
+      width: 100%;
+      height: 100%;
+    }
+    .specifications-item-section .main-items::after {
+      width: 45px;
+      height: 9px;
+      z-index: -1;
+      content: "";
+      box-shadow: 0px 0px 90px 94px
+        var(--background-gradient-light-Turquoise-color);
+      position: absolute;
+      left: 50%;
+      z-index: -2;
+      top: 50%;
+      transform: translate(-50%);
+      background-color: var(--background-gradient-light-Turquoise-color);
+    }
+
+    .specifications-item-section .main-items .item {
+      padding: 50px 30px;
+      margin-bottom: 20px;
+      display: flex;
+      width: 49%;
+      border-radius: 24px;
+      background: var(--background-white-light-transparent);
+      border: 1px solid var(--border-header-nav-color);
+      backdrop-filter: blur(5px);
+    }
+    .specifications-item-section .main-items .item .icon-wrapper {
+      width: 25%;
+    }
+
+    .specifications-item-section .main-items .item .icon-wrapper svg {
+      width: 100%;
+      height: 100%;
+    }
+    .specifications-item-section .main-items .item .text-wrapper {
+      font-size: 18px;
+      text-align: justify;
+      padding: 0 45px 0 30px;
+      line-height: 2.2rem;
+      width: 75%;
+    }
+    .specifications-item-section .main-items .item .text-wrapper .title {
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 22px;
+    }
+  </style>
+
+  <style>
+    .portfolio-landing-item-section .portfolio-landing-item-container .swiper {
+      width: 100%;
+      height: 380px; /* تنظیم ارتفاع برای تطبیق با اسلاید وسط */
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper
+      .swiper-wrapper {
+      align-items: center;
+      display: flex;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide {
+      width: 320px; /* عرض اسلایدهای کناری */
+      height: 210px; /* ارتفاع اسلایدهای کناری */
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+      position: relative;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide::after {
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+      height: 100%;
+      background-color: #3f628b69;
+      top: 0;
+      content: "";
+      left: 0;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide
+      img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .slide-content {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+
+      padding: 20px;
+      color: white;
+      text-align: center;
+      z-index: 2;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .slide-content
+      p {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    /* تنظیمات برای اسلایدهای کناری */
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide:not(.swiper-slide-active) {
+      transform: scale(0.9); /* اسلایدهای کناری کوچکتر */
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide:not(.swiper-slide-active)
+      .slide-content {
+      bottom: 0;
+      top: unset;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide:not(.swiper-slide-active)
+      .slide-content
+      p {
+      font-size: 18px;
+    }
+    /* هایلایت اسلاید فعال */
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide-active {
+      width: 370px;
+      height: 220px;
+      transform: scale(1); /* مقیاس کامل برای اسلاید وسط */
+      opacity: 1;
+      z-index: 2;
+      filter: blur(0px) !important;
+    }
+    /* اعمال افکت بلور بر اساس موقعیت */
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide-prev-prev,
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide-next-next {
+      filter: blur(5px);
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide-prev,
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .swiper-slide-next {
+      filter: blur(3px);
+    }
+    @media (max-width: 768px) {
+      .portfolio-landing-item-section
+        .portfolio-landing-item-container
+        .swiper {
+        height: 340px; /* ارتفاع کمتر برای موبایل */
+      }
+      .portfolio-landing-item-section
+        .portfolio-landing-item-container
+        .swiper-slide {
+        width: 280px; /* عرض کوچکتر برای اسلایدهای کناری در موبایل */
+        height: 180px; /* ارتفاع کوچکتر برای اسلایدهای کناری */
+      }
+      .portfolio-landing-item-section
+        .portfolio-landing-item-container
+        .swiper-slide-active {
+        width: 360px; /* عرض اسلاید وسط در موبایل */
+        height: 234px; /* ارتفاع اسلاید وسط در موبایل (حفظ نسبت 400/260) */
+      }
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .button-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .portfolio-landing-item-section
+      .portfolio-landing-item-container
+      .button-wrapper
+      a {
+      font-size: 18px;
+      border-radius: 50px;
+      background: var(--background-medium-blue-color);
+      padding: 12px 25px;
+      color: var(--text-white-color);
+    }
+  </style>
   <body dir="rtl">
     <svg style="display: none">
       <symbol id="logo-icon" viewBox="0 0 1920 739">
@@ -191,46 +915,861 @@
       </div>
     </header>
     <main>
-      <section class="spinning-wheel" >
-        <div class="container" >
-            <div class="row" >
-                <aside class="header-page-title-section">
-                    <div class="row">
-                      <div class="col-12 title-headerRental">
-                        <small>CONTACT US</small>
-                        <h2>تماس با ما</h2>
-                      </div>
-                      <nav class="col-12 breadcrumb" aria-label="مسیر یابی">
-                        <ol class="d-flex">
-                          <li class="home-page">
-                            <a href="/" aria-label="صفحه اصلی">
-                              <svg aria-hidden="true">
-                                <use href="#house-icon"></use>
-                              </svg>
-                            </a>
-                          </li>
-                          <li class="arrow-icon">
-                            <svg aria-hidden="true">
-                              <use href="#double-arrow-icon"></use>
-                            </svg>
-                          </li>
-                          <li class="breadcrumb-page"><a href="">تماس با ما</a></li>
-                        </ol>
-                      </nav>
-                      <div class="col-12 content-title-text">
-                        <p id="main-text" class="main-text">
-                          هفت روز هفته و 24 ساعته حتی در ایام تعطیل، واحدهای فروش و پشتیبانی
-                          سایبریشو از طریق تیکت، تلفن، شبکه‌های اجتماعی، پیام رسان‌ها و
-                          ایمیل آماده پاسخگویی به شما کاربران گرامی می‌باشند.
-                        </p>
-                      </div>
-                    </div>
-                  </aside>
-                  <aside></aside>
+      <section class="spinning-wheel-section">
+        <div class="container spinning-wheel-container">
+          <aside class="header-page-title-section">
+            <div class="row">
+              <div class="col-12 title-headerRental">
+                <small>WEBSITE DESIGN</small>
+                <h2>طراحی سایت</h2>
+              </div>
+              <nav class="col-12 breadcrumb" aria-label="مسیر یابی">
+                <ol class="d-flex">
+                  <li class="home-page">
+                    <a href="/" aria-label="صفحه اصلی">
+                      <svg aria-hidden="true">
+                        <use href="#house-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="arrow-icon">
+                    <svg aria-hidden="true">
+                      <use href="#double-arrow-icon"></use>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-page"><a href="">طراحی سایت</a></li>
+                </ol>
+              </nav>
+              <div class="col-12 content-title-text">
+                <p id="main-text" class="main-text">
+                  به تمامی سـوالات و ابهامات شما در مورد طراحی وب سایت، بطور
+                  سریع، واضـح و شفاف در قالب گـردونـه مقابل پاسخ داده ایم. اگر
+                  در مورد قیمت، زمان، نحوه انجام، تکنولوژی اجرایی و... سوالی
+                  دارید پیشنهاد می کنیم گــــــردونـــــــه را
+                  بچــــــرخانیــــــــد!
+                </p>
+              </div>
+              <div class="col-12 buttons">
+                <div class="blue-button">
+                  <a href="">مشاوره رایگان</a>
+                </div>
+                <div class="normal-button">
+                  <a href="">نمونه کارها</a>
+                </div>
+              </div>
             </div>
+          </aside>
+          <aside class="wheel-container">
+            <canvas id="wheel" width="420" height="420"></canvas>
+            <div class="pointer">
+              <svg
+                class="main-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="50px"
+                height="60px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="50px"
+                  height="60px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA8CAMAAAAT6xnzAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB5lBMVEX/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD/1AD////2B/ZoAAAAoHRSTlMABTwjHpHiSAlhzvtYOa35cBWA54MGUcmaBCycrgsRdN3BFkq//dIhIJTz4wxk1zQ9/j8fiepQB1rQYi+mcntOxY4qmfUQbtyoQ7m0j+5fyDf80RyC2MzfpPblEnPm6QO97SmX8vDh8ZJGbSiV+OA299oIVxqB7zuywGi2JapHniug9AFPF/pTXc1Ci+w+tS1q29TEGAJLvrENE6KHhrNMbz804QAAAAFiS0dEoSnUjjYAAAAHdElNRQfpCQEWGRzfmc9rAAACCklEQVRIx5XW51cTQRTG4YsCKokgoEQCEjWEGkBQrIhRioqNIipIAMUANtBgFyxgwYpdrLx/qgvBJFtm5s7v+3PO7rkzd5dIq5QVK/UApaalr9ICq9dkwOXWEWszswCs44PsnFwstp4LNuR5EGtjPk94C7KWBQo3cUCRbzPibdnKEP7iQEKgpFQJysorkFylVwGCVdUwV1EjF9sKYa22Tga276iHvZ1isGv3Hji1Vyj2NbgcBfYLQHZjJQTlOIsDIQg76AQONTWLBQrsoKX1MGQdsYmjbZB3zAJKj59QCBSbR3GyWgWAU8miPbNDLdCZAF2ncxkA6I4L9xkWAM4uA++5HqZA7xI43xfmAqDfAAP+QT4ALhBdHLqkIxAh37AWAEZolDMLM6HLbQEtEjFev+hKt+brG129dp1P6mOTzPeH2KQ3frEaudMcSxzL8YYbLHIz6exHJzwcUmK6Yrdu31ETj+Ui373nUpH71m0RfaC6yw/tS2lyVP50Uw6bb+CRdC89dtyvwdYxMUlz3sn05Om0iAg//DPPQgLiI2HPBUeoiiS1T71wIC9lhKKzr+zkNclLffPWInrGSdW792YSnlMSCn74mEw+sf4UJ4dGEuTzFw6hr9++x8n8DxYh+ulL/3/EUpiEaO5XbAv9Zgvj6SaWhtSnQYx7/ieMwKwWMf57/0YWNAm1uL30D4gjo40WIEBNAAAAAElFTkSuQmCC"
+                />
+              </svg>
+              <svg
+                class="right-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="17px"
+                height="70px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="17px"
+                  height="70px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAABGCAMAAAAdOI+HAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABcVBMVEWNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQCNdQD////xx0CZAAAAeXRSTlMABxEGGItlGRXF/O+7bCkQDZvHfUQgd9JnKwFW37x/Njn+8R0LCAW2Ap2G+W/1WvDsM+f64iXr3tka0BTCDrUJqaCZkYmBenVwaGZuc4iPmJ6nsxPAzR/bJOkq9zBAV7HOCur9NFHz5C9x8tO0QwyX1qZ5SqKvPyIDROBwYQAAAAFiS0dEejjVhWoAAAAHdElNRQfpCQEWGgWQ3zRoAAABOklEQVQ4y53U2TdCURQG8EMpJIrSgEu4V8g8JEOZMhUhZJ7neeb8985dsu49335p+d6+38sZ9lqbFRVbmBxric0uS2lZuaPCWVlliMvN9VTXeLx5sdTyfHxuf0CXYB03Ut+gNDLWFOLmNDPWIgtnrNWBovpQtDaUcLsEIXF+hySdQiKSdAnplqRHiEeSXiF9kvQLCQyYZVDI0LBZokK8UbOMCImNooyNo0zEURKTKNoUSngahc0QmSWSJDJHZJ7IQgESIbJIxEZkiYifSOpf90kX8FKFyDKRFfLzGTKdVRR1DcW1jpLdQLFvomzlULZ3UHb3UPY5ygGRQyJOIkmUYAZFO0JRj1FOTlGsZyjn8k7IMXZhtMurePqaaTe/7fbuXnlI6KN5fBL1+eX1Lfa3o7LvH6nPr29jaf0AYCuh5rTBvBoAAAAASUVORK5CYII="
+                />
+              </svg>
+            </div>
+            <div class="base">
+              <svg
+                class="top-base"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="238px"
+                height="283px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="238px"
+                  height="283px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO4AAAEbCAMAAADqGEgOAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC9FBMVEUADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEsADEv///884s5vAAAA+nRSTlMAYRv7H4eGB+vuW2DIzjI5nqUT9vkYdHwC2+MESFSz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"
+                />
+              </svg>
+              <svg
+                class="bott-base"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="272px"
+                height="15px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="rgb(20, 44, 175)"
+                  d="M7.500,-0.000 L264.500,-0.000 C268.642,-0.000 272.000,3.358 272.000,7.500 L272.000,15.000 L-0.000,15.000 L-0.000,7.500 C-0.000,3.358 3.358,-0.000 7.500,-0.000 Z"
+                />
+              </svg>
+            </div>
+            <div class="carrousel-voice-field">
+              <div class="carrousel-player">
+                <div class="border-frame"></div>
+                <div class="progress-border"></div>
+                <button>
+                  <div class="inside">
+                    <svg id="play-icon" viewBox="0 0 330 330">
+                      <path
+                        d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                                          c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                                          C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+                        fill="var(--background-color)"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <audio id="result-audio" preload="auto"></audio>
+              </div>
+            </div>
+            <button id="spin">بچرخان!</button>
+            <div id="result">نتیجه: —</div>
+          </aside>
         </div>
       </section>
-      
+      <section class="project-brand-landing-section">
+        <div class="project-brand-landing-container container">
+          <aside class="project-text-wrapper">
+            <div class="top-text">
+              <div class="number">
+                <p>+4200</p>
+              </div>
+              <div class="text">
+                <p>پـروژه موفق</p>
+              </div>
+            </div>
+            <div class="bott-text">
+              <p>جـای شـــــــــــما خالیسـت...</p>
+            </div>
+          </aside>
+          <aside class="brand-wrapper">
+            <div class="slider-swiper">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 1" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 2" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 3" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 4" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 5" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 6" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 7" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 8" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./assets/img/بـامـا ـــــــل.png" alt="Image 9" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assets/img/بـامـا ـــــــل.png"
+                      alt="Image 10"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assets/img/بـامـا ـــــــل.png"
+                      alt="Image 11"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assets/img/بـامـا ـــــــل.png"
+                      alt="Image 12"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assets/img/بـامـا ـــــــل.png"
+                      alt="Image 13"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assets/img/بـامـا ـــــــل.png"
+                      alt="Image 14"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assets/img/بـامـا ـــــــل.png"
+                      alt="Image 15"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="specifications-item-section landing-item-section">
+        <div class="specifications-item-container container">
+          <div class="title-wrapper">
+            <h3>نمونه کارهای ما</h3>
+            <div class="audio-wrapper">
+              <div class="voice-field">
+                <div class="player">
+                  <div class="border-frame"></div>
+                  <div class="progress-border"></div>
+
+                  <button>
+                    <p>توضیحات بیشتر</p>
+                    <!-- آیکون قبل از پخش -->
+                    <svg id="play-icon" viewBox="0 0 330 330">
+                      <path
+                        d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                        c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                        C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+                        fill="black"
+                      ></path>
+                    </svg>
+                  </button>
+
+                  <audio src="./central.mp3" preload="none"></audio>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main-items">
+            <div class="purple-ball-icon item-one">
+              <div class="inside">
+                <svg>
+                  <image
+                    x="0px"
+                    y="0px"
+                    xlink:href="data:img/png;base64,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"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="purple-ball-icon item-two">
+              <div class="inside">
+                <svg>
+                  <image
+                    x="0px"
+                    y="0px"
+                    xlink:href="data:img/png;base64,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"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="purple-ball-icon item-three">
+              <div class="inside">
+                <svg>
+                  <image
+                    x="0px"
+                    y="0px"
+                    xlink:href="data:img/png;base64,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"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon-wrapper">
+                <svg
+                  width="512pt"
+                  height="512pt"
+                  viewBox="0 0 512 512"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="#000000ff">
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 15.68 36.69 C 23.52 32.75 32.53 34.30 40.97 34.00 C 47.51 34.29 54.17 33.35 60.64 34.51 C 67.29 36.54 66.80 47.33 59.95 48.67 C 52.01 49.46 43.97 48.79 35.99 48.99 C 30.75 49.18 24.87 48.04 20.31 51.30 C 16.52 53.85 14.78 58.52 14.99 62.97 C 15.01 83.98 15.00 104.99 15.00 126.00 C 175.67 126.00 336.33 126.00 497.00 126.00 C 496.97 104.63 497.05 83.25 496.97 61.88 C 497.31 54.89 491.06 48.67 484.08 49.03 C 357.06 48.97 230.03 49.01 103.01 49.00 C 98.81 48.88 94.53 49.45 90.40 48.50 C 85.53 46.96 83.87 40.05 87.48 36.43 C 90.38 33.17 95.15 34.14 99.03 33.97 C 224.34 34.04 349.66 33.98 474.97 34.00 C 481.89 34.07 489.21 33.30 495.66 36.39 C 504.66 40.25 510.82 49.21 512.00 58.84 L 512.00 368.28 C 511.04 371.83 507.86 374.87 503.99 374.46 C 499.73 374.31 496.61 370.18 497.01 366.06 C 496.99 291.04 497.01 216.02 497.00 141.00 C 336.33 141.00 175.67 141.00 15.00 141.00 C 14.99 241.67 15.02 342.34 14.98 443.01 C 15.12 447.92 14.21 453.41 17.29 457.66 C 19.83 461.47 24.52 463.22 28.98 463.01 C 180.67 462.97 332.35 463.05 484.04 462.97 C 490.64 463.30 496.83 457.73 496.91 451.06 C 497.21 434.70 496.81 418.31 497.07 401.95 C 496.89 397.38 501.55 393.60 505.98 394.66 C 509.05 395.11 510.97 397.80 512.00 400.51 L 512.00 452.96 C 510.92 462.68 504.70 471.73 495.64 475.61 C 489.51 478.54 482.55 477.98 475.96 478.01 C 326.64 477.99 177.33 478.01 28.01 477.99 C 14.03 478.53 1.36 466.99 0.00 453.17 L 0.00 59.01 C 1.05 49.54 6.99 40.72 15.68 36.69 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 45.33 67.48 C 56.00 63.99 68.54 69.88 72.70 80.28 C 75.86 87.59 74.68 96.55 69.72 102.78 C 64.76 109.27 56.08 112.64 48.04 111.14 C 38.69 109.67 30.87 101.66 29.61 92.28 C 27.80 81.59 34.95 70.45 45.33 67.48 M 48.37 82.39 C 43.68 84.62 43.00 91.79 47.21 94.85 C 51.45 98.52 58.86 95.59 59.40 90.00 C 60.47 84.18 53.42 79.39 48.37 82.39 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 110.39 67.55 C 117.07 65.43 124.70 66.62 130.36 70.77 C 137.88 76.02 141.49 86.16 138.91 94.97 C 136.41 104.59 126.93 111.72 117.00 111.48 C 106.51 111.60 96.72 103.41 95.01 93.06 C 92.74 82.24 99.84 70.66 110.39 67.55 M 113.41 82.51 C 108.48 85.04 108.45 92.88 113.36 95.45 C 118.05 98.49 124.95 94.58 124.72 89.00 C 124.96 83.44 118.11 79.53 113.41 82.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 173.42 67.66 C 179.88 65.50 187.31 66.43 192.97 70.24 C 200.12 74.84 204.19 83.72 202.88 92.14 C 201.71 101.39 194.14 109.36 184.97 111.04 C 176.87 112.76 168.04 109.50 162.94 103.01 C 158.22 97.22 156.75 89.00 159.16 81.93 C 161.32 75.28 166.79 69.85 173.42 67.66 M 177.20 82.29 C 172.04 84.55 171.63 92.56 176.54 95.33 C 181.22 98.58 188.39 94.66 188.10 88.96 C 188.30 83.60 181.89 79.72 177.20 82.29 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 241.40 67.47 C 243.53 66.83 245.76 66.58 247.98 66.53 C 315.98 66.53 383.98 66.54 451.98 66.53 C 456.30 66.58 460.72 66.18 464.94 67.36 C 473.05 69.58 479.59 76.69 480.99 85.00 C 482.56 93.04 479.18 101.75 472.68 106.71 C 468.55 110.00 463.26 111.56 458.03 111.53 C 388.34 111.54 318.64 111.53 248.95 111.53 C 243.22 111.61 237.40 109.77 233.10 105.89 C 227.23 100.86 224.32 92.66 225.76 85.05 C 227.12 76.87 233.46 69.83 241.40 67.47 M 244.34 82.42 C 240.29 84.45 239.10 90.34 242.13 93.74 C 243.97 96.16 247.16 96.64 250.00 96.55 C 319.35 96.50 388.70 96.57 458.04 96.51 C 462.28 96.87 466.45 93.38 466.35 89.02 C 466.48 84.62 462.25 81.03 457.94 81.53 C 388.31 81.53 318.67 81.54 249.04 81.52 C 247.44 81.58 245.76 81.60 244.34 82.42 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 133.45 159.57 C 135.53 158.80 137.75 158.55 139.96 158.52 C 217.64 158.54 295.32 158.54 372.99 158.52 C 379.84 158.24 386.54 162.40 389.36 168.64 C 391.27 172.47 391.00 176.86 391.02 181.01 C 390.91 193.02 391.13 205.04 390.92 217.04 C 390.65 225.86 382.70 233.45 373.90 233.48 C 355.60 233.62 337.30 233.46 319.00 233.56 C 316.15 233.57 312.86 233.59 310.75 231.33 C 307.60 228.41 307.85 222.83 311.25 220.21 C 313.08 218.55 315.67 218.51 318.01 218.51 C 336.04 218.56 354.07 218.52 372.10 218.54 C 373.70 218.66 376.07 218.12 375.91 216.04 C 376.15 203.69 375.89 191.33 376.03 178.98 C 375.87 177.26 376.40 175.15 374.92 173.87 C 371.67 173.22 368.33 173.60 365.04 173.53 C 290.37 173.53 215.69 173.54 141.01 173.53 C 139.37 173.42 136.96 173.73 137.09 175.91 C 136.86 188.59 137.08 201.28 136.98 213.96 C 137.05 215.50 136.76 217.72 138.65 218.30 C 141.74 218.79 144.89 218.47 148.00 218.54 C 192.30 218.55 236.61 218.49 280.91 218.56 C 285.73 218.25 289.66 223.43 288.21 228.00 C 287.32 231.56 283.66 233.76 280.11 233.52 C 233.10 233.52 186.08 233.59 139.08 233.48 C 129.90 233.47 121.79 225.22 122.02 216.03 C 121.98 202.68 121.98 189.33 122.02 175.99 C 121.90 168.82 126.72 161.99 133.45 159.57 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 108.55 251.77 C 123.31 249.11 139.15 253.66 150.18 263.84 C 162.94 275.20 169.00 293.43 165.53 310.17 C 164.71 313.87 164.04 318.54 160.12 320.26 C 155.33 322.78 148.83 318.48 149.54 313.05 C 150.72 307.46 152.18 301.77 151.17 296.02 C 149.47 281.14 136.97 268.41 122.13 266.40 C 107.24 263.89 91.51 272.59 85.53 286.41 C 80.06 298.27 82.21 313.14 90.85 322.93 C 99.30 333.01 113.84 337.48 126.45 333.62 C 129.64 332.73 133.17 330.82 136.40 332.64 C 141.94 335.09 141.75 344.03 136.03 346.14 C 121.73 352.30 104.51 350.89 91.28 342.73 C 78.99 335.30 70.22 322.29 68.12 308.06 C 66.32 296.64 68.69 284.60 74.77 274.75 C 82.05 262.73 94.68 254.11 108.55 251.77 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 247.49 251.78 C 260.39 249.48 274.16 252.55 284.77 260.27 C 296.07 268.32 303.74 281.29 305.16 295.11 C 306.80 309.22 301.90 323.88 292.16 334.21 C 281.83 345.48 266.04 351.39 250.85 349.68 C 236.44 348.25 222.93 340.07 214.91 328.02 C 206.86 316.19 204.45 300.79 208.39 287.04 C 213.28 269.09 229.13 254.80 247.49 251.78 M 249.43 266.64 C 238.01 268.80 228.02 277.14 223.87 287.99 C 219.59 298.72 221.25 311.57 228.18 320.83 C 237.55 334.18 256.87 338.94 271.34 331.36 C 286.20 324.31 294.16 305.80 288.89 290.18 C 284.12 273.85 266.09 263.04 249.43 266.64 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 386.52 251.77 C 399.38 249.48 413.13 252.55 423.71 260.23 C 435.31 268.46 443.08 281.87 444.26 296.06 C 445.61 310.09 440.51 324.55 430.72 334.68 C 420.17 345.90 404.14 351.60 388.87 349.57 C 374.11 347.81 360.44 338.94 352.77 326.22 C 345.49 314.47 343.60 299.61 347.58 286.39 C 352.67 268.73 368.38 254.75 386.52 251.77 M 388.49 266.63 C 379.51 268.35 371.34 273.79 366.30 281.42 C 360.10 290.53 358.80 302.71 362.85 312.95 C 366.58 322.68 374.95 330.47 384.93 333.47 C 397.65 337.54 412.47 333.22 421.08 323.02 C 429.71 313.25 431.94 298.43 426.53 286.57 C 420.45 272.17 403.80 263.41 388.49 266.63 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 84.32 365.51 C 85.80 364.99 87.39 365.03 88.94 364.98 C 111.32 365.03 133.70 364.98 156.07 365.00 C 159.85 364.65 163.71 367.23 164.34 371.06 C 165.36 375.46 161.58 380.10 157.06 379.94 C 134.04 380.08 111.01 379.97 87.99 380.00 C 84.19 380.36 80.29 377.79 79.65 373.93 C 78.90 370.47 81.00 366.71 84.32 365.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 223.39 365.48 C 225.18 364.91 227.10 365.01 228.96 364.97 C 251.34 365.08 273.73 364.90 296.11 365.06 C 300.65 364.91 304.41 369.62 303.32 374.03 C 302.64 377.83 298.78 380.34 295.03 380.00 C 272.36 380.00 249.68 380.00 227.01 380.00 C 223.90 380.22 220.63 378.72 219.29 375.81 C 217.27 372.02 219.33 366.86 223.39 365.48 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 362.36 365.49 C 364.17 364.90 366.12 365.02 368.02 364.97 C 390.37 365.08 412.73 364.90 435.08 365.06 C 439.62 364.89 443.39 369.59 442.33 373.99 C 441.66 377.82 437.79 380.34 434.02 380.00 C 410.98 379.96 387.93 380.08 364.90 379.94 C 360.75 380.05 357.16 376.16 357.53 372.04 C 357.66 369.15 359.64 366.48 362.36 365.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 395.50 C 75.87 394.97 77.50 395.03 79.08 394.98 C 104.73 395.03 130.37 394.98 156.02 395.00 C 159.80 394.64 163.68 397.18 164.33 401.02 C 165.37 405.40 161.65 410.06 157.14 409.94 C 131.09 410.10 105.03 409.93 78.98 410.02 C 76.06 410.17 72.79 409.56 71.01 406.99 C 67.99 403.25 69.81 397.03 74.35 395.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.37 395.49 C 215.19 394.89 217.15 395.02 219.04 394.97 C 244.75 395.08 270.46 394.90 296.16 395.06 C 301.39 394.88 305.21 401.11 302.75 405.72 C 301.29 409.09 297.42 410.32 294.00 410.02 C 267.61 409.86 241.21 410.23 214.83 409.84 C 207.44 409.20 206.32 397.66 213.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.37 395.49 C 354.17 394.91 356.11 395.02 357.98 394.97 C 383.68 395.08 409.37 394.90 435.06 395.05 C 439.59 394.89 443.37 399.54 442.34 403.94 C 441.69 407.81 437.77 410.37 433.97 410.00 C 407.98 410.00 381.99 410.00 356.00 410.00 C 352.21 410.35 348.30 407.81 347.66 403.96 C 346.88 400.47 349.01 396.67 352.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 425.49 C 75.86 424.98 77.48 425.03 79.06 424.98 C 104.74 425.03 130.41 424.98 156.09 425.01 C 159.85 424.65 163.69 427.22 164.34 431.04 C 165.36 435.40 161.66 440.04 157.17 439.94 C 130.78 440.08 104.38 439.96 77.99 440.00 C 74.87 440.21 71.60 438.69 70.26 435.77 C 68.29 431.99 70.34 426.89 74.35 425.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.35 425.50 C 215.15 424.90 217.08 425.02 218.95 424.97 C 244.65 425.08 270.36 424.90 296.06 425.05 C 300.58 424.89 304.35 429.52 303.34 433.91 C 302.71 437.76 298.84 440.35 295.05 439.99 C 268.32 439.90 241.56 440.21 214.84 439.84 C 207.46 439.22 206.32 427.69 213.35 425.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.32 425.50 C 354.15 424.90 356.11 425.02 358.02 424.97 C 383.71 425.08 409.41 424.90 435.10 425.05 C 439.63 424.91 443.39 429.59 442.33 433.98 C 441.67 437.80 437.81 440.34 434.04 440.00 C 408.03 440.01 382.01 440.00 356.00 440.00 C 352.88 440.21 349.60 438.71 348.27 435.79 C 346.29 432.01 348.32 426.90 352.32 425.50 Z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="text-wrapper">
+                <div class="title">
+                  <p>قیمت مناسب</p>
+                </div>
+                <div class="contnet">
+                  <p>
+                    هزینه انجام پروژه در قبال خروجی کاملاً اسـتاندارد با سـاختار
+                    جهانی، منصـفانه و حداقلی خواهد بود.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon-wrapper">
+                <svg
+                  width="512pt"
+                  height="512pt"
+                  viewBox="0 0 512 512"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="#000000ff">
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 15.68 36.69 C 23.52 32.75 32.53 34.30 40.97 34.00 C 47.51 34.29 54.17 33.35 60.64 34.51 C 67.29 36.54 66.80 47.33 59.95 48.67 C 52.01 49.46 43.97 48.79 35.99 48.99 C 30.75 49.18 24.87 48.04 20.31 51.30 C 16.52 53.85 14.78 58.52 14.99 62.97 C 15.01 83.98 15.00 104.99 15.00 126.00 C 175.67 126.00 336.33 126.00 497.00 126.00 C 496.97 104.63 497.05 83.25 496.97 61.88 C 497.31 54.89 491.06 48.67 484.08 49.03 C 357.06 48.97 230.03 49.01 103.01 49.00 C 98.81 48.88 94.53 49.45 90.40 48.50 C 85.53 46.96 83.87 40.05 87.48 36.43 C 90.38 33.17 95.15 34.14 99.03 33.97 C 224.34 34.04 349.66 33.98 474.97 34.00 C 481.89 34.07 489.21 33.30 495.66 36.39 C 504.66 40.25 510.82 49.21 512.00 58.84 L 512.00 368.28 C 511.04 371.83 507.86 374.87 503.99 374.46 C 499.73 374.31 496.61 370.18 497.01 366.06 C 496.99 291.04 497.01 216.02 497.00 141.00 C 336.33 141.00 175.67 141.00 15.00 141.00 C 14.99 241.67 15.02 342.34 14.98 443.01 C 15.12 447.92 14.21 453.41 17.29 457.66 C 19.83 461.47 24.52 463.22 28.98 463.01 C 180.67 462.97 332.35 463.05 484.04 462.97 C 490.64 463.30 496.83 457.73 496.91 451.06 C 497.21 434.70 496.81 418.31 497.07 401.95 C 496.89 397.38 501.55 393.60 505.98 394.66 C 509.05 395.11 510.97 397.80 512.00 400.51 L 512.00 452.96 C 510.92 462.68 504.70 471.73 495.64 475.61 C 489.51 478.54 482.55 477.98 475.96 478.01 C 326.64 477.99 177.33 478.01 28.01 477.99 C 14.03 478.53 1.36 466.99 0.00 453.17 L 0.00 59.01 C 1.05 49.54 6.99 40.72 15.68 36.69 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 45.33 67.48 C 56.00 63.99 68.54 69.88 72.70 80.28 C 75.86 87.59 74.68 96.55 69.72 102.78 C 64.76 109.27 56.08 112.64 48.04 111.14 C 38.69 109.67 30.87 101.66 29.61 92.28 C 27.80 81.59 34.95 70.45 45.33 67.48 M 48.37 82.39 C 43.68 84.62 43.00 91.79 47.21 94.85 C 51.45 98.52 58.86 95.59 59.40 90.00 C 60.47 84.18 53.42 79.39 48.37 82.39 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 110.39 67.55 C 117.07 65.43 124.70 66.62 130.36 70.77 C 137.88 76.02 141.49 86.16 138.91 94.97 C 136.41 104.59 126.93 111.72 117.00 111.48 C 106.51 111.60 96.72 103.41 95.01 93.06 C 92.74 82.24 99.84 70.66 110.39 67.55 M 113.41 82.51 C 108.48 85.04 108.45 92.88 113.36 95.45 C 118.05 98.49 124.95 94.58 124.72 89.00 C 124.96 83.44 118.11 79.53 113.41 82.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 173.42 67.66 C 179.88 65.50 187.31 66.43 192.97 70.24 C 200.12 74.84 204.19 83.72 202.88 92.14 C 201.71 101.39 194.14 109.36 184.97 111.04 C 176.87 112.76 168.04 109.50 162.94 103.01 C 158.22 97.22 156.75 89.00 159.16 81.93 C 161.32 75.28 166.79 69.85 173.42 67.66 M 177.20 82.29 C 172.04 84.55 171.63 92.56 176.54 95.33 C 181.22 98.58 188.39 94.66 188.10 88.96 C 188.30 83.60 181.89 79.72 177.20 82.29 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 241.40 67.47 C 243.53 66.83 245.76 66.58 247.98 66.53 C 315.98 66.53 383.98 66.54 451.98 66.53 C 456.30 66.58 460.72 66.18 464.94 67.36 C 473.05 69.58 479.59 76.69 480.99 85.00 C 482.56 93.04 479.18 101.75 472.68 106.71 C 468.55 110.00 463.26 111.56 458.03 111.53 C 388.34 111.54 318.64 111.53 248.95 111.53 C 243.22 111.61 237.40 109.77 233.10 105.89 C 227.23 100.86 224.32 92.66 225.76 85.05 C 227.12 76.87 233.46 69.83 241.40 67.47 M 244.34 82.42 C 240.29 84.45 239.10 90.34 242.13 93.74 C 243.97 96.16 247.16 96.64 250.00 96.55 C 319.35 96.50 388.70 96.57 458.04 96.51 C 462.28 96.87 466.45 93.38 466.35 89.02 C 466.48 84.62 462.25 81.03 457.94 81.53 C 388.31 81.53 318.67 81.54 249.04 81.52 C 247.44 81.58 245.76 81.60 244.34 82.42 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 133.45 159.57 C 135.53 158.80 137.75 158.55 139.96 158.52 C 217.64 158.54 295.32 158.54 372.99 158.52 C 379.84 158.24 386.54 162.40 389.36 168.64 C 391.27 172.47 391.00 176.86 391.02 181.01 C 390.91 193.02 391.13 205.04 390.92 217.04 C 390.65 225.86 382.70 233.45 373.90 233.48 C 355.60 233.62 337.30 233.46 319.00 233.56 C 316.15 233.57 312.86 233.59 310.75 231.33 C 307.60 228.41 307.85 222.83 311.25 220.21 C 313.08 218.55 315.67 218.51 318.01 218.51 C 336.04 218.56 354.07 218.52 372.10 218.54 C 373.70 218.66 376.07 218.12 375.91 216.04 C 376.15 203.69 375.89 191.33 376.03 178.98 C 375.87 177.26 376.40 175.15 374.92 173.87 C 371.67 173.22 368.33 173.60 365.04 173.53 C 290.37 173.53 215.69 173.54 141.01 173.53 C 139.37 173.42 136.96 173.73 137.09 175.91 C 136.86 188.59 137.08 201.28 136.98 213.96 C 137.05 215.50 136.76 217.72 138.65 218.30 C 141.74 218.79 144.89 218.47 148.00 218.54 C 192.30 218.55 236.61 218.49 280.91 218.56 C 285.73 218.25 289.66 223.43 288.21 228.00 C 287.32 231.56 283.66 233.76 280.11 233.52 C 233.10 233.52 186.08 233.59 139.08 233.48 C 129.90 233.47 121.79 225.22 122.02 216.03 C 121.98 202.68 121.98 189.33 122.02 175.99 C 121.90 168.82 126.72 161.99 133.45 159.57 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 108.55 251.77 C 123.31 249.11 139.15 253.66 150.18 263.84 C 162.94 275.20 169.00 293.43 165.53 310.17 C 164.71 313.87 164.04 318.54 160.12 320.26 C 155.33 322.78 148.83 318.48 149.54 313.05 C 150.72 307.46 152.18 301.77 151.17 296.02 C 149.47 281.14 136.97 268.41 122.13 266.40 C 107.24 263.89 91.51 272.59 85.53 286.41 C 80.06 298.27 82.21 313.14 90.85 322.93 C 99.30 333.01 113.84 337.48 126.45 333.62 C 129.64 332.73 133.17 330.82 136.40 332.64 C 141.94 335.09 141.75 344.03 136.03 346.14 C 121.73 352.30 104.51 350.89 91.28 342.73 C 78.99 335.30 70.22 322.29 68.12 308.06 C 66.32 296.64 68.69 284.60 74.77 274.75 C 82.05 262.73 94.68 254.11 108.55 251.77 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 247.49 251.78 C 260.39 249.48 274.16 252.55 284.77 260.27 C 296.07 268.32 303.74 281.29 305.16 295.11 C 306.80 309.22 301.90 323.88 292.16 334.21 C 281.83 345.48 266.04 351.39 250.85 349.68 C 236.44 348.25 222.93 340.07 214.91 328.02 C 206.86 316.19 204.45 300.79 208.39 287.04 C 213.28 269.09 229.13 254.80 247.49 251.78 M 249.43 266.64 C 238.01 268.80 228.02 277.14 223.87 287.99 C 219.59 298.72 221.25 311.57 228.18 320.83 C 237.55 334.18 256.87 338.94 271.34 331.36 C 286.20 324.31 294.16 305.80 288.89 290.18 C 284.12 273.85 266.09 263.04 249.43 266.64 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 386.52 251.77 C 399.38 249.48 413.13 252.55 423.71 260.23 C 435.31 268.46 443.08 281.87 444.26 296.06 C 445.61 310.09 440.51 324.55 430.72 334.68 C 420.17 345.90 404.14 351.60 388.87 349.57 C 374.11 347.81 360.44 338.94 352.77 326.22 C 345.49 314.47 343.60 299.61 347.58 286.39 C 352.67 268.73 368.38 254.75 386.52 251.77 M 388.49 266.63 C 379.51 268.35 371.34 273.79 366.30 281.42 C 360.10 290.53 358.80 302.71 362.85 312.95 C 366.58 322.68 374.95 330.47 384.93 333.47 C 397.65 337.54 412.47 333.22 421.08 323.02 C 429.71 313.25 431.94 298.43 426.53 286.57 C 420.45 272.17 403.80 263.41 388.49 266.63 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 84.32 365.51 C 85.80 364.99 87.39 365.03 88.94 364.98 C 111.32 365.03 133.70 364.98 156.07 365.00 C 159.85 364.65 163.71 367.23 164.34 371.06 C 165.36 375.46 161.58 380.10 157.06 379.94 C 134.04 380.08 111.01 379.97 87.99 380.00 C 84.19 380.36 80.29 377.79 79.65 373.93 C 78.90 370.47 81.00 366.71 84.32 365.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 223.39 365.48 C 225.18 364.91 227.10 365.01 228.96 364.97 C 251.34 365.08 273.73 364.90 296.11 365.06 C 300.65 364.91 304.41 369.62 303.32 374.03 C 302.64 377.83 298.78 380.34 295.03 380.00 C 272.36 380.00 249.68 380.00 227.01 380.00 C 223.90 380.22 220.63 378.72 219.29 375.81 C 217.27 372.02 219.33 366.86 223.39 365.48 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 362.36 365.49 C 364.17 364.90 366.12 365.02 368.02 364.97 C 390.37 365.08 412.73 364.90 435.08 365.06 C 439.62 364.89 443.39 369.59 442.33 373.99 C 441.66 377.82 437.79 380.34 434.02 380.00 C 410.98 379.96 387.93 380.08 364.90 379.94 C 360.75 380.05 357.16 376.16 357.53 372.04 C 357.66 369.15 359.64 366.48 362.36 365.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 395.50 C 75.87 394.97 77.50 395.03 79.08 394.98 C 104.73 395.03 130.37 394.98 156.02 395.00 C 159.80 394.64 163.68 397.18 164.33 401.02 C 165.37 405.40 161.65 410.06 157.14 409.94 C 131.09 410.10 105.03 409.93 78.98 410.02 C 76.06 410.17 72.79 409.56 71.01 406.99 C 67.99 403.25 69.81 397.03 74.35 395.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.37 395.49 C 215.19 394.89 217.15 395.02 219.04 394.97 C 244.75 395.08 270.46 394.90 296.16 395.06 C 301.39 394.88 305.21 401.11 302.75 405.72 C 301.29 409.09 297.42 410.32 294.00 410.02 C 267.61 409.86 241.21 410.23 214.83 409.84 C 207.44 409.20 206.32 397.66 213.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.37 395.49 C 354.17 394.91 356.11 395.02 357.98 394.97 C 383.68 395.08 409.37 394.90 435.06 395.05 C 439.59 394.89 443.37 399.54 442.34 403.94 C 441.69 407.81 437.77 410.37 433.97 410.00 C 407.98 410.00 381.99 410.00 356.00 410.00 C 352.21 410.35 348.30 407.81 347.66 403.96 C 346.88 400.47 349.01 396.67 352.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 425.49 C 75.86 424.98 77.48 425.03 79.06 424.98 C 104.74 425.03 130.41 424.98 156.09 425.01 C 159.85 424.65 163.69 427.22 164.34 431.04 C 165.36 435.40 161.66 440.04 157.17 439.94 C 130.78 440.08 104.38 439.96 77.99 440.00 C 74.87 440.21 71.60 438.69 70.26 435.77 C 68.29 431.99 70.34 426.89 74.35 425.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.35 425.50 C 215.15 424.90 217.08 425.02 218.95 424.97 C 244.65 425.08 270.36 424.90 296.06 425.05 C 300.58 424.89 304.35 429.52 303.34 433.91 C 302.71 437.76 298.84 440.35 295.05 439.99 C 268.32 439.90 241.56 440.21 214.84 439.84 C 207.46 439.22 206.32 427.69 213.35 425.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.32 425.50 C 354.15 424.90 356.11 425.02 358.02 424.97 C 383.71 425.08 409.41 424.90 435.10 425.05 C 439.63 424.91 443.39 429.59 442.33 433.98 C 441.67 437.80 437.81 440.34 434.04 440.00 C 408.03 440.01 382.01 440.00 356.00 440.00 C 352.88 440.21 349.60 438.71 348.27 435.79 C 346.29 432.01 348.32 426.90 352.32 425.50 Z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="text-wrapper">
+                <div class="title">
+                  <p>قیمت مناسب</p>
+                </div>
+                <div class="contnet">
+                  <p>
+                    هزینه انجام پروژه در قبال خروجی کاملاً اسـتاندارد با سـاختار
+                    جهانی، منصـفانه و حداقلی خواهد بود.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon-wrapper">
+                <svg
+                  width="512pt"
+                  height="512pt"
+                  viewBox="0 0 512 512"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="#000000ff">
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 15.68 36.69 C 23.52 32.75 32.53 34.30 40.97 34.00 C 47.51 34.29 54.17 33.35 60.64 34.51 C 67.29 36.54 66.80 47.33 59.95 48.67 C 52.01 49.46 43.97 48.79 35.99 48.99 C 30.75 49.18 24.87 48.04 20.31 51.30 C 16.52 53.85 14.78 58.52 14.99 62.97 C 15.01 83.98 15.00 104.99 15.00 126.00 C 175.67 126.00 336.33 126.00 497.00 126.00 C 496.97 104.63 497.05 83.25 496.97 61.88 C 497.31 54.89 491.06 48.67 484.08 49.03 C 357.06 48.97 230.03 49.01 103.01 49.00 C 98.81 48.88 94.53 49.45 90.40 48.50 C 85.53 46.96 83.87 40.05 87.48 36.43 C 90.38 33.17 95.15 34.14 99.03 33.97 C 224.34 34.04 349.66 33.98 474.97 34.00 C 481.89 34.07 489.21 33.30 495.66 36.39 C 504.66 40.25 510.82 49.21 512.00 58.84 L 512.00 368.28 C 511.04 371.83 507.86 374.87 503.99 374.46 C 499.73 374.31 496.61 370.18 497.01 366.06 C 496.99 291.04 497.01 216.02 497.00 141.00 C 336.33 141.00 175.67 141.00 15.00 141.00 C 14.99 241.67 15.02 342.34 14.98 443.01 C 15.12 447.92 14.21 453.41 17.29 457.66 C 19.83 461.47 24.52 463.22 28.98 463.01 C 180.67 462.97 332.35 463.05 484.04 462.97 C 490.64 463.30 496.83 457.73 496.91 451.06 C 497.21 434.70 496.81 418.31 497.07 401.95 C 496.89 397.38 501.55 393.60 505.98 394.66 C 509.05 395.11 510.97 397.80 512.00 400.51 L 512.00 452.96 C 510.92 462.68 504.70 471.73 495.64 475.61 C 489.51 478.54 482.55 477.98 475.96 478.01 C 326.64 477.99 177.33 478.01 28.01 477.99 C 14.03 478.53 1.36 466.99 0.00 453.17 L 0.00 59.01 C 1.05 49.54 6.99 40.72 15.68 36.69 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 45.33 67.48 C 56.00 63.99 68.54 69.88 72.70 80.28 C 75.86 87.59 74.68 96.55 69.72 102.78 C 64.76 109.27 56.08 112.64 48.04 111.14 C 38.69 109.67 30.87 101.66 29.61 92.28 C 27.80 81.59 34.95 70.45 45.33 67.48 M 48.37 82.39 C 43.68 84.62 43.00 91.79 47.21 94.85 C 51.45 98.52 58.86 95.59 59.40 90.00 C 60.47 84.18 53.42 79.39 48.37 82.39 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 110.39 67.55 C 117.07 65.43 124.70 66.62 130.36 70.77 C 137.88 76.02 141.49 86.16 138.91 94.97 C 136.41 104.59 126.93 111.72 117.00 111.48 C 106.51 111.60 96.72 103.41 95.01 93.06 C 92.74 82.24 99.84 70.66 110.39 67.55 M 113.41 82.51 C 108.48 85.04 108.45 92.88 113.36 95.45 C 118.05 98.49 124.95 94.58 124.72 89.00 C 124.96 83.44 118.11 79.53 113.41 82.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 173.42 67.66 C 179.88 65.50 187.31 66.43 192.97 70.24 C 200.12 74.84 204.19 83.72 202.88 92.14 C 201.71 101.39 194.14 109.36 184.97 111.04 C 176.87 112.76 168.04 109.50 162.94 103.01 C 158.22 97.22 156.75 89.00 159.16 81.93 C 161.32 75.28 166.79 69.85 173.42 67.66 M 177.20 82.29 C 172.04 84.55 171.63 92.56 176.54 95.33 C 181.22 98.58 188.39 94.66 188.10 88.96 C 188.30 83.60 181.89 79.72 177.20 82.29 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 241.40 67.47 C 243.53 66.83 245.76 66.58 247.98 66.53 C 315.98 66.53 383.98 66.54 451.98 66.53 C 456.30 66.58 460.72 66.18 464.94 67.36 C 473.05 69.58 479.59 76.69 480.99 85.00 C 482.56 93.04 479.18 101.75 472.68 106.71 C 468.55 110.00 463.26 111.56 458.03 111.53 C 388.34 111.54 318.64 111.53 248.95 111.53 C 243.22 111.61 237.40 109.77 233.10 105.89 C 227.23 100.86 224.32 92.66 225.76 85.05 C 227.12 76.87 233.46 69.83 241.40 67.47 M 244.34 82.42 C 240.29 84.45 239.10 90.34 242.13 93.74 C 243.97 96.16 247.16 96.64 250.00 96.55 C 319.35 96.50 388.70 96.57 458.04 96.51 C 462.28 96.87 466.45 93.38 466.35 89.02 C 466.48 84.62 462.25 81.03 457.94 81.53 C 388.31 81.53 318.67 81.54 249.04 81.52 C 247.44 81.58 245.76 81.60 244.34 82.42 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 133.45 159.57 C 135.53 158.80 137.75 158.55 139.96 158.52 C 217.64 158.54 295.32 158.54 372.99 158.52 C 379.84 158.24 386.54 162.40 389.36 168.64 C 391.27 172.47 391.00 176.86 391.02 181.01 C 390.91 193.02 391.13 205.04 390.92 217.04 C 390.65 225.86 382.70 233.45 373.90 233.48 C 355.60 233.62 337.30 233.46 319.00 233.56 C 316.15 233.57 312.86 233.59 310.75 231.33 C 307.60 228.41 307.85 222.83 311.25 220.21 C 313.08 218.55 315.67 218.51 318.01 218.51 C 336.04 218.56 354.07 218.52 372.10 218.54 C 373.70 218.66 376.07 218.12 375.91 216.04 C 376.15 203.69 375.89 191.33 376.03 178.98 C 375.87 177.26 376.40 175.15 374.92 173.87 C 371.67 173.22 368.33 173.60 365.04 173.53 C 290.37 173.53 215.69 173.54 141.01 173.53 C 139.37 173.42 136.96 173.73 137.09 175.91 C 136.86 188.59 137.08 201.28 136.98 213.96 C 137.05 215.50 136.76 217.72 138.65 218.30 C 141.74 218.79 144.89 218.47 148.00 218.54 C 192.30 218.55 236.61 218.49 280.91 218.56 C 285.73 218.25 289.66 223.43 288.21 228.00 C 287.32 231.56 283.66 233.76 280.11 233.52 C 233.10 233.52 186.08 233.59 139.08 233.48 C 129.90 233.47 121.79 225.22 122.02 216.03 C 121.98 202.68 121.98 189.33 122.02 175.99 C 121.90 168.82 126.72 161.99 133.45 159.57 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 108.55 251.77 C 123.31 249.11 139.15 253.66 150.18 263.84 C 162.94 275.20 169.00 293.43 165.53 310.17 C 164.71 313.87 164.04 318.54 160.12 320.26 C 155.33 322.78 148.83 318.48 149.54 313.05 C 150.72 307.46 152.18 301.77 151.17 296.02 C 149.47 281.14 136.97 268.41 122.13 266.40 C 107.24 263.89 91.51 272.59 85.53 286.41 C 80.06 298.27 82.21 313.14 90.85 322.93 C 99.30 333.01 113.84 337.48 126.45 333.62 C 129.64 332.73 133.17 330.82 136.40 332.64 C 141.94 335.09 141.75 344.03 136.03 346.14 C 121.73 352.30 104.51 350.89 91.28 342.73 C 78.99 335.30 70.22 322.29 68.12 308.06 C 66.32 296.64 68.69 284.60 74.77 274.75 C 82.05 262.73 94.68 254.11 108.55 251.77 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 247.49 251.78 C 260.39 249.48 274.16 252.55 284.77 260.27 C 296.07 268.32 303.74 281.29 305.16 295.11 C 306.80 309.22 301.90 323.88 292.16 334.21 C 281.83 345.48 266.04 351.39 250.85 349.68 C 236.44 348.25 222.93 340.07 214.91 328.02 C 206.86 316.19 204.45 300.79 208.39 287.04 C 213.28 269.09 229.13 254.80 247.49 251.78 M 249.43 266.64 C 238.01 268.80 228.02 277.14 223.87 287.99 C 219.59 298.72 221.25 311.57 228.18 320.83 C 237.55 334.18 256.87 338.94 271.34 331.36 C 286.20 324.31 294.16 305.80 288.89 290.18 C 284.12 273.85 266.09 263.04 249.43 266.64 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 386.52 251.77 C 399.38 249.48 413.13 252.55 423.71 260.23 C 435.31 268.46 443.08 281.87 444.26 296.06 C 445.61 310.09 440.51 324.55 430.72 334.68 C 420.17 345.90 404.14 351.60 388.87 349.57 C 374.11 347.81 360.44 338.94 352.77 326.22 C 345.49 314.47 343.60 299.61 347.58 286.39 C 352.67 268.73 368.38 254.75 386.52 251.77 M 388.49 266.63 C 379.51 268.35 371.34 273.79 366.30 281.42 C 360.10 290.53 358.80 302.71 362.85 312.95 C 366.58 322.68 374.95 330.47 384.93 333.47 C 397.65 337.54 412.47 333.22 421.08 323.02 C 429.71 313.25 431.94 298.43 426.53 286.57 C 420.45 272.17 403.80 263.41 388.49 266.63 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 84.32 365.51 C 85.80 364.99 87.39 365.03 88.94 364.98 C 111.32 365.03 133.70 364.98 156.07 365.00 C 159.85 364.65 163.71 367.23 164.34 371.06 C 165.36 375.46 161.58 380.10 157.06 379.94 C 134.04 380.08 111.01 379.97 87.99 380.00 C 84.19 380.36 80.29 377.79 79.65 373.93 C 78.90 370.47 81.00 366.71 84.32 365.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 223.39 365.48 C 225.18 364.91 227.10 365.01 228.96 364.97 C 251.34 365.08 273.73 364.90 296.11 365.06 C 300.65 364.91 304.41 369.62 303.32 374.03 C 302.64 377.83 298.78 380.34 295.03 380.00 C 272.36 380.00 249.68 380.00 227.01 380.00 C 223.90 380.22 220.63 378.72 219.29 375.81 C 217.27 372.02 219.33 366.86 223.39 365.48 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 362.36 365.49 C 364.17 364.90 366.12 365.02 368.02 364.97 C 390.37 365.08 412.73 364.90 435.08 365.06 C 439.62 364.89 443.39 369.59 442.33 373.99 C 441.66 377.82 437.79 380.34 434.02 380.00 C 410.98 379.96 387.93 380.08 364.90 379.94 C 360.75 380.05 357.16 376.16 357.53 372.04 C 357.66 369.15 359.64 366.48 362.36 365.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 395.50 C 75.87 394.97 77.50 395.03 79.08 394.98 C 104.73 395.03 130.37 394.98 156.02 395.00 C 159.80 394.64 163.68 397.18 164.33 401.02 C 165.37 405.40 161.65 410.06 157.14 409.94 C 131.09 410.10 105.03 409.93 78.98 410.02 C 76.06 410.17 72.79 409.56 71.01 406.99 C 67.99 403.25 69.81 397.03 74.35 395.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.37 395.49 C 215.19 394.89 217.15 395.02 219.04 394.97 C 244.75 395.08 270.46 394.90 296.16 395.06 C 301.39 394.88 305.21 401.11 302.75 405.72 C 301.29 409.09 297.42 410.32 294.00 410.02 C 267.61 409.86 241.21 410.23 214.83 409.84 C 207.44 409.20 206.32 397.66 213.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.37 395.49 C 354.17 394.91 356.11 395.02 357.98 394.97 C 383.68 395.08 409.37 394.90 435.06 395.05 C 439.59 394.89 443.37 399.54 442.34 403.94 C 441.69 407.81 437.77 410.37 433.97 410.00 C 407.98 410.00 381.99 410.00 356.00 410.00 C 352.21 410.35 348.30 407.81 347.66 403.96 C 346.88 400.47 349.01 396.67 352.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 425.49 C 75.86 424.98 77.48 425.03 79.06 424.98 C 104.74 425.03 130.41 424.98 156.09 425.01 C 159.85 424.65 163.69 427.22 164.34 431.04 C 165.36 435.40 161.66 440.04 157.17 439.94 C 130.78 440.08 104.38 439.96 77.99 440.00 C 74.87 440.21 71.60 438.69 70.26 435.77 C 68.29 431.99 70.34 426.89 74.35 425.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.35 425.50 C 215.15 424.90 217.08 425.02 218.95 424.97 C 244.65 425.08 270.36 424.90 296.06 425.05 C 300.58 424.89 304.35 429.52 303.34 433.91 C 302.71 437.76 298.84 440.35 295.05 439.99 C 268.32 439.90 241.56 440.21 214.84 439.84 C 207.46 439.22 206.32 427.69 213.35 425.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.32 425.50 C 354.15 424.90 356.11 425.02 358.02 424.97 C 383.71 425.08 409.41 424.90 435.10 425.05 C 439.63 424.91 443.39 429.59 442.33 433.98 C 441.67 437.80 437.81 440.34 434.04 440.00 C 408.03 440.01 382.01 440.00 356.00 440.00 C 352.88 440.21 349.60 438.71 348.27 435.79 C 346.29 432.01 348.32 426.90 352.32 425.50 Z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="text-wrapper">
+                <div class="title">
+                  <p>قیمت مناسب</p>
+                </div>
+                <div class="contnet">
+                  <p>
+                    هزینه انجام پروژه در قبال خروجی کاملاً اسـتاندارد با سـاختار
+                    جهانی، منصـفانه و حداقلی خواهد بود.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon-wrapper">
+                <svg
+                  width="512pt"
+                  height="512pt"
+                  viewBox="0 0 512 512"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="#000000ff">
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 15.68 36.69 C 23.52 32.75 32.53 34.30 40.97 34.00 C 47.51 34.29 54.17 33.35 60.64 34.51 C 67.29 36.54 66.80 47.33 59.95 48.67 C 52.01 49.46 43.97 48.79 35.99 48.99 C 30.75 49.18 24.87 48.04 20.31 51.30 C 16.52 53.85 14.78 58.52 14.99 62.97 C 15.01 83.98 15.00 104.99 15.00 126.00 C 175.67 126.00 336.33 126.00 497.00 126.00 C 496.97 104.63 497.05 83.25 496.97 61.88 C 497.31 54.89 491.06 48.67 484.08 49.03 C 357.06 48.97 230.03 49.01 103.01 49.00 C 98.81 48.88 94.53 49.45 90.40 48.50 C 85.53 46.96 83.87 40.05 87.48 36.43 C 90.38 33.17 95.15 34.14 99.03 33.97 C 224.34 34.04 349.66 33.98 474.97 34.00 C 481.89 34.07 489.21 33.30 495.66 36.39 C 504.66 40.25 510.82 49.21 512.00 58.84 L 512.00 368.28 C 511.04 371.83 507.86 374.87 503.99 374.46 C 499.73 374.31 496.61 370.18 497.01 366.06 C 496.99 291.04 497.01 216.02 497.00 141.00 C 336.33 141.00 175.67 141.00 15.00 141.00 C 14.99 241.67 15.02 342.34 14.98 443.01 C 15.12 447.92 14.21 453.41 17.29 457.66 C 19.83 461.47 24.52 463.22 28.98 463.01 C 180.67 462.97 332.35 463.05 484.04 462.97 C 490.64 463.30 496.83 457.73 496.91 451.06 C 497.21 434.70 496.81 418.31 497.07 401.95 C 496.89 397.38 501.55 393.60 505.98 394.66 C 509.05 395.11 510.97 397.80 512.00 400.51 L 512.00 452.96 C 510.92 462.68 504.70 471.73 495.64 475.61 C 489.51 478.54 482.55 477.98 475.96 478.01 C 326.64 477.99 177.33 478.01 28.01 477.99 C 14.03 478.53 1.36 466.99 0.00 453.17 L 0.00 59.01 C 1.05 49.54 6.99 40.72 15.68 36.69 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 45.33 67.48 C 56.00 63.99 68.54 69.88 72.70 80.28 C 75.86 87.59 74.68 96.55 69.72 102.78 C 64.76 109.27 56.08 112.64 48.04 111.14 C 38.69 109.67 30.87 101.66 29.61 92.28 C 27.80 81.59 34.95 70.45 45.33 67.48 M 48.37 82.39 C 43.68 84.62 43.00 91.79 47.21 94.85 C 51.45 98.52 58.86 95.59 59.40 90.00 C 60.47 84.18 53.42 79.39 48.37 82.39 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 110.39 67.55 C 117.07 65.43 124.70 66.62 130.36 70.77 C 137.88 76.02 141.49 86.16 138.91 94.97 C 136.41 104.59 126.93 111.72 117.00 111.48 C 106.51 111.60 96.72 103.41 95.01 93.06 C 92.74 82.24 99.84 70.66 110.39 67.55 M 113.41 82.51 C 108.48 85.04 108.45 92.88 113.36 95.45 C 118.05 98.49 124.95 94.58 124.72 89.00 C 124.96 83.44 118.11 79.53 113.41 82.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 173.42 67.66 C 179.88 65.50 187.31 66.43 192.97 70.24 C 200.12 74.84 204.19 83.72 202.88 92.14 C 201.71 101.39 194.14 109.36 184.97 111.04 C 176.87 112.76 168.04 109.50 162.94 103.01 C 158.22 97.22 156.75 89.00 159.16 81.93 C 161.32 75.28 166.79 69.85 173.42 67.66 M 177.20 82.29 C 172.04 84.55 171.63 92.56 176.54 95.33 C 181.22 98.58 188.39 94.66 188.10 88.96 C 188.30 83.60 181.89 79.72 177.20 82.29 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 241.40 67.47 C 243.53 66.83 245.76 66.58 247.98 66.53 C 315.98 66.53 383.98 66.54 451.98 66.53 C 456.30 66.58 460.72 66.18 464.94 67.36 C 473.05 69.58 479.59 76.69 480.99 85.00 C 482.56 93.04 479.18 101.75 472.68 106.71 C 468.55 110.00 463.26 111.56 458.03 111.53 C 388.34 111.54 318.64 111.53 248.95 111.53 C 243.22 111.61 237.40 109.77 233.10 105.89 C 227.23 100.86 224.32 92.66 225.76 85.05 C 227.12 76.87 233.46 69.83 241.40 67.47 M 244.34 82.42 C 240.29 84.45 239.10 90.34 242.13 93.74 C 243.97 96.16 247.16 96.64 250.00 96.55 C 319.35 96.50 388.70 96.57 458.04 96.51 C 462.28 96.87 466.45 93.38 466.35 89.02 C 466.48 84.62 462.25 81.03 457.94 81.53 C 388.31 81.53 318.67 81.54 249.04 81.52 C 247.44 81.58 245.76 81.60 244.34 82.42 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 133.45 159.57 C 135.53 158.80 137.75 158.55 139.96 158.52 C 217.64 158.54 295.32 158.54 372.99 158.52 C 379.84 158.24 386.54 162.40 389.36 168.64 C 391.27 172.47 391.00 176.86 391.02 181.01 C 390.91 193.02 391.13 205.04 390.92 217.04 C 390.65 225.86 382.70 233.45 373.90 233.48 C 355.60 233.62 337.30 233.46 319.00 233.56 C 316.15 233.57 312.86 233.59 310.75 231.33 C 307.60 228.41 307.85 222.83 311.25 220.21 C 313.08 218.55 315.67 218.51 318.01 218.51 C 336.04 218.56 354.07 218.52 372.10 218.54 C 373.70 218.66 376.07 218.12 375.91 216.04 C 376.15 203.69 375.89 191.33 376.03 178.98 C 375.87 177.26 376.40 175.15 374.92 173.87 C 371.67 173.22 368.33 173.60 365.04 173.53 C 290.37 173.53 215.69 173.54 141.01 173.53 C 139.37 173.42 136.96 173.73 137.09 175.91 C 136.86 188.59 137.08 201.28 136.98 213.96 C 137.05 215.50 136.76 217.72 138.65 218.30 C 141.74 218.79 144.89 218.47 148.00 218.54 C 192.30 218.55 236.61 218.49 280.91 218.56 C 285.73 218.25 289.66 223.43 288.21 228.00 C 287.32 231.56 283.66 233.76 280.11 233.52 C 233.10 233.52 186.08 233.59 139.08 233.48 C 129.90 233.47 121.79 225.22 122.02 216.03 C 121.98 202.68 121.98 189.33 122.02 175.99 C 121.90 168.82 126.72 161.99 133.45 159.57 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 108.55 251.77 C 123.31 249.11 139.15 253.66 150.18 263.84 C 162.94 275.20 169.00 293.43 165.53 310.17 C 164.71 313.87 164.04 318.54 160.12 320.26 C 155.33 322.78 148.83 318.48 149.54 313.05 C 150.72 307.46 152.18 301.77 151.17 296.02 C 149.47 281.14 136.97 268.41 122.13 266.40 C 107.24 263.89 91.51 272.59 85.53 286.41 C 80.06 298.27 82.21 313.14 90.85 322.93 C 99.30 333.01 113.84 337.48 126.45 333.62 C 129.64 332.73 133.17 330.82 136.40 332.64 C 141.94 335.09 141.75 344.03 136.03 346.14 C 121.73 352.30 104.51 350.89 91.28 342.73 C 78.99 335.30 70.22 322.29 68.12 308.06 C 66.32 296.64 68.69 284.60 74.77 274.75 C 82.05 262.73 94.68 254.11 108.55 251.77 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 247.49 251.78 C 260.39 249.48 274.16 252.55 284.77 260.27 C 296.07 268.32 303.74 281.29 305.16 295.11 C 306.80 309.22 301.90 323.88 292.16 334.21 C 281.83 345.48 266.04 351.39 250.85 349.68 C 236.44 348.25 222.93 340.07 214.91 328.02 C 206.86 316.19 204.45 300.79 208.39 287.04 C 213.28 269.09 229.13 254.80 247.49 251.78 M 249.43 266.64 C 238.01 268.80 228.02 277.14 223.87 287.99 C 219.59 298.72 221.25 311.57 228.18 320.83 C 237.55 334.18 256.87 338.94 271.34 331.36 C 286.20 324.31 294.16 305.80 288.89 290.18 C 284.12 273.85 266.09 263.04 249.43 266.64 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 386.52 251.77 C 399.38 249.48 413.13 252.55 423.71 260.23 C 435.31 268.46 443.08 281.87 444.26 296.06 C 445.61 310.09 440.51 324.55 430.72 334.68 C 420.17 345.90 404.14 351.60 388.87 349.57 C 374.11 347.81 360.44 338.94 352.77 326.22 C 345.49 314.47 343.60 299.61 347.58 286.39 C 352.67 268.73 368.38 254.75 386.52 251.77 M 388.49 266.63 C 379.51 268.35 371.34 273.79 366.30 281.42 C 360.10 290.53 358.80 302.71 362.85 312.95 C 366.58 322.68 374.95 330.47 384.93 333.47 C 397.65 337.54 412.47 333.22 421.08 323.02 C 429.71 313.25 431.94 298.43 426.53 286.57 C 420.45 272.17 403.80 263.41 388.49 266.63 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 84.32 365.51 C 85.80 364.99 87.39 365.03 88.94 364.98 C 111.32 365.03 133.70 364.98 156.07 365.00 C 159.85 364.65 163.71 367.23 164.34 371.06 C 165.36 375.46 161.58 380.10 157.06 379.94 C 134.04 380.08 111.01 379.97 87.99 380.00 C 84.19 380.36 80.29 377.79 79.65 373.93 C 78.90 370.47 81.00 366.71 84.32 365.51 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 223.39 365.48 C 225.18 364.91 227.10 365.01 228.96 364.97 C 251.34 365.08 273.73 364.90 296.11 365.06 C 300.65 364.91 304.41 369.62 303.32 374.03 C 302.64 377.83 298.78 380.34 295.03 380.00 C 272.36 380.00 249.68 380.00 227.01 380.00 C 223.90 380.22 220.63 378.72 219.29 375.81 C 217.27 372.02 219.33 366.86 223.39 365.48 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 362.36 365.49 C 364.17 364.90 366.12 365.02 368.02 364.97 C 390.37 365.08 412.73 364.90 435.08 365.06 C 439.62 364.89 443.39 369.59 442.33 373.99 C 441.66 377.82 437.79 380.34 434.02 380.00 C 410.98 379.96 387.93 380.08 364.90 379.94 C 360.75 380.05 357.16 376.16 357.53 372.04 C 357.66 369.15 359.64 366.48 362.36 365.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 395.50 C 75.87 394.97 77.50 395.03 79.08 394.98 C 104.73 395.03 130.37 394.98 156.02 395.00 C 159.80 394.64 163.68 397.18 164.33 401.02 C 165.37 405.40 161.65 410.06 157.14 409.94 C 131.09 410.10 105.03 409.93 78.98 410.02 C 76.06 410.17 72.79 409.56 71.01 406.99 C 67.99 403.25 69.81 397.03 74.35 395.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.37 395.49 C 215.19 394.89 217.15 395.02 219.04 394.97 C 244.75 395.08 270.46 394.90 296.16 395.06 C 301.39 394.88 305.21 401.11 302.75 405.72 C 301.29 409.09 297.42 410.32 294.00 410.02 C 267.61 409.86 241.21 410.23 214.83 409.84 C 207.44 409.20 206.32 397.66 213.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.37 395.49 C 354.17 394.91 356.11 395.02 357.98 394.97 C 383.68 395.08 409.37 394.90 435.06 395.05 C 439.59 394.89 443.37 399.54 442.34 403.94 C 441.69 407.81 437.77 410.37 433.97 410.00 C 407.98 410.00 381.99 410.00 356.00 410.00 C 352.21 410.35 348.30 407.81 347.66 403.96 C 346.88 400.47 349.01 396.67 352.37 395.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 74.35 425.49 C 75.86 424.98 77.48 425.03 79.06 424.98 C 104.74 425.03 130.41 424.98 156.09 425.01 C 159.85 424.65 163.69 427.22 164.34 431.04 C 165.36 435.40 161.66 440.04 157.17 439.94 C 130.78 440.08 104.38 439.96 77.99 440.00 C 74.87 440.21 71.60 438.69 70.26 435.77 C 68.29 431.99 70.34 426.89 74.35 425.49 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 213.35 425.50 C 215.15 424.90 217.08 425.02 218.95 424.97 C 244.65 425.08 270.36 424.90 296.06 425.05 C 300.58 424.89 304.35 429.52 303.34 433.91 C 302.71 437.76 298.84 440.35 295.05 439.99 C 268.32 439.90 241.56 440.21 214.84 439.84 C 207.46 439.22 206.32 427.69 213.35 425.50 Z"
+                    ></path>
+                    <path
+                      fill="var(--text-color)"
+                      opacity="1.00"
+                      d=" M 352.32 425.50 C 354.15 424.90 356.11 425.02 358.02 424.97 C 383.71 425.08 409.41 424.90 435.10 425.05 C 439.63 424.91 443.39 429.59 442.33 433.98 C 441.67 437.80 437.81 440.34 434.04 440.00 C 408.03 440.01 382.01 440.00 356.00 440.00 C 352.88 440.21 349.60 438.71 348.27 435.79 C 346.29 432.01 348.32 426.90 352.32 425.50 Z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="text-wrapper">
+                <div class="title">
+                  <p>قیمت مناسب</p>
+                </div>
+                <div class="contnet">
+                  <p>
+                    هزینه انجام پروژه در قبال خروجی کاملاً اسـتاندارد با سـاختار
+                    جهانی، منصـفانه و حداقلی خواهد بود.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="portfolio-landing-item-section landing-item-section">
+        <div class="portfolio-landing-item-container">
+          <div class="title-wrapper">
+            <h3>چرا طراحی سایت با سایبریشو؟</h3>
+            <div class="audio-wrapper">
+              <div class="voice-field">
+                <div class="player">
+                  <div class="border-frame"></div>
+                  <div class="progress-border"></div>
+
+                  <button>
+                    <p>توضیحات بیشتر</p>
+                    <!-- آیکون قبل از پخش -->
+                    <svg id="play-icon" viewBox="0 0 330 330">
+                      <path
+                        d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                        c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                        C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z"
+                        fill="black"
+                      ></path>
+                    </svg>
+                  </button>
+
+                  <audio src="./central.mp3" preload="none"></audio>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper portfolioSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400"
+                  alt="Landscape 1"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از کوهستان و دریاچه</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400"
+                  alt="Landscape 2"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای زمستانی از قله‌های برفی</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?auto=format&fit=crop&w=400"
+                  alt="Landscape 3"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از جنگل و رودخانه</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1509233725247-49e657c61113?auto=format&fit=crop&w=400"
+                  alt="Landscape 4"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از امواج دریا و صخره‌ها</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=400"
+                  alt="Landscape 5"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از امواج دریا بر روی سنگ‌ها</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1470770841072-f978cf13d08c?auto=format&fit=crop&w=400"
+                  alt="Landscape 6"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از آبشار در جنگل</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400"
+                  alt="Landscape 7"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از غروب خورشید</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?auto=format&fit=crop&w=400"
+                  alt="Landscape 8"
+                />
+                <div class="slide-content">
+                  <p>منظره‌ای از یک دره سرسبز</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="button-wrapper">
+            <a href="">مشاهده همه نمونه کار ها</a>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer-section blue-gradient">
       <div class="footer-container container">
@@ -357,6 +1896,480 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".portfolioSwiper", {
+          loop: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          spaceBetween: 30,
+          initialSlide: 2,
+          grabCursor: true,
+          speed: 600,
+          updateOnWindowResize: true,
+          on: {
+            init: function () {
+              updateBlurEffect(this);
+            },
+            slideChangeTransitionEnd: function () {
+              updateBlurEffect(this);
+            },
+          },
+        });
+        // تابع برای به‌روزرسانی افکت بلور
+        function updateBlurEffect(swiperInstance) {
+          // حذف کلاس‌های قبلی
+          const slides = swiperInstance.slides;
+          slides.forEach((slide) => {
+            slide.classList.remove(
+              "swiper-slide-prev",
+              "swiper-slide-next",
+              "swiper-slide-prev-prev",
+              "swiper-slide-next-next"
+            );
+          });
+          // پیدا کردن اندیس اسلاید فعال
+          const activeIndex = swiperInstance.activeIndex;
+          // اضافه کردن کلاس‌های جدید بر اساس موقعیت
+          slides.forEach((slide, index) => {
+            const slideIndex = parseInt(
+              slide.getAttribute("data-swiper-slide-index")
+            );
+            const realIndex = swiperInstance.slides.indexOf(slide);
+            // محاسبه فاصله از اسلاید فعال
+            let distance;
+            if (swiperInstance.params.loop) {
+              // در حالت loop محاسبه فاصله پیچیده‌تر است
+              const totalSlides = slides.length;
+              const activeRealIndex = swiperInstance.realIndex;
+              const slideRealIndex = parseInt(
+                slide.getAttribute("data-swiper-slide-index")
+              );
+              // محاسبه فاصله با در نظر گرفتن loop
+              let diff = Math.abs(activeRealIndex - slideRealIndex);
+              distance = Math.min(diff, totalSlides - diff);
+            } else {
+              distance = Math.abs(activeIndex - index);
+            }
+            // اعمال کلاس‌ها بر اساس فاصله
+            if (distance === 1) {
+              slide.classList.add(
+                index < activeIndex ? "swiper-slide-prev" : "swiper-slide-next"
+              );
+            } else if (distance === 2) {
+              slide.classList.add(
+                index < activeIndex
+                  ? "swiper-slide-prev-prev"
+                  : "swiper-slide-next-next"
+              );
+            } else if (distance >= 3) {
+              slide.classList.add(
+                index < activeIndex
+                  ? "swiper-slide-prev-prev"
+                  : "swiper-slide-next-next"
+              );
+              // برای فاصله‌های بیشتر، بلور بیشتری اعمال می‌کنیم
+              slide.style.filter = `blur(${5 + (distance - 2) * 2}px)`;
+            } else {
+              slide.style.filter = "";
+            }
+          });
+        }
+      });
+    </script>
+    <script>
+      const players = document.querySelectorAll(".player");
+
+      players.forEach((player) => {
+        player.classList.add("landing-item-section");
+
+        const title = player.querySelector(".title");
+        if (title) {
+          title.classList.add("title-wrapper");
+        }
+
+        const audioWrapper = player.querySelector("audio")?.parentElement;
+        if (audioWrapper) {
+          audioWrapper.classList.add("audio-wrapper");
+        }
+
+        const btn = player.querySelector("button");
+        const audio = player.querySelector("audio");
+        const border = player.querySelector(".progress-border");
+        let playing = false;
+
+        player.style.backgroundColor = "black";
+
+        const playSVG = `
+    <p>توضیحات بیشتر</p>
+    <svg class="pause-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" fill="var(--background-color)" fill-opacity="0.01"/>
+      <path d="M16 12V36" stroke="blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 12V36" stroke="blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`;
+
+        const pauseSVG = `
+    <p>توضیحات بیشتر</p>
+   <svg id="play-icon" viewBox="0 0 330 330">
+                      <path d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+                        c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+                        C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z" fill="black"></path>
+         </svg>`;
+
+        btn.addEventListener("click", () => {
+          if (!playing) {
+            audio.load(); // Reload the audio to ensure it’s ready
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  btn.innerHTML = playSVG;
+                  player.style.backgroundColor = "black";
+                  playing = true;
+                })
+                .catch((err) => {
+                  console.error("Error playing audio:", err);
+                  // Display a user-friendly message if needed
+                  alert(
+                    "خطا در پخش فایل صوتی: لطفاً مطمئن شوید که فایل صوتی معتبر است."
+                  );
+                });
+            }
+          } else {
+            audio.pause();
+            btn.innerHTML = pauseSVG;
+            player.style.backgroundColor = "black";
+            playing = false;
+          }
+        });
+
+        audio.addEventListener("canplay", () => {
+          console.log("Audio is ready to play");
+        });
+
+        audio.addEventListener("error", (e) => {
+          console.error("Audio error:", e);
+          alert("خطا در بارگذاری فایل صوتی: " + e.message);
+        });
+
+        audio.addEventListener("timeupdate", () => {
+          if (audio.duration > 0) {
+            const progress = audio.currentTime / audio.duration;
+            const angle = progress * 360;
+            border.style.background = `conic-gradient(
+        var(--text-medium-blue-color) 0deg ${angle}deg,
+        transparent ${angle}deg 360deg
+      )`;
+          }
+        });
+
+        audio.addEventListener("ended", () => {
+          playing = false;
+          btn.innerHTML = pauseSVG;
+          player.style.backgroundColor = "var(--background-color)";
+          border.style.background = `conic-gradient(
+      var(--text-medium-blue-color) 0deg 0deg,
+      transparent 0deg 360deg
+    )`;
+        });
+      });
+    </script>
+    <script>
+      const wheelContainer = document.querySelector(
+        ".spinning-wheel-section .wheel-container"
+      );
+      const canvas = wheelContainer.querySelector("#wheel");
+      const ctx = canvas.getContext("2d");
+      const W = canvas.width;
+      const H = canvas.height;
+      const cx = W / 2;
+      const cy = H / 2;
+      const radius = Math.min(W, H) / 2 - 8;
+      let segments = [
+        { label: "50% تخفیف", color: "#2743da", audio: "central.mp3" },
+        { label: "هدیه", color: "#2743da", audio: "central.mp3" },
+        { label: "هیچ‌چی", color: "#2743da", audio: "central.mp3" },
+        { label: "جایزه ویژه", color: "#2743da", audio: "central.mp3" },
+        { label: "کوپن", color: "#2743da", audio: "central.mp3" },
+      ];
+      let usedSegments = []; // Track used segments
+      const originalSegments = [...segments]; // Store original segments for reset
+      let rotation = 0;
+      let spinning = false;
+      let animationId = null;
+      let n = segments.length;
+      const anglePer = (Math.PI * 2) / n;
+      const redAngle = 0;
+      const player = wheelContainer.querySelector(".carrousel-player");
+      const btn = player.querySelector("button");
+      const audio = wheelContainer.querySelector("#result-audio");
+      const border = player.querySelector(".progress-border");
+      const result = wheelContainer.querySelector("#result");
+      let playing = false;
+      const playSVG = `<div class="inside"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="48" height="48" fill="var(--background-color)" fill-opacity="0.01"/>
+  <path d="M16 12V36" stroke="var(--background-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 12V36" stroke="var(--background-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>`;
+      const pauseSVG = `<div class="inside"><svg id="play-button-icon" viewBox="0 0 330 330">
+  <path d="M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
+      c4.386-2.741,7.05-7.548,7.05-12.72c0-5.172-2.664-9.979-7.05-12.72L52.95,2.28c-4.625-2.891-10.453-3.043-15.222-0.4
+      C32.959,4.524,30,9.547,30,15v300C30,320.453,32.959,325.476,37.728,328.12z" fill="var(--background-color)"></path>
+</svg></div>`;
+
+      function drawWheel() {
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < n; i++) {
+          const start = rotation + i * anglePer;
+          const end = start + anglePer;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.arc(cx, cy, radius, start, end);
+          ctx.closePath();
+          ctx.fillStyle = segments[i].color;
+          ctx.fill();
+          ctx.save();
+          ctx.translate(cx, cy);
+          const mid = start + anglePer / 2;
+          ctx.rotate(mid);
+          ctx.textAlign = "right";
+          ctx.fillStyle = "#fff";
+          ctx.font = "bold 21px peyda-regular";
+          ctx.fillText(segments[i].label, radius - 30, 8);
+          ctx.restore();
+        }
+        const alpha = anglePer / 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, alpha, Math.PI * 2 - alpha);
+        ctx.closePath();
+        ctx.fillStyle = "#ffd400";
+        ctx.fill();
+        ctx.save();
+        ctx.globalCompositeOperation = "multiply";
+        const shadowGradient = ctx.createLinearGradient(
+          0,
+          cy - radius,
+          0,
+          cy + radius
+        );
+        shadowGradient.addColorStop(0, "rgba(0,100,0,0.9)");
+        shadowGradient.addColorStop(0.45, "rgba(0,100,0,0)");
+        shadowGradient.addColorStop(0.55, "rgba(0,100,0,0)");
+        shadowGradient.addColorStop(1, "rgba(0,100,0,0.9)");
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, -alpha, alpha, false);
+        ctx.closePath();
+        ctx.fillStyle = shadowGradient;
+        ctx.fill();
+        ctx.restore();
+        ctx.beginPath();
+        ctx.arc(cx, cy, 36, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.03)";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius + 4, 0, Math.PI * 2);
+        ctx.strokeStyle = "#142caf";
+        ctx.lineWidth = 20;
+        ctx.stroke();
+      }
+
+      let targetRotation = 0;
+      let velocity = 0;
+
+      function animate() {
+        if (!spinning) return;
+        const diff = targetRotation - rotation;
+        velocity += diff * 0.05;
+        velocity *= 0.95;
+        rotation += velocity;
+        if (Math.abs(velocity) < 0.0001 && Math.abs(diff) < 0.0001) {
+          rotation = targetRotation;
+          spinning = false;
+          announceResult();
+        }
+        drawWheel();
+        animationId = requestAnimationFrame(animate);
+      }
+
+      function spin() {
+        if (spinning) return;
+        // Pause any playing audio before spinning
+        if (playing) {
+          audio.pause();
+          btn.innerHTML = pauseSVG;
+          player.style.backgroundColor = "#9ca5f1";
+          border.style.background = `conic-gradient(from 135deg, rgba(255,255,255,0.8) 0deg 0deg, transparent 0deg 360deg )`;
+          playing = false;
+        }
+        spinning = true;
+        // Select only from available (non-used) segments
+        const availableSegments = segments.filter(
+          (_, i) => !usedSegments.includes(i)
+        );
+        if (availableSegments.length === 0) {
+          // Reset when all segments are used
+          usedSegments = [];
+          segments = [...originalSegments];
+          n = segments.length;
+        }
+        const availableIndices = segments
+          .map((_, i) => i)
+          .filter((i) => !usedSegments.includes(i));
+        const index =
+          availableIndices[Math.floor(Math.random() * availableIndices.length)];
+        usedSegments.push(index); // Mark segment as used
+        targetRotation =
+          -(index * anglePer + anglePer / 2 - redAngle) -
+          2 * Math.PI * (5 + Math.floor(Math.random() * 3));
+        velocity = 0;
+        animate();
+      }
+
+      function announceResult() {
+        const normalized =
+          ((-rotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+        const index = Math.floor(normalized / anglePer) % n;
+        const seg = segments[index];
+        result.textContent = "نتیجه: " + seg.label;
+        // Play audio after wheel stops
+        audio.src = seg.audio;
+        audio.load();
+        audio
+          .play()
+          .then(() => {
+            btn.innerHTML = playSVG;
+            playing = true;
+          })
+          .catch((err) => {
+            console.error("Audio playback failed:", err);
+            result.textContent += " (خطا در پخش صدا)";
+          });
+      }
+
+      btn.addEventListener("click", () => {
+        if (!playing) {
+          audio
+            .play()
+            .then(() => {
+              btn.innerHTML = playSVG;
+              playing = true;
+            })
+            .catch((err) => {
+              console.error("Audio playback failed:", err);
+              result.textContent = "خطا در پخش صدا";
+            });
+        } else {
+          audio.pause();
+          btn.innerHTML = pauseSVG;
+          player.style.backgroundColor = "#9ca5f1";
+          border.style.background = `conic-gradient(from 135deg, rgba(255,255,255,0.8) 0deg 0deg, transparent 0deg 360deg )`;
+          playing = false;
+        }
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        if (audio.duration > 0) {
+          const progress = audio.currentTime / audio.duration;
+          const angle = progress * 270;
+          border.style.background = `conic-gradient(from 135deg, rgba(255,255,255,0.8) 0deg ${angle}deg, transparent ${angle}deg 360deg )`;
+        }
+      });
+
+      audio.addEventListener("ended", () => {
+        playing = false;
+        btn.innerHTML = pauseSVG;
+        player.style.backgroundColor = "#9ca5f1";
+        border.style.background = `conic-gradient(from 135deg, rgba(255,255,255,0.8) 0deg 0deg, transparent 0deg 360deg )`;
+      });
+
+      const initialIndex = Math.floor(Math.random() * n);
+      rotation = -(initialIndex * anglePer + anglePer / 2 - redAngle);
+      drawWheel();
+
+      wheelContainer.querySelector("#spin").addEventListener("click", spin);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 4,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          reverseDirection: true,
+        },
+        speed: 2200,
+        direction: "horizontal",
+        breakpoints: {
+          320: { slidesPerView: 3 },
+          480: { slidesPerView: 4 },
+          768: { slidesPerView: 5 },
+          1024: { slidesPerView: 6 },
+        },
+        on: {
+          init: function () {
+            updateBlurEffect(this);
+          },
+          slideChange: function () {
+            updateBlurEffect(this);
+          },
+          transitionEnd: function () {
+            updateBlurEffect(this);
+          },
+        },
+      });
+
+      function updateBlurEffect(swiperInstance) {
+        // حذف کلاس‌های قبلی
+        const slides = swiperInstance.slides;
+        slides.forEach((slide) => {
+          slide.style.filter = "";
+          slide.classList.remove("center-slide", "near-slide", "far-slide");
+        });
+
+        // پیدا کردن اسلاید فعال (مرکزی)
+        const activeIndex = swiperInstance.activeIndex;
+
+        // اعمال افکت بلور بر اساس فاصله از اسلاید مرکزی
+        slides.forEach((slide, index) => {
+          // محاسبه فاصله از اسلاید فعال
+          let distance = Math.abs(index - activeIndex);
+
+          // در حالت loop، فاصله ممکن است از انتهای آرایه محاسبه شود
+          if (swiperInstance.params.loop) {
+            const realIndex = parseInt(
+              slide.getAttribute("data-swiper-slide-index")
+            );
+            distance = Math.abs(realIndex - swiperInstance.realIndex);
+            // برای حالت loop، فاصله ممکن است از دو طرف محاسبه شود
+            distance = Math.min(distance, slides.length - distance);
+          }
+
+          // اعمال بلور بر اساس فاصله
+          if (distance === 0) {
+            // اسلاید مرکزی - بدون بلور
+            slide.style.filter = "blur(0px)";
+            slide.classList.add("center-slide");
+          } else if (distance === 1) {
+            // اسلایدهای نزدیک - بلور کم
+            slide.style.filter = "blur(1px)";
+            slide.classList.add("near-slide");
+          } else if (distance === 2) {
+            // اسلایدهای دورتر - بلور متوسط
+            slide.style.filter = "blur(2px)";
+            slide.classList.add("far-slide");
+          } else {
+            // اسلایدهای خیلی دور - بلور زیاد
+            slide.style.filter = "blur(3px)";
+          }
+        });
+      }
+    </script>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
